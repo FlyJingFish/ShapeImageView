@@ -100,7 +100,6 @@
 ```
 
 # 最后推荐我写的另一个查看大图库
-https://github.com/FlyJingFish/OpenImage
 
 - [OpenImage](https://github.com/FlyJingFish/OpenImage)
 
