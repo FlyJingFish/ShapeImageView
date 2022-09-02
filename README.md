@@ -1,5 +1,5 @@
 # ShapeImageView
-## 支持圆图或圆角图，可绘制圆环背景或圆角框背景，除ImageView自带属性外新增4中显示模式
+## 支持圆图或圆角图，可绘制圆环背景或圆角框背景，除ImageView自带属性外新增4中显示模式，本库中的ShapeImageView没有操作Bitmap，可以放心使用！！！
 
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
