@@ -9,7 +9,9 @@
 ## 特色功能
 1，支持渐变色圆角框或圆形框
 
-2，新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
+2，圆角框 支持四个角独立设置角度值，圆角图像 同样支持四个角独立设置角度值
+
+3，新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
 
 使用示例：
     可以看示例代码Demo
