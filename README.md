@@ -24,7 +24,7 @@
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:FormatTextViewLib:latest.release.here'
+        implementation 'com.github.FlyJingFish:ShapeImageView:latest.release.here'
     }
 ```
 第三步，使用
