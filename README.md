@@ -4,7 +4,7 @@
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
 
-<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_20220819_135240.jpg" width="405px" height="842px" alt="show" />
+<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_2022_0902_181056.jpg" width="405px" height="842px" alt="show" />
 
 
 使用示例：
