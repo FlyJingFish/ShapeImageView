@@ -13,7 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
-
+build/
+.idea
+androidTest/
+test/
 # Project exclude paths
 /library/build/
 /library/build/intermediates/javac/debug/classes/
