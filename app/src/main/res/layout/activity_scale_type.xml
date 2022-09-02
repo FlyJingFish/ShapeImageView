@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_pic1"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@color/teal_200"
+                android:gravity="center"
+                android:onClick="onPicClick"
+                android:text="竖长图" />
+
+            <TextView
+                android:id="@+id/tv_pic2"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="onPicClick"
+                android:text="横长图" />
+
+            <TextView
+                android:id="@+id/tv_pic3"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="onPicClick"
+                android:text="竖超长图" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:text="center" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal"
+                android:text="centerCrop" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal"
+                android:text="centerInside" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_center"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                app:shapeImage_radius="6dp"
+                app:shapeImage_shape="rectangle"
+                app:shapeImage_shape_bg="rectangle"
+                android:padding="10dp"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:shapeImage_shape_bg_angle="45"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                android:scaleType="center" />
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_centerCrop"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                app:shapeImage_shape="rectangle"
+                app:shapeImage_shape_bg="rectangle"
+                android:padding="10dp"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:shapeImage_shape_bg_angle="45"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_left_top_radius="8dp"
+                app:shapeImage_right_top_radius="12dp"
+                app:shapeImage_right_bottom_radius="16dp"
+                app:shapeImage_left_bottom_radius="20dp"
+                app:shapeImage_shape_bg_left_top_radius="10dp"
+                app:shapeImage_shape_bg_right_top_radius="15dp"
+                app:shapeImage_shape_bg_right_bottom_radius="20dp"
+                app:shapeImage_shape_bg_left_bottom_radius="25dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                android:scaleType="centerCrop" />
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_centerInside"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                app:shapeImage_radius="6dp"
+                app:shapeImage_shape="oval"
+                app:shapeImage_shape_bg="oval"
+                android:padding="10dp"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:shapeImage_shape_bg_angle="45"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:text="fitStart" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal"
+                android:text="fitCenter" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal"
+                android:text="fitEnd" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_fitStart"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:padding="10dp"
+                app:shapeImage_radius="8dp"
+                app:shapeImage_shape="oval"
+                app:shapeImage_shape_bg="oval"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                android:scaleType="fitStart" />
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_fitCenter"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                app:shapeImage_radius="8dp"
+                app:shapeImage_shape="oval"
+                app:shapeImage_shape_bg="oval"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                android:scaleType="fitCenter" />
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_fitEnd"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:padding="8dp"
+                app:shapeImage_radius="8dp"
+                app:shapeImage_shape="oval"
+                app:shapeImage_shape_bg="oval"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                android:scaleType="fitEnd" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:text="fitXY" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:textColor="@android:color/holo_red_light"
+                android:text="startCrop" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:textColor="@android:color/holo_red_light"
+                android:text="endCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_fitXY"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                app:shapeImage_radius="6dp"
+                app:shapeImage_shape="rectangle"
+                app:shapeImage_shape_bg="rectangle"
+                android:padding="10dp"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:shapeImage_shape_bg_angle="45"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                android:scaleType="fitXY" />
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_start_crop"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:padding="8dp"
+                app:shapeImage_radius="6dp"
+                app:shapeImage_shape="rectangle"
+                app:shapeImage_shape_bg="rectangle"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:shapeImage_shape_bg_angle="45"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                app:shapeScaleType="startCrop" />
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_end_crop"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:padding="6dp"
+                app:shapeImage_radius="8dp"
+                app:shapeImage_shape="oval"
+                app:shapeImage_shape_bg="oval"
+                app:shapeImage_shape_bg_strokeWidth="3dp"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_gradient="true"
+                app:shapeImage_shape_bg_startColor="@color/purple_200"
+                app:shapeImage_shape_bg_endColor="@color/teal_700"
+                app:shapeScaleType="endCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="autoStartCenterCrop"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="autoEndCenterCrop"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_auto_start_crop"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:padding="6dp"
+                app:shapeImage_radius="6dp"
+                app:shapeImage_shape="rectangle"
+                app:shapeImage_shape_bg="rectangle"
+                app:shapeImage_shape_bg_strokeWidth="2dp"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_radius="10dp"
+                app:shapeImage_shape_bg_color="@color/teal_200"
+                app:shapeScaleType="autoStartCenterCrop" />
+
+            <com.flyjingfish.library.ShapeImageView
+                android:id="@+id/iv_auto_end_crop"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:padding="6dp"
+                app:shapeImage_shape="oval"
+                app:shapeImage_shape_bg="oval"
+                app:shapeImage_shape_bg_strokeWidth="2dp"
+                app:autoCrop_height_width_ratio="2"
+                app:shapeImage_shape_bg_color="@color/teal_200"
+                app:shapeScaleType="autoEndCenterCrop" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_radio_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="autoCrop_height_width_ratio = 2" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:max="20"
+            android:progress="2" />
+
+    </LinearLayout>
+</ScrollView>
