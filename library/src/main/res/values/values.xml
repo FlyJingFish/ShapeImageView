@@ -21,23 +21,34 @@
         <attr name="shapeImage_radius" format="dimension" />
         <!-- 图像高宽比是View高宽比的倍数 -->
         <attr name="autoCrop_height_width_ratio" format="float" />
+        <!-- 图像绘制形状 -->
         <attr name="shapeImage_shape" format="enum">
             <enum name="rectangle" value="1" />
             <enum name="oval" value="2" />
         </attr>
+        <!-- 背景绘制形状 -->
         <attr name="shapeImage_shape_bg" format="enum">
             <enum name="none" value="0" />
             <enum name="rectangle" value="1" />
             <enum name="oval" value="2" />
         </attr>
+        <!-- 背景绘制颜色 -->
         <attr name="shapeImage_shape_bg_color" format="color"/>
+        <!-- 背景绘制渐变色开始颜色 -->
         <attr name="shapeImage_shape_bg_startColor" format="color" />
+        <!-- 背景绘制渐变色中间颜色 -->
         <attr name="shapeImage_shape_bg_centerColor" format="color" />
+        <!-- 背景绘制渐变色结束颜色 -->
         <attr name="shapeImage_shape_bg_endColor" format="color" />
+        <!-- 背景绘制渐变色开始角度 -->
         <attr name="shapeImage_shape_bg_angle" format="float" />
+        <!-- 背景绘制是否渐变色 -->
         <attr name="shapeImage_shape_bg_gradient" format="boolean" />
+        <!-- 背景绘制画笔宽度 -->
         <attr name="shapeImage_shape_bg_strokeWidth" format="dimension" />
+        <!-- 背景绘制rectangle时的角度 -->
         <attr name="shapeImage_shape_bg_radius" format="dimension" />
+        <!-- 以下是背景绘制rectangle时的各个角度 -->
         <attr name="shapeImage_shape_bg_left_top_radius" format="dimension" />
         <attr name="shapeImage_shape_bg_left_bottom_radius" format="dimension" />
         <attr name="shapeImage_shape_bg_right_top_radius" format="dimension" />
