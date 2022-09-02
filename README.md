@@ -1,16 +1,20 @@
 # ShapeImageView
-圆图或圆角图，可绘制圆环背景或圆角框背景
+## 支持圆图或圆角图，可绘制圆环背景或圆角框背景，除ImageView自带属性外新增4中显示模式
 
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
 
 <img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_2022_0902_181056.jpg" width="405px" height="842px" alt="show" />
 
+## 特色功能
+1，支持渐变色圆角框或圆形框
+
+2，新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
 
 使用示例：
     可以看示例代码Demo
 
-第一步，根目录build.gradle
+## 第一步，根目录build.gradle
 
 ```gradle
     allprojects {
@@ -20,16 +24,20 @@
         }
     }
 ```
-第二步，需要引用的build.gradle （最新版本[![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)）
+## 第二步，需要引用的build.gradle （最新版本[![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)）
 
 ```gradle
     dependencies {
         implementation 'com.github.FlyJingFish:ShapeImageView:latest.release.here'
     }
 ```
-第三步，使用
+## 第三步，使用说明
 
-属性一览
+### 外框使用
+
+需要特别设置一下padding，否则图片有些ScaleType默认显示充满ImageView
+
+### 属性一览
 
 ```xml
     <attr name="shapeScaleType" format="enum">
