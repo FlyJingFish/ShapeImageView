@@ -37,7 +37,11 @@
 
 ### 外框使用
 
-需要特别设置一下padding，否则图片有些ScaleType默认显示充满ImageView
+1，需要特别设置一下padding，否则图片有些ScaleType默认显示充满ImageView
+
+2，渐变色外框颜色分布可通过setGradientPositions设置，默认null值均匀分布
+
+3，渐变色想自定义更多颜色可通过setGradientColors设置
 
 ### 属性一览
 
