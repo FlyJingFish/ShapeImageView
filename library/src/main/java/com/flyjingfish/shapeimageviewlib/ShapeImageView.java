@@ -60,6 +60,7 @@ public class ShapeImageView extends AppCompatImageView {
     private float bgStartBottomRadius;
     private float bgEndTopRadius;
     private float bgEndBottomRadius;
+    private int bgShapeColor;
 
     public ShapeImageView(Context context) {
         this(context, null);
@@ -93,7 +94,7 @@ public class ShapeImageView extends AppCompatImageView {
         int startColor = a.getColor(R.styleable.ShapeImageView_shape_bg_startColor, Color.TRANSPARENT);
         int centerColor = a.getColor(R.styleable.ShapeImageView_shape_bg_centerColor, 0);
         int endColor = a.getColor(R.styleable.ShapeImageView_shape_bg_endColor, Color.TRANSPARENT);
-        int color = a.getColor(R.styleable.ShapeImageView_shape_bg_color, Color.BLACK);
+        bgShapeColor = a.getColor(R.styleable.ShapeImageView_shape_bg_color, Color.BLACK);
         gradientAngle = a.getFloat(R.styleable.ShapeImageView_shape_bg_angle, 0);
         gradientRtlAngle = a.getBoolean(R.styleable.ShapeImageView_shape_bg_rtl_angle, false);
         isGradient = a.getBoolean(R.styleable.ShapeImageView_shape_bg_gradient, false);
@@ -113,7 +114,7 @@ public class ShapeImageView extends AppCompatImageView {
 
 
         mBgPaint = new Paint();
-        mBgPaint.setColor(color);
+        mBgPaint.setColor(bgShapeColor);
         mBgPaint.setAntiAlias(true);
         mBgPaint.setStrokeWidth(mBgPaintWidth);
 
@@ -592,6 +593,18 @@ public class ShapeImageView extends AppCompatImageView {
             } else {
                 return NONE;
             }
+        }
+    }
+
+    public int getBgShapeColor() {
+        return bgShapeColor;
+    }
+
+    public void setBgShapeColor(int bgShapeColor) {
+        this.bgShapeColor = bgShapeColor;
+        if (mBgPaint != null){
+            mBgPaint.setColor(bgShapeColor);
+            invalidate();
         }
     }
 
