@@ -13,7 +13,7 @@
 
 3，新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
 
-4，autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换
+**4，autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**
 
 ## 第一步，根目录build.gradle
 
