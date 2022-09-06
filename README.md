@@ -1,5 +1,5 @@
 # ShapeImageView
-## 支持圆图或圆角图，可绘制圆环背景或圆角框背景，除ImageView自带属性外新增4中显示模式，本库中的ShapeImageView没有操作Bitmap，可以放心使用！！！
+## 支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4中显示模式，本库中的ShapeImageView没有操作Bitmap，可以放心使用！！！
 
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
@@ -56,24 +56,24 @@
 |shape_end_top_radius|dimension|图片右上(Rtl:左上)角圆角|
 |shape_end_bottom_radius|dimension|图片右下(Rtl:左下)角圆角|
 |shape_start_bottom_radius|dimension|图片左下(Rtl:右下)角圆角|
-|shape_bg|enum|背景绘制形状是 none不绘制/rectangle矩形/oval圆形|
-|shape_bg_radius|dimension|背景四个角圆角|
-|shape_bg_left_top_radius|dimension|背景左上角圆角|
-|shape_bg_right_top_radius|dimension|背景右上角圆角|
-|shape_bg_right_bottom_radius|dimension|背景右下角圆角|
-|shape_bg_left_bottom_radius|dimension|背景左下角圆角|
-|shape_bg_start_top_radius|dimension|背景左上(Rtl:右上)角圆角|
-|shape_bg_end_top_radius|dimension|背景右上(Rtl:左上)角圆角|
-|shape_bg_end_bottom_radius|dimension|背景右下(Rtl:左下)角圆角|
-|shape_bg_start_bottom_radius|dimension|背景左下(Rtl:右下)角圆角|
-|shape_bg_color|color|背景绘制颜色|
-|shape_bg_gradient|boolean|背景绘制是否渐变色|
-|shape_bg_startColor|color|背景绘制渐变色开始颜色|
-|shape_bg_centerColor|color|背景绘制渐变色中间颜色|
-|shape_bg_endColor|color|背景绘制渐变色结束颜色|
-|shape_bg_angle|float|背景绘制渐变色开始角度|
-|shape_bg_rtl_angle|boolean|背景绘制渐变色开始角度是否支持镜像Rtl适配|
-|shape_bg_strokeWidth|dimension|背景绘制画笔宽度|
+|shape_border|enum|背景边框绘制形状是 none不绘制/rectangle矩形/oval圆形|
+|shape_border_radius|dimension|背景边框四个角圆角|
+|shape_border_left_top_radius|dimension|背景边框左上角圆角|
+|shape_border_right_top_radius|dimension|背景边框右上角圆角|
+|shape_border_right_bottom_radius|dimension|背景边框右下角圆角|
+|shape_border_left_bottom_radius|dimension|背景边框左下角圆角|
+|shape_border_start_top_radius|dimension|背景边框左上(Rtl:右上)角圆角|
+|shape_border_end_top_radius|dimension|背景边框右上(Rtl:左上)角圆角|
+|shape_border_end_bottom_radius|dimension|背景边框右下(Rtl:左下)角圆角|
+|shape_border_start_bottom_radius|dimension|背景边框左下(Rtl:右下)角圆角|
+|shape_border_color|color|背景边框绘制颜色|
+|shape_border_gradient|boolean|背景边框绘制是否渐变色|
+|shape_border_startColor|color|背景边框绘制渐变色开始颜色|
+|shape_border_centerColor|color|背景边框绘制渐变色中间颜色|
+|shape_border_endColor|color|背景边框绘制渐变色结束颜色|
+|shape_border_angle|float|背景边框绘制渐变色开始角度|
+|shape_border_rtl_angle|boolean|背景边框绘制渐变色开始角度是否支持镜像Rtl适配|
+|shape_border_strokeWidth|dimension|背景边框绘制画笔宽度|
 |autoCrop_height_width_ratio|float|图像高宽比是View高宽比的倍数|
 |shapeScaleType|enum|如果设置新增显示模式设置这个，详情如下：|
 

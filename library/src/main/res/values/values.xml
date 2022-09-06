@@ -32,39 +32,39 @@
             <enum name="rectangle" value="1" />
             <enum name="oval" value="2" />
         </attr>
-        <!-- 背景绘制形状 -->
-        <attr name="shape_bg" format="enum">
+        <!-- 背景边框绘制形状 -->
+        <attr name="shape_border" format="enum">
             <enum name="none" value="0" />
             <enum name="rectangle" value="1" />
             <enum name="oval" value="2" />
         </attr>
-        <!-- 背景绘制颜色 -->
-        <attr name="shape_bg_color" format="color"/>
-        <!-- 背景绘制渐变色开始颜色 -->
-        <attr name="shape_bg_startColor" format="color" />
-        <!-- 背景绘制渐变色中间颜色 -->
-        <attr name="shape_bg_centerColor" format="color" />
-        <!-- 背景绘制渐变色结束颜色 -->
-        <attr name="shape_bg_endColor" format="color" />
-        <!-- 背景绘制渐变色开始角度 -->
-        <attr name="shape_bg_angle" format="float" />
-        <!-- 背景绘制渐变色开始角度是否支持镜像Rtl适配 -->
-        <attr name="shape_bg_rtl_angle" format="boolean" />
-        <!-- 背景绘制是否渐变色 -->
-        <attr name="shape_bg_gradient" format="boolean" />
-        <!-- 背景绘制画笔宽度 -->
-        <attr name="shape_bg_strokeWidth" format="dimension" />
-        <!-- 背景绘制rectangle时的角度 -->
-        <attr name="shape_bg_radius" format="dimension" />
-        <!-- 以下是背景绘制rectangle时的各个角度 -->
-        <attr name="shape_bg_left_top_radius" format="dimension" />
-        <attr name="shape_bg_left_bottom_radius" format="dimension" />
-        <attr name="shape_bg_right_top_radius" format="dimension" />
-        <attr name="shape_bg_right_bottom_radius" format="dimension" />
+        <!-- 背景边框绘制颜色 -->
+        <attr name="shape_border_color" format="color"/>
+        <!-- 背景边框绘制渐变色开始颜色 -->
+        <attr name="shape_border_startColor" format="color" />
+        <!-- 背景边框绘制渐变色中间颜色 -->
+        <attr name="shape_border_centerColor" format="color" />
+        <!-- 背景边框绘制渐变色结束颜色 -->
+        <attr name="shape_border_endColor" format="color" />
+        <!-- 背景边框绘制渐变色开始角度 -->
+        <attr name="shape_border_angle" format="float" />
+        <!-- 背景边框绘制渐变色开始角度是否支持镜像Rtl适配 -->
+        <attr name="shape_border_rtl_angle" format="boolean" />
+        <!-- 背景边框绘制是否渐变色 -->
+        <attr name="shape_border_gradient" format="boolean" />
+        <!-- 背景边框绘制画笔宽度 -->
+        <attr name="shape_border_width" format="dimension" />
+        <!-- 背景边框绘制rectangle时的角度 -->
+        <attr name="shape_border_radius" format="dimension" />
+        <!-- 以下是背景边框绘制rectangle时的各个角度 -->
+        <attr name="shape_border_left_top_radius" format="dimension" />
+        <attr name="shape_border_left_bottom_radius" format="dimension" />
+        <attr name="shape_border_right_top_radius" format="dimension" />
+        <attr name="shape_border_right_bottom_radius" format="dimension" />
 
-        <attr name="shape_bg_start_top_radius" format="dimension" />
-        <attr name="shape_bg_start_bottom_radius" format="dimension" />
-        <attr name="shape_bg_end_top_radius" format="dimension" />
-        <attr name="shape_bg_end_bottom_radius" format="dimension" />
+        <attr name="shape_border_start_top_radius" format="dimension" />
+        <attr name="shape_border_start_bottom_radius" format="dimension" />
+        <attr name="shape_border_end_top_radius" format="dimension" />
+        <attr name="shape_border_end_bottom_radius" format="dimension" />
     </declare-styleable>
 </resources>

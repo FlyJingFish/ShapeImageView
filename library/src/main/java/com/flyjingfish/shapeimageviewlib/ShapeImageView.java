@@ -90,25 +90,25 @@ public class ShapeImageView extends AppCompatImageView {
         endBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_end_bottom_radius, radius);
 
         shapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shape, 1));
-        bgShapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shape_bg, 0));
-        int startColor = a.getColor(R.styleable.ShapeImageView_shape_bg_startColor, Color.TRANSPARENT);
-        int centerColor = a.getColor(R.styleable.ShapeImageView_shape_bg_centerColor, 0);
-        int endColor = a.getColor(R.styleable.ShapeImageView_shape_bg_endColor, Color.TRANSPARENT);
-        bgShapeColor = a.getColor(R.styleable.ShapeImageView_shape_bg_color, Color.BLACK);
-        gradientAngle = a.getFloat(R.styleable.ShapeImageView_shape_bg_angle, 0);
-        gradientRtlAngle = a.getBoolean(R.styleable.ShapeImageView_shape_bg_rtl_angle, false);
-        isGradient = a.getBoolean(R.styleable.ShapeImageView_shape_bg_gradient, false);
-        mBgPaintWidth = a.getDimension(R.styleable.ShapeImageView_shape_bg_strokeWidth, 1);
-        float bgRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_radius, 0);
-        bgLeftTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_left_top_radius, bgRadius);
-        bgLeftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_left_bottom_radius, bgRadius);
-        bgRightTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_right_top_radius, bgRadius);
-        bgRightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_right_bottom_radius, bgRadius);
+        bgShapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shape_border, 0));
+        int startColor = a.getColor(R.styleable.ShapeImageView_shape_border_startColor, Color.TRANSPARENT);
+        int centerColor = a.getColor(R.styleable.ShapeImageView_shape_border_centerColor, 0);
+        int endColor = a.getColor(R.styleable.ShapeImageView_shape_border_endColor, Color.TRANSPARENT);
+        bgShapeColor = a.getColor(R.styleable.ShapeImageView_shape_border_color, Color.BLACK);
+        gradientAngle = a.getFloat(R.styleable.ShapeImageView_shape_border_angle, 0);
+        gradientRtlAngle = a.getBoolean(R.styleable.ShapeImageView_shape_border_rtl_angle, false);
+        isGradient = a.getBoolean(R.styleable.ShapeImageView_shape_border_gradient, false);
+        mBgPaintWidth = a.getDimension(R.styleable.ShapeImageView_shape_border_width, 1);
+        float bgRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_radius, 0);
+        bgLeftTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_left_top_radius, bgRadius);
+        bgLeftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_left_bottom_radius, bgRadius);
+        bgRightTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_right_top_radius, bgRadius);
+        bgRightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_right_bottom_radius, bgRadius);
 
-        bgStartTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_start_top_radius, bgRadius);
-        bgStartBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_start_bottom_radius, bgRadius);
-        bgEndTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_end_top_radius, bgRadius);
-        bgEndBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_end_bottom_radius, bgRadius);
+        bgStartTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_start_top_radius, bgRadius);
+        bgStartBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_start_bottom_radius, bgRadius);
+        bgEndTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_end_top_radius, bgRadius);
+        bgEndBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_end_bottom_radius, bgRadius);
 
         a.recycle();
 
