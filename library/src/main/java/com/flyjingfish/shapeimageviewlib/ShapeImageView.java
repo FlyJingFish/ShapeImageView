@@ -355,14 +355,15 @@ public class ShapeImageView extends AppCompatImageView {
                 || shapeScaleType == ShapeScaleType.END_CROP
                 || shapeScaleType == ShapeScaleType.AUTO_START_CENTER_CROP
                 || shapeScaleType == ShapeScaleType.AUTO_END_CENTER_CROP
-                || getScaleType() == ScaleType.CENTER;
-        if (isShapeCrop) {
+                || getScaleType() == ScaleType.CENTER
+                || getScaleType() == ScaleType.CENTER_CROP;
+        int paddingLeft = ViewUtils.getViewPaddingLeft(this);
+        int paddingRight = ViewUtils.getViewPaddingRight(this);
+        int paddingTop = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
+        if (isShapeCrop && (paddingLeft > 0 || paddingRight > 0 || paddingTop > 0 || paddingBottom > 0)) {
             int height = getHeight();
             int width = getWidth();
-            int paddingLeft = ViewUtils.getViewPaddingLeft(this);
-            int paddingRight = ViewUtils.getViewPaddingRight(this);
-            int paddingTop = getPaddingTop();
-            int paddingBottom = getPaddingBottom();
             canvas.clipRect(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom));
         }
 
