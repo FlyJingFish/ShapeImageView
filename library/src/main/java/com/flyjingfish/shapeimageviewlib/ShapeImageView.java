@@ -1,4 +1,4 @@
-package com.flyjingfish.library;
+package com.flyjingfish.shapeimageviewlib;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.annotation.Size;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -615,15 +616,6 @@ public class ShapeImageView extends AppCompatImageView {
         invalidate();
     }
 
-    public int[] getGradientColors() {
-        return gradientColors;
-    }
-
-    public void setGradientColors(@Size(min = 1) int[] gradientColors) {
-        this.gradientColors = gradientColors;
-        invalidate();
-    }
-
     public float getGradientAngle() {
         return gradientAngle;
     }
@@ -700,11 +692,24 @@ public class ShapeImageView extends AppCompatImageView {
     }
 
     /**
-     * 渐变色比重
-     * @param gradientPositions
+     * 渐变色比重，需要和渐变色数量相等
+     * @param gradientPositions 渐变色分布
      */
     public void setGradientPositions(@Nullable float[] gradientPositions) {
         this.gradientPositions = gradientPositions;
+        invalidate();
+    }
+
+    public int[] getGradientColors() {
+        return gradientColors;
+    }
+
+    /**
+     *
+     * @param gradientColors 渐变色
+     */
+    public void setGradientColors(@Size(min = 2) @ColorInt int[] gradientColors) {
+        this.gradientColors = gradientColors;
         invalidate();
     }
 }

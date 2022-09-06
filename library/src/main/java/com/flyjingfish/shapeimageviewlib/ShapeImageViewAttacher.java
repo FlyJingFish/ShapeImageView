@@ -1,4 +1,4 @@
-package com.flyjingfish.library;
+package com.flyjingfish.shapeimageviewlib;
 
 import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
