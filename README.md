@@ -99,7 +99,7 @@
     <attr name="shapeImage_shape_bg_right_bottom_radius" format="dimension" />
 ```
 
-# 最后推荐我写的另一个查看大图库
+# 最后推荐我写的另一个库，轻松实现在应用内点击小图查看大图的动画放大效果
 
 - [OpenImage](https://github.com/FlyJingFish/OpenImage)
 
