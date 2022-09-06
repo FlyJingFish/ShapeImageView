@@ -44,60 +44,45 @@
 
 ### 属性一览
 
-```xml
-    <attr name="shapeScaleType" format="enum">
-        <enum name="fitXY" value="1" />
-        <enum name="fitStart" value="2" />
-        <enum name="fitCenter" value="3" />
-        <enum name="fitEnd" value="4" />
-        <enum name="center" value="5" />
-        <enum name="centerCrop" value="6" />
-        <enum name="centerInside" value="7" />
-        <enum name="startCrop" value="8" />
-        <enum name="endCrop" value="9" />
-        <enum name="autoStartCenterCrop" value="10" />
-        <enum name="autoEndCenterCrop" value="11" />
-    </attr>
-    <attr name="shapeImage_left_top_radius" format="dimension" />
-    <attr name="shapeImage_left_bottom_radius" format="dimension" />
-    <attr name="shapeImage_right_top_radius" format="dimension" />
-    <attr name="shapeImage_right_bottom_radius" format="dimension" />
-    <attr name="shapeImage_radius" format="dimension" />
-    <!-- 图像高宽比是View高宽比的倍数 -->
-    <attr name="autoCrop_height_width_ratio" format="float" />
-    <!-- 图像绘制形状 -->
-    <attr name="shapeImage_shape" format="enum">
-        <enum name="rectangle" value="1" />
-        <enum name="oval" value="2" />
-    </attr>
-    <!-- 背景绘制形状 -->
-    <attr name="shapeImage_shape_bg" format="enum">
-        <enum name="none" value="0" />
-        <enum name="rectangle" value="1" />
-        <enum name="oval" value="2" />
-    </attr>
-    <!-- 背景绘制颜色 -->
-    <attr name="shapeImage_shape_bg_color" format="color"/>
-    <!-- 背景绘制渐变色开始颜色 -->
-    <attr name="shapeImage_shape_bg_startColor" format="color" />
-    <!-- 背景绘制渐变色中间颜色 -->
-    <attr name="shapeImage_shape_bg_centerColor" format="color" />
-    <!-- 背景绘制渐变色结束颜色 -->
-    <attr name="shapeImage_shape_bg_endColor" format="color" />
-    <!-- 背景绘制渐变色开始角度 -->
-    <attr name="shapeImage_shape_bg_angle" format="float" />
-    <!-- 背景绘制是否渐变色 -->
-    <attr name="shapeImage_shape_bg_gradient" format="boolean" />
-    <!-- 背景绘制画笔宽度 -->
-    <attr name="shapeImage_shape_bg_strokeWidth" format="dimension" />
-    <!-- 背景绘制rectangle时的角度 -->
-    <attr name="shapeImage_shape_bg_radius" format="dimension" />
-    <!-- 以下是背景绘制rectangle时的各个角度 -->
-    <attr name="shapeImage_shape_bg_left_top_radius" format="dimension" />
-    <attr name="shapeImage_shape_bg_left_bottom_radius" format="dimension" />
-    <attr name="shapeImage_shape_bg_right_top_radius" format="dimension" />
-    <attr name="shapeImage_shape_bg_right_bottom_radius" format="dimension" />
-```
+|attr|format|description|
+|---|:---|:---:|
+|shape|enum|图片是 rectangle矩形/oval圆形|
+|shape_radius|dimension|图片四个角圆角|
+|shape_left_top_radius|dimension|图片左上角圆角|
+|shape_right_top_radius|dimension|图片右上角圆角|
+|shape_right_bottom_radius|dimension|图片右下角圆角|
+|shape_left_bottom_radius|dimension|图片左下角圆角|
+|shape_start_top_radius|dimension|图片左上(Rtl:右上)角圆角|
+|shape_end_top_radius|dimension|图片右上(Rtl:左上)角圆角|
+|shape_end_bottom_radius|dimension|图片右下(Rtl:左下)角圆角|
+|shape_start_bottom_radius|dimension|图片左下(Rtl:右下)角圆角|
+|shape_bg|enum|背景绘制形状是 none不绘制/rectangle矩形/oval圆形|
+|shape_bg_radius|dimension|背景四个角圆角|
+|shape_bg_left_top_radius|dimension|背景左上角圆角|
+|shape_bg_right_top_radius|dimension|背景右上角圆角|
+|shape_bg_right_bottom_radius|dimension|背景右下角圆角|
+|shape_bg_left_bottom_radius|dimension|背景左下角圆角|
+|shape_bg_start_top_radius|dimension|背景左上(Rtl:右上)角圆角|
+|shape_bg_end_top_radius|dimension|背景右上(Rtl:左上)角圆角|
+|shape_bg_end_bottom_radius|dimension|背景右下(Rtl:左下)角圆角|
+|shape_bg_start_bottom_radius|dimension|背景左下(Rtl:右下)角圆角|
+|shape_bg_color|color|背景绘制颜色|
+|shape_bg_gradient|boolean|背景绘制是否渐变色|
+|shape_bg_startColor|color|背景绘制渐变色开始颜色|
+|shape_bg_centerColor|color|背景绘制渐变色中间颜色|
+|shape_bg_endColor|color|背景绘制渐变色结束颜色|
+|shape_bg_angle|float|背景绘制渐变色开始角度|
+|shape_bg_rtl_angle|boolean|背景绘制渐变色开始角度是否支持镜像Rtl适配|
+|shape_bg_strokeWidth|dimension|背景绘制画笔宽度|
+|autoCrop_height_width_ratio|float|图像高宽比是View高宽比的倍数|
+|shapeScaleType|enum|如果设置新增显示模式设置这个，详情如下：|
+
+|shapeScaleType|description|
+|---|:---:|
+|startCrop|裁剪开始左上|
+|endCrop|裁剪开始右下|
+|autoStartCenterCrop|自动在startCrop和centerCrop切换|
+|autoEndCenterCrop|自动在endCrop和centerCrop切换|
 
 # 最后推荐我写的另一个库，轻松实现在应用内点击小图查看大图的动画放大效果
 

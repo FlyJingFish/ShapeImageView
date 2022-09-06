@@ -15,14 +15,17 @@ import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
+import android.util.LayoutDirection;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.annotation.Size;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.text.TextUtilsCompat;
 
 
 import java.io.Serializable;
+import java.util.Locale;
 
 
 public class ShapeImageView extends AppCompatImageView {
@@ -41,12 +44,22 @@ public class ShapeImageView extends AppCompatImageView {
     private ShapeType bgShapeType;
     private int[] gradientColors;
     private float gradientAngle;
+    private boolean gradientRtlAngle;
     private boolean isGradient;
     private float bgLeftTopRadius;
     private float bgLeftBottomRadius;
     private float bgRightTopRadius;
     private float bgRightBottomRadius;
     private float[] gradientPositions;
+    private boolean isRtl = false;
+    private float startTopRadius;
+    private float startBottomRadius;
+    private float endTopRadius;
+    private float endBottomRadius;
+    private float bgStartTopRadius;
+    private float bgStartBottomRadius;
+    private float bgEndTopRadius;
+    private float bgEndBottomRadius;
 
     public ShapeImageView(Context context) {
         this(context, null);
@@ -58,28 +71,44 @@ public class ShapeImageView extends AppCompatImageView {
 
     public ShapeImageView(Context context, AttributeSet attr, int defStyle) {
         super(context, attr, defStyle);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            isRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == LayoutDirection.RTL;
+        }
         TypedArray a = context.obtainStyledAttributes(attr, R.styleable.ShapeImageView);
         mPendingScaleType = ShapeScaleType.getType(a.getInt(R.styleable.ShapeImageView_shapeScaleType, 0));
         mAutoCropHeightWidthRatio = a.getFloat(R.styleable.ShapeImageView_autoCrop_height_width_ratio, 2f);
-        float radius = a.getDimension(R.styleable.ShapeImageView_shapeImage_radius, 0);
-        leftTopRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_left_top_radius, radius);
-        leftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_left_bottom_radius, radius);
-        rightTopRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_right_top_radius, radius);
-        rightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_right_bottom_radius, radius);
-        shapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shapeImage_shape, 1));
-        bgShapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shapeImage_shape_bg, 0));
-        int startColor = a.getColor(R.styleable.ShapeImageView_shapeImage_shape_bg_startColor, Color.TRANSPARENT);
-        int centerColor = a.getColor(R.styleable.ShapeImageView_shapeImage_shape_bg_centerColor, 0);
-        int endColor = a.getColor(R.styleable.ShapeImageView_shapeImage_shape_bg_endColor, Color.TRANSPARENT);
-        int color = a.getColor(R.styleable.ShapeImageView_shapeImage_shape_bg_color, Color.BLACK);
-        gradientAngle = a.getFloat(R.styleable.ShapeImageView_shapeImage_shape_bg_angle, 0);
-        isGradient = a.getBoolean(R.styleable.ShapeImageView_shapeImage_shape_bg_gradient, false);
-        mBgPaintWidth = a.getDimension(R.styleable.ShapeImageView_shapeImage_shape_bg_strokeWidth, 1);
-        float bgRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_shape_bg_radius, 0);
-        bgLeftTopRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_shape_bg_left_top_radius, bgRadius);
-        bgLeftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_shape_bg_left_bottom_radius, bgRadius);
-        bgRightTopRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_shape_bg_right_top_radius, bgRadius);
-        bgRightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shapeImage_shape_bg_right_bottom_radius, bgRadius);
+        float radius = a.getDimension(R.styleable.ShapeImageView_shape_radius, 0);
+        leftTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_left_top_radius, radius);
+        leftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_left_bottom_radius, radius);
+        rightTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_right_top_radius, radius);
+        rightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_right_bottom_radius, radius);
+
+        startTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_start_top_radius, radius);
+        startBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_start_bottom_radius, radius);
+        endTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_end_top_radius, radius);
+        endBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_end_bottom_radius, radius);
+
+        shapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shape, 1));
+        bgShapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shape_bg, 0));
+        int startColor = a.getColor(R.styleable.ShapeImageView_shape_bg_startColor, Color.TRANSPARENT);
+        int centerColor = a.getColor(R.styleable.ShapeImageView_shape_bg_centerColor, 0);
+        int endColor = a.getColor(R.styleable.ShapeImageView_shape_bg_endColor, Color.TRANSPARENT);
+        int color = a.getColor(R.styleable.ShapeImageView_shape_bg_color, Color.BLACK);
+        gradientAngle = a.getFloat(R.styleable.ShapeImageView_shape_bg_angle, 0);
+        gradientRtlAngle = a.getBoolean(R.styleable.ShapeImageView_shape_bg_rtl_angle, false);
+        isGradient = a.getBoolean(R.styleable.ShapeImageView_shape_bg_gradient, false);
+        mBgPaintWidth = a.getDimension(R.styleable.ShapeImageView_shape_bg_strokeWidth, 1);
+        float bgRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_radius, 0);
+        bgLeftTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_left_top_radius, bgRadius);
+        bgLeftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_left_bottom_radius, bgRadius);
+        bgRightTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_right_top_radius, bgRadius);
+        bgRightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_right_bottom_radius, bgRadius);
+
+        bgStartTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_start_top_radius, bgRadius);
+        bgStartBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_start_bottom_radius, bgRadius);
+        bgEndTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_end_top_radius, bgRadius);
+        bgEndBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_bg_end_bottom_radius, bgRadius);
+
         a.recycle();
 
 
@@ -197,7 +226,7 @@ public class ShapeImageView extends AppCompatImageView {
             super.onDraw(canvas);
             drawOval(canvas);
             canvas.restore();
-        } else if (leftTopRadius > 0 || leftBottomRadius > 0 || rightTopRadius > 0 || rightBottomRadius > 0) {
+        } else if (shapeType == ShapeType.RECTANGLE) {
             canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
             super.onDraw(canvas);
             drawRectangle(canvas);
@@ -219,42 +248,48 @@ public class ShapeImageView extends AppCompatImageView {
         int width = getWidth();
         RectF rectF = new RectF(mBgPaintWidth / 2, mBgPaintWidth / 2, width - mBgPaintWidth / 2, height - mBgPaintWidth / 2);
         if (isGradient) {
-            float angle = gradientAngle % 360;
+            float currentAngle = gradientAngle;
+            if (gradientRtlAngle && isRtl){
+                currentAngle = - gradientAngle;
+            }
+            float angle = currentAngle % 360;
             if (angle < 0) {
                 angle = 360 + angle;
             }
             float x0, y0, x1, y1;
-            if (angle >=0 && angle <= 45) {
+            if (angle >= 0 && angle <= 45) {
                 float percent = angle / 45;
-                x0 = width/2+width/2 *percent;
+                x0 = width / 2 + width / 2 * percent;
                 y0 = 0;
-            }else if (angle <= 90){
-                float percent = (angle-45) / 45;
+            } else if (angle <= 90) {
+                float percent = (angle - 45) / 45;
                 x0 = width;
-                y0 = height/2 * percent;
-            }else if (angle <= 135){
-                float percent = (angle-90) / 45;
+                y0 = height / 2 * percent;
+            } else if (angle <= 135) {
+                float percent = (angle - 90) / 45;
                 x0 = width;
-                y0 = height/2 * percent + height/2;
-            }else if (angle <= 180){
-                float percent = (angle-135) / 45;
-                x0 = width/2+width/2 *percent;;
+                y0 = height / 2 * percent + height / 2;
+            } else if (angle <= 180) {
+                float percent = (angle - 135) / 45;
+                x0 = width / 2 + width / 2 * percent;
+                ;
                 y0 = height;
-            }else if (angle <= 225) {
+            } else if (angle <= 225) {
                 float percent = (angle - 180) / 45;
-                x0 = width/2-width/2 *percent;
+                x0 = width / 2 - width / 2 * percent;
                 y0 = height;
-            }else if (angle <= 270){
-                float percent = (angle-225) / 45;
+            } else if (angle <= 270) {
+                float percent = (angle - 225) / 45;
                 x0 = 0;
-                y0 = height - height/2 * percent;
-            }else if (angle <= 315){
-                float percent = (angle-270) / 45;
+                y0 = height - height / 2 * percent;
+            } else if (angle <= 315) {
+                float percent = (angle - 270) / 45;
                 x0 = 0;
-                y0 = height/2 - height/2 * percent;
-            }else {
-                float percent = (angle-315) / 45;
-                x0 = width/2 *percent;;
+                y0 = height / 2 - height / 2 * percent;
+            } else {
+                float percent = (angle - 315) / 45;
+                x0 = width / 2 * percent;
+                ;
                 y0 = 0;
             }
             x1 = width - x0;
@@ -265,13 +300,18 @@ public class ShapeImageView extends AppCompatImageView {
         if (bgShapeType == ShapeType.OVAL) {
             canvas.drawArc(rectF, 0, 360, true, mBgPaint);
         } else {
-            if (is4BgRadiusEquals()){
+            if (is4BgRadiusEquals()) {
                 canvas.drawRoundRect(rectF, bgLeftTopRadius, bgLeftTopRadius, mBgPaint);
-            }else {
-                RectF leftTopRectF = new RectF(mBgPaintWidth / 2, mBgPaintWidth / 2, bgLeftTopRadius * 2 + mBgPaintWidth / 2, bgLeftTopRadius * 2 +  mBgPaintWidth / 2);
-                RectF rightTopRectF = new RectF(width - bgRightTopRadius * 2 -mBgPaintWidth/2, mBgPaintWidth / 2, width - mBgPaintWidth/2, bgRightTopRadius * 2 +  mBgPaintWidth / 2);
-                RectF rightBottomRectF = new RectF(width - bgRightBottomRadius * 2 -mBgPaintWidth/2, height - bgRightBottomRadius * 2 - mBgPaintWidth / 2, width - mBgPaintWidth/2, height -  mBgPaintWidth / 2);
-                RectF leftBottomRectF = new RectF(mBgPaintWidth / 2, height - bgLeftBottomRadius * 2 - mBgPaintWidth / 2, bgLeftBottomRadius * 2 + mBgPaintWidth / 2, height -  mBgPaintWidth / 2);
+            } else {
+                float bgLeftTopRadius = Math.max(isRtl ? bgEndTopRadius : bgStartTopRadius, this.bgLeftTopRadius);
+                float bgLeftBottomRadius = Math.max(isRtl ? bgEndBottomRadius : bgStartBottomRadius, this.bgLeftBottomRadius);
+                float bgRightTopRadius = Math.max(isRtl ? bgStartTopRadius : bgEndTopRadius, this.bgRightTopRadius);
+                float bgRightBottomRadius = Math.max(isRtl ? bgStartBottomRadius : bgEndBottomRadius, this.bgRightBottomRadius);
+
+                RectF leftTopRectF = new RectF(mBgPaintWidth / 2, mBgPaintWidth / 2, bgLeftTopRadius * 2 + mBgPaintWidth / 2, bgLeftTopRadius * 2 + mBgPaintWidth / 2);
+                RectF rightTopRectF = new RectF(width - bgRightTopRadius * 2 - mBgPaintWidth / 2, mBgPaintWidth / 2, width - mBgPaintWidth / 2, bgRightTopRadius * 2 + mBgPaintWidth / 2);
+                RectF rightBottomRectF = new RectF(width - bgRightBottomRadius * 2 - mBgPaintWidth / 2, height - bgRightBottomRadius * 2 - mBgPaintWidth / 2, width - mBgPaintWidth / 2, height - mBgPaintWidth / 2);
+                RectF leftBottomRectF = new RectF(mBgPaintWidth / 2, height - bgLeftBottomRadius * 2 - mBgPaintWidth / 2, bgLeftBottomRadius * 2 + mBgPaintWidth / 2, height - mBgPaintWidth / 2);
 
 
                 canvas.drawArc(leftTopRectF, -90, -90, false, mBgPaint);
@@ -291,9 +331,9 @@ public class ShapeImageView extends AppCompatImageView {
                 pts[6] = width - mBgPaintWidth / 2 - bgRightTopRadius;
                 pts[7] = mBgPaintWidth / 2;
 
-                pts[8] = width - mBgPaintWidth / 2 ;
+                pts[8] = width - mBgPaintWidth / 2;
                 pts[9] = mBgPaintWidth / 2 + bgRightTopRadius;
-                pts[10] = width - mBgPaintWidth / 2 ;
+                pts[10] = width - mBgPaintWidth / 2;
                 pts[11] = height - bgRightBottomRadius - mBgPaintWidth / 2;
 
                 pts[12] = mBgPaintWidth / 2 + bgLeftBottomRadius;
@@ -301,7 +341,7 @@ public class ShapeImageView extends AppCompatImageView {
                 pts[14] = width - mBgPaintWidth / 2 - bgRightBottomRadius;
                 pts[15] = height - mBgPaintWidth / 2;
 
-                canvas.drawLines(pts,mBgPaint);
+                canvas.drawLines(pts, mBgPaint);
             }
         }
         canvas.restoreToCount(saveCount);
@@ -335,16 +375,16 @@ public class ShapeImageView extends AppCompatImageView {
     }
 
     private void drawRectangle(Canvas canvas) {
-        if (leftTopRadius > 0) {
+        if (Math.max(isRtl ? endTopRadius : startTopRadius, this.leftTopRadius) > 0) {
             drawTopLeft(canvas);
         }
-        if (rightTopRadius > 0) {
+        if (Math.max(isRtl ? startTopRadius : endTopRadius, this.rightTopRadius) > 0) {
             drawTopRight(canvas);
         }
-        if (leftBottomRadius > 0) {
+        if (Math.max(isRtl ? endBottomRadius : startBottomRadius, this.leftBottomRadius) > 0) {
             drawBottomLeft(canvas);
         }
-        if (rightBottomRadius > 0) {
+        if (Math.max(isRtl ? startBottomRadius : endBottomRadius, this.rightBottomRadius) > 0) {
             drawBottomRight(canvas);
         }
     }
@@ -363,6 +403,8 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo((width - paddingLeft - paddingRight) / 2 + paddingLeft, paddingTop);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), -90, -90);
         } else {
+            float leftTopRadius = Math.max(isRtl ? endTopRadius : startTopRadius, this.leftTopRadius);
+
             path.moveTo(paddingLeft, paddingTop + leftTopRadius);
             path.lineTo(paddingLeft, paddingTop);
             path.lineTo(paddingLeft + leftTopRadius, paddingTop);
@@ -386,6 +428,7 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo(width - paddingRight, (height - paddingTop - paddingBottom) / 2 + paddingTop);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), 0, -90);
         } else {
+            float rightTopRadius = Math.max(isRtl ? startTopRadius : endTopRadius, this.rightTopRadius);
             path.moveTo(width - rightTopRadius - paddingRight, paddingTop);
             path.lineTo(width - paddingRight, paddingTop);
             path.lineTo(width - paddingRight, paddingTop + rightTopRadius);
@@ -409,6 +452,7 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo((width - paddingLeft - paddingRight) / 2 + paddingLeft, height - paddingBottom);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), 90, 90);
         } else {
+            float leftBottomRadius = Math.max(isRtl ? endBottomRadius : startBottomRadius, this.leftBottomRadius);
             path.moveTo(paddingLeft, height - paddingBottom - leftBottomRadius);
             path.lineTo(paddingLeft, height - paddingBottom);
             path.lineTo(paddingLeft + leftBottomRadius, height - paddingBottom);
@@ -432,6 +476,7 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo(width - paddingRight, (height - paddingTop - paddingBottom) / 2 + paddingTop);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), 0, 90);
         } else {
+            float rightBottomRadius = Math.max(isRtl ? startBottomRadius : endBottomRadius, this.rightBottomRadius);
             path.moveTo(width - paddingRight - rightBottomRadius, height - paddingBottom);
             path.lineTo(width - paddingRight, height - paddingBottom);
             path.lineTo(width - paddingRight, height - paddingBottom - rightBottomRadius);
@@ -625,6 +670,15 @@ public class ShapeImageView extends AppCompatImageView {
         invalidate();
     }
 
+    public boolean isGradientRtlAngle() {
+        return gradientRtlAngle;
+    }
+
+    public void setGradientRtlAngle(boolean gradientRtlAngle) {
+        this.gradientRtlAngle = gradientRtlAngle;
+        invalidate();
+    }
+
     public boolean isGradient() {
         return isGradient;
     }
@@ -678,11 +732,87 @@ public class ShapeImageView extends AppCompatImageView {
         invalidate();
     }
 
-    private boolean is4BgRadiusEquals(){
-        float bgRadius = bgLeftTopRadius;
-        if (bgRightTopRadius == bgRadius && bgLeftBottomRadius == bgRadius && bgRightBottomRadius == bgRadius){
+    public float getStartTopRadius() {
+        return startTopRadius;
+    }
+
+    public void setStartTopRadius(float startTopRadius) {
+        this.startTopRadius = startTopRadius;
+        invalidate();
+    }
+
+    public float getStartBottomRadius() {
+        return startBottomRadius;
+    }
+
+    public void setStartBottomRadius(float startBottomRadius) {
+        this.startBottomRadius = startBottomRadius;
+        invalidate();
+    }
+
+    public float getEndTopRadius() {
+        return endTopRadius;
+    }
+
+    public void setEndTopRadius(float endTopRadius) {
+        this.endTopRadius = endTopRadius;
+        invalidate();
+    }
+
+    public float getEndBottomRadius() {
+        return endBottomRadius;
+    }
+
+    public void setEndBottomRadius(float endBottomRadius) {
+        this.endBottomRadius = endBottomRadius;
+        invalidate();
+    }
+
+    public float getBgStartTopRadius() {
+        return bgStartTopRadius;
+    }
+
+    public void setBgStartTopRadius(float bgStartTopRadius) {
+        this.bgStartTopRadius = bgStartTopRadius;
+        invalidate();
+    }
+
+    public float getBgStartBottomRadius() {
+        return bgStartBottomRadius;
+    }
+
+    public void setBgStartBottomRadius(float bgStartBottomRadius) {
+        this.bgStartBottomRadius = bgStartBottomRadius;
+        invalidate();
+    }
+
+    public float getBgEndTopRadius() {
+        return bgEndTopRadius;
+    }
+
+    public void setBgEndTopRadius(float bgEndTopRadius) {
+        this.bgEndTopRadius = bgEndTopRadius;
+        invalidate();
+    }
+
+    public float getBgEndBottomRadius() {
+        return bgEndBottomRadius;
+    }
+
+    public void setBgEndBottomRadius(float bgEndBottomRadius) {
+        this.bgEndBottomRadius = bgEndBottomRadius;
+        invalidate();
+    }
+
+    private boolean is4BgRadiusEquals() {
+        float bgLeftTopRadius = Math.max(isRtl ? bgEndTopRadius : bgStartTopRadius, this.bgLeftTopRadius);
+        float bgLeftBottomRadius = Math.max(isRtl ? bgEndBottomRadius : bgStartBottomRadius, this.bgLeftBottomRadius);
+        float bgRightTopRadius = Math.max(isRtl ? bgStartTopRadius : bgEndTopRadius, this.bgRightTopRadius);
+        float bgRightBottomRadius = Math.max(isRtl ? bgStartBottomRadius : bgEndBottomRadius, this.bgRightBottomRadius);
+
+        if (bgRightTopRadius == bgLeftTopRadius && bgLeftBottomRadius == bgLeftTopRadius && bgRightBottomRadius == bgLeftTopRadius) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
@@ -693,6 +823,7 @@ public class ShapeImageView extends AppCompatImageView {
 
     /**
      * 渐变色比重，需要和渐变色数量相等
+     *
      * @param gradientPositions 渐变色分布
      */
     public void setGradientPositions(@Nullable float[] gradientPositions) {
@@ -705,11 +836,11 @@ public class ShapeImageView extends AppCompatImageView {
     }
 
     /**
-     *
      * @param gradientColors 渐变色
      */
     public void setGradientColors(@Size(min = 2) @ColorInt int[] gradientColors) {
         this.gradientColors = gradientColors;
         invalidate();
     }
+
 }

@@ -10,7 +10,10 @@ import java.util.Locale;
 public class ViewUtils {
 
     public static int getViewPaddingLeft(View view){
-        boolean isRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == LayoutDirection.RTL;
+        boolean isRtl = false;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            isRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == LayoutDirection.RTL;
+        }
         int paddingStart = view.getPaddingStart();
         int paddingEnd = view.getPaddingEnd();
         int paddingLeft = view.getPaddingLeft();
@@ -27,7 +30,10 @@ public class ViewUtils {
     }
 
     public static int getViewPaddingRight(View view){
-        boolean isRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == LayoutDirection.RTL;
+        boolean isRtl = false;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            isRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == LayoutDirection.RTL;
+        }
         int paddingStart = view.getPaddingStart();
         int paddingEnd = view.getPaddingEnd();
         int paddingLeft = view.getPaddingLeft();
