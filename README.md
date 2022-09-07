@@ -34,6 +34,33 @@
 ```
 ## 第三步，使用说明
 
+### 示例
+
+```xml
+<com.flyjingfish.shapeimageviewlib.ShapeImageView
+    android:id="@+id/iv_centerCrop"
+    android:layout_width="110dp"
+    android:layout_height="110dp"
+    android:layout_marginStart="10dp"
+    android:padding="10dp"
+    app:shape="rectangle"
+    app:shape_border="rectangle"
+    app:shape_border_width="3dp"
+    app:shape_border_angle="45"
+    app:shape_left_top_radius="8dp"
+    app:shape_right_top_radius="12dp"
+    app:shape_right_bottom_radius="16dp"
+    app:shape_left_bottom_radius="20dp"
+    app:shape_border_left_top_radius="10dp"
+    app:shape_border_right_top_radius="15dp"
+    app:shape_border_right_bottom_radius="20dp"
+    app:shape_border_left_bottom_radius="25dp"
+    app:shape_border_gradient="true"
+    app:shape_border_startColor="@color/purple_200"
+    app:shape_border_endColor="@color/teal_700"
+    android:scaleType="centerCrop" />
+```
+
 ### 外框使用
 
 **1，需要特别设置一下padding，否则图片有些ScaleType默认显示充满ImageView**
