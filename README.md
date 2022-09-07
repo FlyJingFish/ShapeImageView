@@ -45,7 +45,7 @@
 ### 属性一览
 
 |attr|format|description|
-|---|:---|:---:|
+|---|:---:|:---:|
 |shape|enum|图片是 rectangle矩形/oval圆形|
 |shape_radius|dimension|图片四个角圆角|
 |shape_left_top_radius|dimension|图片左上角圆角|
