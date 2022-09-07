@@ -113,6 +113,6 @@
 
 # 最后推荐我写的另一个库，轻松实现在应用内点击小图查看大图的动画放大效果
 
-- [OpenImage](https://github.com/FlyJingFish/OpenImage)
+- [OpenImage](https://github.com/FlyJingFish/OpenImage) （已内置当前库）
 
 
