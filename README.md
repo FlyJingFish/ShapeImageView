@@ -29,7 +29,7 @@
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:latest.release.here'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.3.2'
     }
 ```
 ## 第三步，使用说明
