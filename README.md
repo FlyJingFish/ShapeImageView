@@ -4,7 +4,7 @@
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
 
-<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_2022_0902_181056.jpg" width="405px" height="842px" alt="show" />
+<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_20221011_144810.jpg" width="405px" height="842px" alt="show" />
 
 ## 特色功能
 1，支持渐变色圆角框或圆形框，不限图片设置方式，完美兼容所有的图片加载库

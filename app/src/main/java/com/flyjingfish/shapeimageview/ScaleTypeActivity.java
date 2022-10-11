@@ -58,7 +58,6 @@ public class ScaleTypeActivity extends AppCompatActivity {
         MyImageLoader.getInstance().load(binding.ivFitStart, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.ivFitCenter, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.ivFitEnd, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
-        MyImageLoader.getInstance().load(binding.ivFitXY, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.ivStartCrop, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.ivEndCrop, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.ivAutoStartCrop, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);

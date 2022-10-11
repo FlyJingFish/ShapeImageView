@@ -55,21 +55,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:gravity="center_horizontal"
-                android:text="四个角相同" />
+                android:text="center" />
 
             <TextView
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:gravity="center_horizontal"
-                android:text="不同的四个角" />
+                android:text="centerCrop" />
 
             <TextView
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:gravity="center_horizontal"
-                android:text="圆形" />
+                android:text="centerInside" />
         </LinearLayout>
 
         <LinearLayout
@@ -82,86 +82,20 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
-                app:shape_radius="10dp"
-                app:shape="rectangle"
-                app:shape_border="none"
-                android:scaleType="centerCrop" />
-
-            <com.flyjingfish.shapeimageviewlib.ShapeImageView
-                android:id="@+id/iv_centerCrop"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="10dp"
-                app:shape="rectangle"
-                app:shape_border="none"
-                app:shape_left_top_radius="8dp"
-                app:shape_right_top_radius="12dp"
-                app:shape_right_bottom_radius="16dp"
-                app:shape_left_bottom_radius="20dp"
-                android:scaleType="centerCrop" />
-
-            <com.flyjingfish.shapeimageviewlib.ShapeImageView
-                android:id="@+id/iv_centerInside"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="10dp"
-                app:shape="oval"
-                app:shape_border="none"
-                android:scaleType="centerCrop" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:gravity="center_horizontal"
-                android:text="边框四个角相同" />
-
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:gravity="center_horizontal"
-                android:text="边框不同的四个角" />
-
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:gravity="center_horizontal"
-                android:text="边框圆形" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.flyjingfish.shapeimageviewlib.ShapeImageView
-                android:id="@+id/iv_fitStart"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="5dp"
-                android:padding="10dp"
                 app:shape_radius="6dp"
                 app:shape="rectangle"
                 app:shape_border="rectangle"
+                android:padding="10dp"
                 app:shape_border_width="3dp"
                 app:shape_border_angle="45"
                 app:shape_border_radius="10dp"
                 app:shape_border_gradient="true"
                 app:shape_border_startColor="@color/purple_200"
                 app:shape_border_endColor="@color/teal_700"
-                android:scaleType="centerCrop" />
+                android:scaleType="center" />
 
             <com.flyjingfish.shapeimageviewlib.ShapeImageView
-                android:id="@+id/iv_fitCenter"
+                android:id="@+id/iv_centerCrop"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="10dp"
@@ -178,9 +112,93 @@
                 app:shape_border_right_top_radius="15dp"
                 app:shape_border_right_bottom_radius="20dp"
                 app:shape_border_left_bottom_radius="25dp"
-                app:shape_border_gradient="false"
-                app:shape_border_color="@color/teal_200"
-                android:scaleType="centerCrop"  />
+                app:shape_border_gradient="true"
+                app:shape_border_startColor="@color/purple_200"
+                app:shape_border_endColor="@color/teal_700"
+                android:scaleType="centerCrop" />
+
+            <com.flyjingfish.shapeimageviewlib.ShapeImageView
+                android:id="@+id/iv_centerInside"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                app:shape_radius="6dp"
+                app:shape="oval"
+                app:shape_border="oval"
+                android:padding="10dp"
+                app:shape_border_width="3dp"
+                app:shape_border_angle="45"
+                app:shape_border_radius="10dp"
+                app:shape_border_gradient="true"
+                app:shape_border_startColor="@color/purple_200"
+                app:shape_border_endColor="@color/teal_700"
+                android:scaleType="centerInside" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:text="fitStart" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal"
+                android:text="fitCenter" />
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center_horizontal"
+                android:text="fitEnd" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.shapeimageviewlib.ShapeImageView
+                android:id="@+id/iv_fitStart"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:padding="10dp"
+                app:shape_radius="8dp"
+                app:shape="oval"
+                app:shape_border="oval"
+                app:shape_border_width="3dp"
+                app:shape_border_radius="10dp"
+                app:shape_border_gradient="true"
+                app:shape_border_startColor="@color/purple_200"
+                app:shape_border_endColor="@color/teal_700"
+                android:scaleType="fitStart" />
+
+            <com.flyjingfish.shapeimageviewlib.ShapeImageView
+                android:id="@+id/iv_fitCenter"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                app:shape_radius="8dp"
+                app:shape="oval"
+                app:shape_border="oval"
+                app:shape_border_width="3dp"
+                app:shape_border_radius="10dp"
+                app:shape_border_gradient="true"
+                app:shape_border_startColor="@color/purple_200"
+                app:shape_border_endColor="@color/teal_700"
+                android:scaleType="fitCenter" />
 
             <com.flyjingfish.shapeimageviewlib.ShapeImageView
                 android:id="@+id/iv_fitEnd"
@@ -196,22 +214,21 @@
                 app:shape_border_gradient="true"
                 app:shape_border_startColor="@color/purple_200"
                 app:shape_border_endColor="@color/teal_700"
-                android:scaleType="centerCrop" />
+                android:scaleType="fitEnd" />
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:textColor="@android:color/holo_red_light"
-            android:textSize="13sp"
-            android:text="以下是新增的4种显示类型" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center_horizontal"
+                android:text="fitXY" />
 
             <TextView
                 android:layout_width="110dp"
@@ -230,22 +247,44 @@
                 android:text="endCrop" />
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <com.flyjingfish.shapeimageviewlib.ShapeImageView
+                android:id="@+id/iv_fitXY"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:padding="10dp"
+                app:shape="rectangle"
+                app:shape_border="rectangle"
+                app:shape_border_width="3dp"
+                app:shape_border_angle="45"
+                app:shape_start_top_radius="8dp"
+                app:shape_end_top_radius="12dp"
+                app:shape_end_bottom_radius="16dp"
+                app:shape_start_bottom_radius="20dp"
+                app:shape_border_start_top_radius="10dp"
+                app:shape_border_end_top_radius="15dp"
+                app:shape_border_end_bottom_radius="20dp"
+                app:shape_border_start_bottom_radius="25dp"
+                app:shape_border_gradient="true"
+                app:shape_border_rtl_angle="true"
+                app:shape_border_startColor="@color/purple_200"
+                app:shape_border_endColor="@color/teal_700"
+                android:scaleType="fitXY" />
 
             <com.flyjingfish.shapeimageviewlib.ShapeImageView
                 android:id="@+id/iv_start_crop"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="10dp"
                 android:padding="8dp"
                 app:shape_radius="6dp"
                 app:shape="rectangle"
-                app:shape_border="none"
+                app:shape_border="rectangle"
                 app:shape_border_width="3dp"
                 app:shape_border_angle="45"
                 app:shape_border_radius="10dp"
@@ -262,7 +301,7 @@
                 android:padding="6dp"
                 app:shape_radius="8dp"
                 app:shape="oval"
-                app:shape_border="none"
+                app:shape_border="oval"
                 app:shape_border_width="3dp"
                 app:shape_border_radius="10dp"
                 app:shape_border_gradient="true"
@@ -307,7 +346,7 @@
                 android:padding="6dp"
                 app:shape_radius="6dp"
                 app:shape="rectangle"
-                app:shape_border="none"
+                app:shape_border="rectangle"
                 app:shape_border_width="2dp"
                 app:autoCrop_height_width_ratio="2"
                 app:shape_border_radius="10dp"
@@ -321,7 +360,7 @@
                 android:layout_marginStart="10dp"
                 android:padding="6dp"
                 app:shape="oval"
-                app:shape_border="none"
+                app:shape_border="oval"
                 app:shape_border_width="2dp"
                 app:autoCrop_height_width_ratio="2"
                 app:shape_border_color="@color/teal_200"
