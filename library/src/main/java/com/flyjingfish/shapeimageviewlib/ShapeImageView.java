@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
@@ -61,6 +62,8 @@ public class ShapeImageView extends AppCompatImageView {
     private float bgEndTopRadius;
     private float bgEndBottomRadius;
     private int bgShapeColor;
+    private Paint srcInPaint;
+    private Drawable heartDrawable;
 
     public ShapeImageView(Context context) {
         this(context, null);
@@ -133,6 +136,13 @@ public class ShapeImageView extends AppCompatImageView {
         mRoundPaint.setStyle(Paint.Style.FILL);
         mRoundPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
 
+        srcInPaint = new Paint();
+        srcInPaint.setColor(Color.WHITE);
+        srcInPaint.setAntiAlias(true);
+        srcInPaint.setStyle(Paint.Style.FILL);
+        srcInPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+
+        heartDrawable = getResources().getDrawable(R.drawable.ic_vector_heart);
         init();
     }
 
@@ -232,10 +242,29 @@ public class ShapeImageView extends AppCompatImageView {
             super.onDraw(canvas);
             drawRectangle(canvas);
             canvas.restore();
+        } else if (shapeType == ShapeType.HEART) {
+            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
+            drawHeart(canvas);
+            super.onDraw(canvas);
+            canvas.restore();
         } else {
             super.onDraw(canvas);
         }
 
+    }
+
+    private void drawHeart(Canvas canvas) {
+        int height = getHeight();
+        int width = getWidth();
+        int paddingLeft = ViewUtils.getViewPaddingLeft(this);
+        int paddingRight = ViewUtils.getViewPaddingRight(this);
+        int paddingTop = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
+
+        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
+        heartDrawable.setBounds(paddingLeft,paddingTop,width-paddingRight,height-paddingBottom);
+        heartDrawable.draw(canvas);
+        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), srcInPaint, Canvas.ALL_SAVE_FLAG);
     }
 
     private void drawBgShape(Canvas canvas) {
@@ -299,8 +328,10 @@ public class ShapeImageView extends AppCompatImageView {
             mBgPaint.setShader(linearGradient);
         }
         if (bgShapeType == ShapeType.OVAL) {
+            mBgPaint.setStrokeWidth(mBgPaintWidth);
             canvas.drawArc(rectF, 0, 360, true, mBgPaint);
-        } else {
+        } else if (bgShapeType == ShapeType.RECTANGLE){
+            mBgPaint.setStrokeWidth(mBgPaintWidth);
             if (is4BgRadiusEquals()) {
                 canvas.drawRoundRect(rectF, bgLeftTopRadius, bgLeftTopRadius, mBgPaint);
             } else {
@@ -344,6 +375,17 @@ public class ShapeImageView extends AppCompatImageView {
 
                 canvas.drawLines(pts, mBgPaint);
             }
+        }else {
+            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
+            heartDrawable.setBounds(0,0,width,height);
+            heartDrawable.draw(canvas);
+            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), srcInPaint, Canvas.ALL_SAVE_FLAG);
+            mBgPaint.setStrokeWidth(width);
+            canvas.drawRect(new Rect(0,0,width,height),mBgPaint);
+
+            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mRoundPaint, Canvas.ALL_SAVE_FLAG);
+            heartDrawable.setBounds(((int) mBgPaintWidth),((int) mBgPaintWidth),width-((int) mBgPaintWidth),height-((int) mBgPaintWidth));
+            heartDrawable.draw(canvas);
         }
         canvas.restoreToCount(saveCount);
 
@@ -574,7 +616,7 @@ public class ShapeImageView extends AppCompatImageView {
     }
 
     public enum ShapeType {
-        NONE(0), RECTANGLE(1), OVAL(2);
+        NONE(0), RECTANGLE(1), OVAL(2),HEART(3);
 
         ShapeType(int type) {
             this.type = type;
@@ -591,6 +633,8 @@ public class ShapeImageView extends AppCompatImageView {
                 return RECTANGLE;
             } else if (type == 2) {
                 return OVAL;
+            } else if (type == 3) {
+                return HEART;
             } else {
                 return NONE;
             }
