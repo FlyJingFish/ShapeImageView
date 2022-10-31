@@ -155,9 +155,9 @@ ShapeResource就是让UI提前将图形导出的图片资源，可以是shape，
 - [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
 
 ## 常见问题
-- 1、有的图形设置rotation、rotationX、rotationY等变化属性之后图片显示不全
+1、有的图形设置rotation、rotationX、rotationY等变化属性之后图片显示不全
 
--    解决方案：设置margin属性即可解决
+- 解决方案：设置margin属性即可解决
 
 # 最后推荐我写的另一个库，轻松实现在应用内点击小图查看大图的动画放大效果
 
