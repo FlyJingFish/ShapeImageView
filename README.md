@@ -1,19 +1,26 @@
 # ShapeImageView
-## 支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式，本库中的ShapeImageView没有操作Bitmap，可以放心使用！！！
+## ShapeImageView支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式；支持显示任意图形，只有你想不到，没有它做不到；本库中的ImageView没有操作Bitmap，可以放心使用！！！
 
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
+ShapeImageView|AlmightyShapeImageView
+ ----- | ----- 
+<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_20221011_144810.jpg" width="400px" height="800px" alt="show" />|<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_20221031_123252.jpg" width="400px" height="800px" alt="show" />
 
-<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_20221011_144810.jpg" width="405px" height="842px" alt="show" />
+
 
 ## 特色功能
-1，支持渐变色圆角框或圆形框，不限图片设置方式，完美兼容所有的图片加载库
+1、ShapeImageView 支持渐变色圆角框或圆形框，不限图片设置方式，完美兼容所有的图片加载库
 
-2，圆角框 支持四个角独立设置角度值，圆角图像 同样支持四个角独立设置角度值
+2、ShapeImageView 圆角框 支持四个角独立设置角度值，圆角图像 同样支持四个角独立设置角度值
 
-3，新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
+3、ShapeImageView 新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
 
-**4，autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**
+（**4，autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**）
+
+4、AlmightyShapeImageView 完美兼容所有的图片加载库，支持定义任意图形，只有你想不到没有它做不到
+
+
 
 ## 第一步，根目录build.gradle
 
@@ -34,8 +41,9 @@
 ```
 ## 第三步，使用说明
 
-### 示例
+# 一、ShapeImageView 使用说明
 
+### ShapeImageView 示例
 ```xml
 <com.flyjingfish.shapeimageviewlib.ShapeImageView
     android:id="@+id/iv_centerCrop"
@@ -110,6 +118,33 @@
 |endCrop|裁剪开始右下|
 |autoStartCenterCrop|自动在startCrop和centerCrop切换|
 |autoEndCenterCrop|自动在endCrop和centerCrop切换|
+
+# 二、AlmightyShapeImageView 使用说明
+
+### AlmightyShapeImageView 示例
+```xml
+<com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+    android:id="@+id/iv1"
+    android:layout_width="110dp"
+    android:layout_height="110dp"
+    android:layout_marginStart="5dp"
+    android:src="@mipmap/ic_launcher"
+    app:almighty_shape_resource="@drawable/ic_vector_heart"
+    android:scaleType="centerCrop" />
+```
+
+### 属性一览
+
+|attr|format|description|
+|---|:---:|:---:|
+|almighty_shape_resource|reference|图形资源|
+
+### 方法
+
+|method|type|description|
+|---|:---:|:---:|
+|setShapeDrawable|Drawable|图形资源Drawable|
+|setShapeDrawable|DrawableRes|图形资源id|
 
 # 最后推荐我写的另一个库，轻松实现在应用内点击小图查看大图的动画放大效果
 
