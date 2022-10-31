@@ -44,8 +44,6 @@ public class AlmightyShapeImageView extends AppCompatImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         if (mShapeResource != null) {
-            mShapePaint.setXfermode(null);
-            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
             drawShape(canvas);
             super.onDraw(canvas);
             canvas.restore();
