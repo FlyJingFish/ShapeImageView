@@ -36,7 +36,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.3.2'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.4'
     }
 ```
 ## 第三步，使用说明
@@ -121,7 +121,7 @@ ShapeImageView|AlmightyShapeImageView
 
 # 二、AlmightyShapeImageView 使用说明
 
-### AlmightyShapeImageView 示例
+### AlmightyShapeImageView 示例（库内内置 ❤️ ic_vector_heart 和 ⭐️ ic_vector_star）
 ```xml
 <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
     android:id="@+id/iv1"
