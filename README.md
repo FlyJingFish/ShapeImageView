@@ -150,7 +150,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ShapeResource就是让UI提前将图形导出的图片资源，可以是shape，可以是vector，可以是png图片，但是**强烈建议使用shape或vector矢量图形效果更佳**
 
-如果使用是svg资源可以将其转化为vector，详情可以看我的博客：
+如果使用是png或svg资源可以将其转化为vector，详情可以看我的博客：
 
 - [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
 
