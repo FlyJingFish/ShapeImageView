@@ -121,7 +121,7 @@ ShapeImageView|AlmightyShapeImageView
 
 # 二、AlmightyShapeImageView 使用说明
 
-### AlmightyShapeImageView 示例（库内内置 ❤️ ic_vector_heart 和 ⭐️ ic_vector_star）
+### AlmightyShapeImageView 示例（库内内置 ❤️ [ic_vector_heart](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable) 和 ⭐️ [ic_vector_star](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable)）
 ```xml
 <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
     android:id="@+id/iv1"
