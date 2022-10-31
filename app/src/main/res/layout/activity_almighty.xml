@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:text="图形资源图是vector类型的" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv1"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
+                app:almighty_shape_resource="@drawable/ic_vector_heart"
+                android:scaleType="centerCrop" />
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:src="@mipmap/ic_launcher"
+                app:almighty_shape_resource="@drawable/ic_vector_star"
+                android:scaleType="centerCrop" />
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv3"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginStart="10dp"
+                app:almighty_shape_resource="@drawable/ic_vector_flower"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv4"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
+                app:almighty_shape_resource="@drawable/ic_vector_snowflake"
+                android:scaleType="centerCrop" />
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv5"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:src="@mipmap/ic_launcher"
+                app:almighty_shape_resource="@drawable/ic_vector_pentagon"
+                android:scaleType="centerCrop" />
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv6"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginStart="10dp"
+                app:almighty_shape_resource="@drawable/ic_vector_sector"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:text="图形资源图是png类型的" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv7"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
+                app:almighty_shape_resource="@drawable/ic_rhombus"
+                android:scaleType="centerCrop" />
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv8"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
+                app:almighty_shape_resource="@drawable/ic_triangle"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="图形资源图是shape类型的" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv9"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
+                app:almighty_shape_resource="@drawable/ic_circle"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
