@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 
 public class AlmightyShapeImageView extends AppCompatImageView {
-    private Drawable mShapeDrawable;
+    private Drawable mShapeResource;
     private Paint mShapePaint;
 
     public AlmightyShapeImageView(@NonNull Context context) {
@@ -32,7 +32,7 @@ public class AlmightyShapeImageView extends AppCompatImageView {
         super(context, attrs, defStyleAttr);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AlmightyShapeImageView);
-        mShapeDrawable = a.getDrawable(R.styleable.AlmightyShapeImageView_almighty_shape_resource);
+        mShapeResource = a.getDrawable(R.styleable.AlmightyShapeImageView_almighty_shape_resource);
         a.recycle();
         mShapePaint = new Paint();
         mShapePaint.setColor(Color.WHITE);
@@ -43,7 +43,7 @@ public class AlmightyShapeImageView extends AppCompatImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (mShapeDrawable != null) {
+        if (mShapeResource != null) {
             mShapePaint.setXfermode(null);
             canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
             drawShape(canvas);
@@ -64,23 +64,23 @@ public class AlmightyShapeImageView extends AppCompatImageView {
         int paddingBottom = getPaddingBottom();
         mShapePaint.setXfermode(null);
         canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
-        mShapeDrawable.setBounds(paddingLeft,paddingTop,width-paddingRight,height-paddingBottom);
-        mShapeDrawable.draw(canvas);
+        mShapeResource.setBounds(paddingLeft,paddingTop,width-paddingRight,height-paddingBottom);
+        mShapeResource.draw(canvas);
         mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
     }
 
     public Drawable getShapeDrawable() {
-        return mShapeDrawable;
+        return mShapeResource;
     }
 
-    public void setShapeDrawable(Drawable shapeDrawable) {
-        this.mShapeDrawable = shapeDrawable;
+    public void setShapeResource(Drawable shapeResource) {
+        this.mShapeResource = shapeResource;
         invalidate();
     }
 
-    public void setShapeDrawable(@DrawableRes int shapeDrawableRes) {
-        setShapeDrawable(getResources().getDrawable(shapeDrawableRes));
+    public void setShapeResource(@DrawableRes int shapeResourceRes) {
+        setShapeResource(getResources().getDrawable(shapeResourceRes));
     }
 
 

@@ -135,16 +135,24 @@ ShapeImageView|AlmightyShapeImageView
 
 ### 属性一览
 
-|attr|format|description|
-|---|:---:|:---:|
-|almighty_shape_resource|reference|图形资源|
+|attr|format|            description            |
+|---|:---:|:---------------------------------:|
+|almighty_shape_resource|reference| 图形资源 |
 
 ### 方法
 
-|method|type|description|
-|---|:---:|:---:|
-|setShapeDrawable|Drawable|图形资源Drawable|
-|setShapeDrawable|DrawableRes|图形资源id|
+| method           |type|description|
+|------------------|:---:|:---:|
+| setShapeResource |Drawable|图形资源Drawable|
+| setShapeResource |DrawableRes|图形资源id|
+
+### 图形资源设置提示
+
+ShapeResource可以是shape，可以是vector，可以是png图片，但是**强烈建议使用vector矢量图形效果更佳**
+
+如果使用是svg资源可以将其转化为vector，详情可以看我的博客：
+
+- [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
 
 # 最后推荐我写的另一个库，轻松实现在应用内点击小图查看大图的动画放大效果
 
