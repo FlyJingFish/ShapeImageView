@@ -16,7 +16,7 @@ ShapeImageView|AlmightyShapeImageView
 
 3、**ShapeImageView** 新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
 
-（**4，autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**）
+（**autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**）
 
 4、**AlmightyShapeImageView** 完美兼容所有的图片加载库，支持定义任意图形，只有你想不到没有它做不到
 
