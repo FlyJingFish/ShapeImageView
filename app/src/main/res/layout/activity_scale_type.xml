@@ -85,6 +85,7 @@
                 app:shape_radius="10dp"
                 app:shape="rectangle"
                 app:shape_border="none"
+                android:src="@mipmap/ic_launcher"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.ShapeImageView
@@ -98,6 +99,7 @@
                 app:shape_right_top_radius="12dp"
                 app:shape_right_bottom_radius="16dp"
                 app:shape_left_bottom_radius="20dp"
+                android:src="@mipmap/ic_launcher"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.ShapeImageView
@@ -107,6 +109,7 @@
                 android:layout_marginStart="10dp"
                 app:shape="oval"
                 app:shape_border="none"
+                android:src="@mipmap/ic_launcher"
                 android:scaleType="centerCrop" />
         </LinearLayout>
 
@@ -148,6 +151,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
                 android:padding="10dp"
                 app:shape_radius="6dp"
                 app:shape="rectangle"
@@ -165,6 +169,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="10dp"
+                android:src="@mipmap/ic_launcher"
                 android:padding="10dp"
                 app:shape="rectangle"
                 app:shape_border="rectangle"
@@ -188,6 +193,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="10dp"
                 android:padding="8dp"
+                android:src="@mipmap/ic_launcher"
                 app:shape_radius="8dp"
                 app:shape="oval"
                 app:shape_border="oval"
@@ -243,6 +249,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
                 android:padding="8dp"
+                android:src="@mipmap/ic_launcher"
                 app:shape_radius="6dp"
                 app:shape="rectangle"
                 app:shape_border="none"
@@ -260,6 +267,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="10dp"
                 android:padding="6dp"
+                android:src="@mipmap/ic_launcher"
                 app:shape_radius="8dp"
                 app:shape="oval"
                 app:shape_border="none"
@@ -304,6 +312,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
                 android:padding="6dp"
                 app:shape_radius="6dp"
                 app:shape="rectangle"
@@ -319,6 +328,7 @@
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_marginStart="10dp"
+                android:src="@mipmap/ic_launcher"
                 android:padding="6dp"
                 app:shape="oval"
                 app:shape_border="none"
