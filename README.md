@@ -12,7 +12,7 @@ ShapeImageView|AlmightyShapeImageView
 
 
 ## 特色功能
-1、**ShapeImageView** 支持渐变色圆角框或圆形框，不限图片设置方式，完美兼容所有的图片加载库
+1、**ShapeImageView** 支持渐变色圆角矩形框、圆形框，支持圆角矩形图像、圆形图像，不限图片设置方式，完美兼容所有的图片加载库
 
 2、**ShapeImageView** 圆角框 支持四个角独立设置角度值，圆角图像 同样支持四个角独立设置角度值
 
