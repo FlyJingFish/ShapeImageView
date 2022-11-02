@@ -69,5 +69,10 @@
     </declare-styleable>
     <declare-styleable name="AlmightyShapeImageView">
         <attr name="almighty_shape_resource" format="reference" />
+        <attr name="almighty_shape_scaleType" format="enum">
+            <enum name="followImageViewKeepResourceScale" value="0" />
+            <enum name="followImageViewFullImage" value="1" />
+            <enum name="alwaysFixXY" value="2" />
+        </attr>
     </declare-styleable>
 </resources>

@@ -20,6 +20,8 @@ import androidx.appcompat.widget.AppCompatImageView;
 public class AlmightyShapeImageView extends AppCompatImageView {
     private Drawable mShapeResource;
     private final Paint mShapePaint;
+    private ShapeScaleType mShapeScaleType;
+    private boolean isDrawShapeClear;
 
     public AlmightyShapeImageView(@NonNull Context context) {
         this(context, null);
@@ -34,24 +36,107 @@ public class AlmightyShapeImageView extends AppCompatImageView {
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AlmightyShapeImageView);
         mShapeResource = a.getDrawable(R.styleable.AlmightyShapeImageView_almighty_shape_resource);
+        mShapeScaleType = ShapeScaleType.getType(a.getInt(R.styleable.AlmightyShapeImageView_almighty_shape_scaleType, 0));
         a.recycle();
         mShapePaint = new Paint();
         mShapePaint.setColor(Color.WHITE);
         mShapePaint.setAntiAlias(true);
         mShapePaint.setStyle(Paint.Style.FILL);
-        mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         if (mShapeResource != null) {
+            drawShapeClear(canvas);
+
             drawShape(canvas);
             super.onDraw(canvas);
             canvas.restore();
+
+
         } else {
             super.onDraw(canvas);
         }
 
+    }
+
+    private void drawShapeClear(Canvas canvas) {
+        if (mShapeScaleType != ShapeScaleType.ALWAYS_FIX_XY){
+            return;
+        }
+        int height = getHeight();
+        int width = getWidth();
+        int paddingLeft = ViewUtils.getViewPaddingLeft(this);
+        int paddingRight = ViewUtils.getViewPaddingRight(this);
+        int paddingTop = getPaddingTop();
+        int paddingBottom = getPaddingBottom();
+        Drawable drawable = getDrawable();
+        Matrix matrix = getImageMatrix();
+        if (drawable == null || matrix == null) {
+            return;
+        }
+
+        float[] matrixValues = new float[9];
+        matrix.getValues(matrixValues);
+        int drawableWidth = drawable.getIntrinsicWidth();
+        int drawableHeight = drawable.getIntrinsicHeight();
+
+
+        float pictureWidth;
+        float pictureHeight;
+
+
+        float transX;
+        float transY;
+
+        ScaleType scaleType = getScaleType();
+        if (scaleType == ScaleType.FIT_XY || scaleType == ScaleType.CENTER_CROP) {
+            transX = paddingLeft;
+            transY = paddingTop;
+            pictureWidth = width - paddingLeft - paddingRight;
+            pictureHeight = height - paddingTop - paddingBottom;
+        } else if (scaleType == ScaleType.CENTER) {
+            if (drawableWidth < width || drawableHeight < height) {
+                if (drawableWidth < width) {
+                    pictureWidth = drawableWidth;
+                } else {
+                    pictureWidth = width;
+                }
+                if (drawableHeight < height) {
+                    pictureHeight = drawableHeight;
+                } else {
+                    pictureHeight = height;
+                }
+                transX = (width - pictureWidth) / 2;
+                transY = (height - pictureHeight) / 2;
+            } else {
+                transX = paddingLeft;
+                transY = paddingTop;
+                pictureWidth = width - paddingLeft - paddingRight;
+                pictureHeight = height - paddingTop - paddingBottom;
+            }
+        } else {
+            transX = (int) matrixValues[2] + paddingLeft;
+            transY = (int) matrixValues[5] + paddingTop;
+
+            pictureWidth = drawableWidth * matrixValues[0];
+            pictureHeight = drawableHeight * matrixValues[4];
+        }
+        int left = (int) (transX );
+        int top = (int) (transY);
+        int right = ((int) (pictureWidth + transX ));
+        int bottom = ((int) (pictureHeight + transY));
+
+        mShapePaint.setXfermode(null);
+        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+        canvas.drawRect(left,top,right,bottom,mShapePaint);
+
+        mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+        mShapeResource.setBounds(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom);
+        mShapeResource.draw(canvas);
+
+        isDrawShapeClear = true;
     }
 
     private void drawShape(Canvas canvas) {
@@ -71,7 +156,7 @@ public class AlmightyShapeImageView extends AppCompatImageView {
         int top;
         int right;
         int bottom;
-        if (matrix == null) {
+        if (matrix == null || mShapeScaleType == ShapeScaleType.ALWAYS_FIX_XY) {
             left = paddingLeft;
             top = paddingTop;
             right = width - paddingRight;
@@ -100,14 +185,7 @@ public class AlmightyShapeImageView extends AppCompatImageView {
             float transY;
 
             ScaleType scaleType = getScaleType();
-            if (scaleType == ScaleType.FIT_XY) {
-                transX = paddingLeft;
-                transY = paddingTop;
-                pictureWidth = width - paddingLeft - paddingRight;
-                pictureHeight = height - paddingTop - paddingBottom;
-                shapeWidth = pictureWidth;
-                shapeHeight = pictureHeight;
-            } else if (scaleType == ScaleType.CENTER_CROP) {
+            if (scaleType == ScaleType.FIT_XY || scaleType == ScaleType.CENTER_CROP) {
                 transX = paddingLeft;
                 transY = paddingTop;
                 pictureWidth = width - paddingLeft - paddingRight;
@@ -168,19 +246,26 @@ public class AlmightyShapeImageView extends AppCompatImageView {
                     shapeWidth = shapeHeight / shapeHWScale;
                 }
             }
-
+            if (mShapeScaleType == ShapeScaleType.FOLLOW_IMAGEVIEW_FULL_IMAGE){
+                shapeWidth = pictureWidth;
+                shapeHeight = pictureHeight;
+            }
             left = ((int) (transX + (pictureWidth - shapeWidth) / 2));
             top = ((int) (transY + (pictureHeight - shapeHeight) / 2));
             right = ((int) (shapeWidth + transX + (pictureWidth - shapeWidth) / 2));
             bottom = ((int) (shapeHeight + transY + (pictureHeight - shapeHeight) / 2));
         }
 
-        mShapePaint.setXfermode(null);
-        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
-        mShapeResource.setBounds(left, top, right, bottom);
-        mShapeResource.draw(canvas);
+        if (!isDrawShapeClear){
+            mShapePaint.setXfermode(null);
+            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+            mShapeResource.setBounds(left, top, right, bottom);
+            mShapeResource.draw(canvas);
+        }
         mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+
+        isDrawShapeClear = false;
     }
 
     public Drawable getShapeDrawable() {
@@ -196,5 +281,27 @@ public class AlmightyShapeImageView extends AppCompatImageView {
         setShapeResource(getResources().getDrawable(shapeResourceRes));
     }
 
+    public enum ShapeScaleType {
+        FOLLOW_IMAGEVIEW_KEEP_RESOURCE_SCALE(0),FOLLOW_IMAGEVIEW_FULL_IMAGE(1), ALWAYS_FIX_XY(2);
 
+        ShapeScaleType(int type) {
+            this.type = type;
+        }
+
+        final int type;
+
+        public int getType() {
+            return type;
+        }
+
+        public static ShapeScaleType getType(int type) {
+            if (type == 2) {
+                return ALWAYS_FIX_XY;
+            } else if (type == 1) {
+                return FOLLOW_IMAGEVIEW_FULL_IMAGE;
+            } else {
+                return FOLLOW_IMAGEVIEW_KEEP_RESOURCE_SCALE;
+            }
+        }
+    }
 }
