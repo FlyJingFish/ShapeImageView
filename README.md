@@ -1,5 +1,7 @@
 # ShapeImageView
-## ShapeImageView支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式；支持显示任意图形，只有你想不到，没有它做不到；本库中的ImageView没有操作Bitmap，可以放心使用！！！
+## ShapeImageView支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式；
+## AlmightyShapeImageView支持显示任意图形，只有你想不到，没有它做不到；
+## 本库中的ImageView没有操作Bitmap，可以放心使用！！！
 
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
@@ -16,7 +18,7 @@ ShapeImageView|AlmightyShapeImageView
 
 3、**ShapeImageView** 新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
 
-（**4，autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**）
+（**autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**）
 
 4、**AlmightyShapeImageView** 完美兼容所有的图片加载库，支持定义任意图形，只有你想不到没有它做不到
 
@@ -122,6 +124,9 @@ ShapeImageView|AlmightyShapeImageView
 # 二、AlmightyShapeImageView 使用说明
 
 ### AlmightyShapeImageView 示例（库内内置 ❤️ [ic_vector_heart](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable) 和 ⭐️ [ic_vector_star](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable)）
+
+**使用的关键在于设置一个图形资源图（即almighty_shape_resource），想做显示什么形状的图片只要设置一个资源图，就都可以实现**
+
 ```xml
 <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
     android:id="@+id/iv1"
@@ -148,7 +153,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ### 图形资源设置提示
 
-ShapeResource就是让UI提前将图形导出的图片资源，可以是shape，可以是vector，可以是png图片，但是**强烈建议使用shape或vector矢量图形效果更佳**
+**almighty_shape_resource** 就是让UI提前将图形导出的图片资源，可以是shape，可以是vector，可以是png图片，但是**强烈建议使用shape或vector矢量图形效果更佳**
 
 如果使用是png或svg资源可以将其转化为vector，详情可以看我的博客：
 
