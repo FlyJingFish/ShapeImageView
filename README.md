@@ -148,8 +148,8 @@ ShapeImageView|AlmightyShapeImageView
 
 |almighty_shape_scaleType|                               description                               |
 |---|:-----------------------------------------------------------------------:|
-|followImageViewKeepResourceScale|                  图形资源跟随ImageView的ScaleType类型并且保持图形的宽高比                  |
-|followImageViewFullImage|              图形资源跟随ImageView的ScaleType类型但是充满图片的宽高（相对可能会拉伸）              |
+|followImageViewKeepResourceScale|                 图形资源跟随ImageView的ScaleType类型并且保持图形资源的宽高比                 |
+|followImageViewFullImage|             图形资源跟随ImageView的ScaleType类型但是充满图片的宽高（图形相对可能会拉伸）             |
 |alwaysFixXY| 图形资源不会跟随ImageView的ScaleType，总是充满ImageView容器（设置这个属性有些ScaleType会导致图形显示不全） |
 
 ### 方法
