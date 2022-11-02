@@ -38,7 +38,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.1'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.2'
     }
 ```
 ## 第三步，使用说明
@@ -140,16 +140,25 @@ ShapeImageView|AlmightyShapeImageView
 
 ### 属性一览
 
-|attr|format|            description            |
-|---|:---:|:---------------------------------:|
-|almighty_shape_resource|reference| 图形资源 |
+|attr|format| description |
+|---|:---:|:-----------:|
+|almighty_shape_resource|reference|    图形资源     |
+|almighty_shape_scaleType|enum| 绘制图形资源的显示类型 |
+
+
+|almighty_shape_scaleType|                               description                               |
+|---|:-----------------------------------------------------------------------:|
+|followImageViewKeepResourceScale|                  图形资源跟随ImageView的ScaleType类型并且保持图形的宽高比                  |
+|followImageViewFullImage|              图形资源跟随ImageView的ScaleType类型但是充满图片的宽高（相对可能会拉伸）              |
+|alwaysFixXY| 图形资源不会跟随ImageView的ScaleType，总是充满ImageView容器（设置这个属性有些ScaleType会导致图形显示不全） |
 
 ### 方法
 
-| method           |type|description|
-|------------------|:---:|:---:|
-| setShapeResource |Drawable|图形资源Drawable|
-| setShapeResource |DrawableRes|图形资源id|
+| method           |    type     |description|
+|------------------|:-----------:|:---:|
+| setShapeResource |  Drawable   |图形资源Drawable|
+| setShapeResource | DrawableRes |图形资源id|
+| setShapeScaleType |     设置绘制图形资源的显示类型      |
 
 ### 图形资源设置提示
 
