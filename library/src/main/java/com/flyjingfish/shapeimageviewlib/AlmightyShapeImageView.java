@@ -47,20 +47,17 @@ public class AlmightyShapeImageView extends AppCompatImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         if (mShapeResource != null) {
-            drawShapeClear(canvas);
-
+            preDrawShaper(canvas);
             drawShape(canvas);
             super.onDraw(canvas);
             canvas.restore();
-
-
         } else {
             super.onDraw(canvas);
         }
 
     }
 
-    private void drawShapeClear(Canvas canvas) {
+    private void preDrawShaper(Canvas canvas) {
         if (mShapeScaleType != ShapeScaleType.ALWAYS_FIX_XY){
             return;
         }
@@ -279,6 +276,15 @@ public class AlmightyShapeImageView extends AppCompatImageView {
 
     public void setShapeResource(@DrawableRes int shapeResourceRes) {
         setShapeResource(getResources().getDrawable(shapeResourceRes));
+    }
+
+    public ShapeScaleType getShapeScaleType() {
+        return mShapeScaleType;
+    }
+
+    public void setShapeScaleType(ShapeScaleType shapeScaleType) {
+        this.mShapeScaleType = shapeScaleType;
+        invalidate();
     }
 
     public enum ShapeScaleType {
