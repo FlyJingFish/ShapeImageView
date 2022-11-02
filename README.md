@@ -1,5 +1,7 @@
 # ShapeImageView
-## ShapeImageView支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式；支持显示任意图形，只有你想不到，没有它做不到；本库中的ImageView没有操作Bitmap，可以放心使用！！！
+## ShapeImageView支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式；
+## AlmightyShapeImageView支持显示任意图形，只有你想不到，没有它做不到；
+## 本库中的ImageView没有操作Bitmap，可以放心使用！！！
 
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
