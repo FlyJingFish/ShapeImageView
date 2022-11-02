@@ -25,7 +25,7 @@ public class AlmightyImageActivity extends AppCompatActivity {
 
 
     private void setData() {
-        MyImageLoader.getInstance().load(binding.iv1, itemData, Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
+        MyImageLoader.getInstance().load(binding.iv1, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.iv2, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.iv3, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
         MyImageLoader.getInstance().load(binding.iv4, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
