@@ -13,7 +13,8 @@ ShapeImageView|AlmightyShapeImageView
 
 
 
-## 特色功能
+## Special function
+
 1、**ShapeImageView** supports gradient rounded borders or rounded borders, unlimited image settings, perfectly compatible with all image loading libraries
 
 2、 The **ShapeImageView** rectangular image supports the independent setting of the angle value of the four corners, and the rectangular border also supports the independent setting of the angle value of the four corners.
@@ -47,7 +48,7 @@ ShapeImageView|AlmightyShapeImageView
 
 # 一、ShapeImageView Instructions for Use
 
-### ShapeImageView 示例
+### ShapeImageView example
 ```xml
 <com.flyjingfish.shapeimageviewlib.ShapeImageView
     android:id="@+id/iv_centerCrop"
@@ -170,7 +171,8 @@ If you use png or svg resources, you can convert them to vector. For details, se
 
 - [Blog Instructions](https://blog.csdn.net/u013077428/article/details/127613904)
 
-## common problem
+## Common problem
+
 1. In some graphics, the pictures are not displayed completely after changing attributes such as rotation, rotationX, rotationY, etc.
 
 - Solution: Set the margin property to solve
