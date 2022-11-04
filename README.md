@@ -161,7 +161,7 @@ ShapeImageView|AlmightyShapeImageView
 |-----------------|:-------------:|:---:|
 | setShapeResource | Drawable |Shape Resource Drawable|
 | setShapeResource | DrawableRes |Shape resource id|
-| setShapeScaleType | Sets the display type for drawing graphics resources |
+| setShapeResource | ShapeScaleType |Sets the display type for drawing graphics resources|
 
 ### Graphic resource setting prompt
 

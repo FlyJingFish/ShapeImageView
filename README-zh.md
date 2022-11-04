@@ -158,7 +158,7 @@ ShapeImageView|AlmightyShapeImageView
 |------------------|:-----------:|:---:|
 | setShapeResource |  Drawable   |图形资源Drawable|
 | setShapeResource | DrawableRes |图形资源id|
-| setShapeScaleType |     设置绘制图形资源的显示类型      |
+| setShapeScaleType | ShapeScaleType |设置绘制图形资源的显示类型|
 
 ### 图形资源设置提示
 
