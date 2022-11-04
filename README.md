@@ -150,7 +150,7 @@ ShapeImageView|AlmightyShapeImageView
 
 
 |almighty_shape_scaleType| description |
-|---|:-------------------------------------------- ---------------------------:|
+|---|:-----------------------------------------------------------------------:|
 |followImageViewKeepResourceScale| The graphics resource follows the ImageView's ScaleType type and maintains the aspect ratio of the graphics resource |
 |followImageViewFullImage| The graphics resource follows the ImageView's ScaleType but fills the width and height of the image (the graphics may be stretched relatively) |
 |alwaysFixXY| The graphics resource will not follow the ScaleType of the ImageView, and always fill the ImageView container (setting this property to some ScaleType will cause the graphics to be incomplete) |
