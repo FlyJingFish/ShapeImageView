@@ -1,7 +1,9 @@
 # ShapeImageView
-## ShapeImageView支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式；
-## AlmightyShapeImageView支持显示任意图形，只有你想不到，没有它做不到；
-## 本库中的ImageView没有操作Bitmap，可以放心使用！！！
+## [中文版使用说明](https://github.com/FlyJingFish/ShapeImageView/blob/master/README-zh.md)
+
+## ShapeImageView supports circle or rounded corners, and can draw circle background borders or rounded box background borders. In addition to the built-in properties of ImageView, 4 new display modes are added;
+## AlmightyShapeImageView supports the display of arbitrary graphics, only you can't think of it, you can't do it without it;
+## ImageView in this library does not operate Bitmap, you can use it with confidence! ! !
 
 [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
@@ -12,19 +14,19 @@ ShapeImageView|AlmightyShapeImageView
 
 
 ## 特色功能
-1、**ShapeImageView** 支持渐变色圆角矩形框、圆形框，支持圆角矩形图像、圆形图像，不限图片设置方式，完美兼容所有的图片加载库
+1、**ShapeImageView** supports gradient rounded borders or rounded borders, unlimited image settings, perfectly compatible with all image loading libraries
 
-2、**ShapeImageView** 圆角框 支持四个角独立设置角度值，圆角图像 同样支持四个角独立设置角度值
+2、 The **ShapeImageView** rectangular image supports the independent setting of the angle value of the four corners, and the rectangular border also supports the independent setting of the angle value of the four corners.
 
-3、**ShapeImageView** 新增支持startCrop、endCrop、autoStartCenterCrop、autoEndCenterCrop四种显示模式
+3、**ShapeImageView** supports four display modes: startCrop, endCrop, autoStartCenterCrop, autoEndCenterCrop
 
-（**autoStartCenterCrop和autoEndCenterCrop显示模式可通过设置autoCrop_height_width_ratio之后，自动在startCrop和centerCrop（endCrop和centerCrop）之间切换**）
+（**AutoStartCenterCrop and autoEndCenterCrop display mode can be automatically switched between startCrop and centerCrop (endCrop and centerCrop) after setting autoCrop_height_width_ratio**）
 
-4、**AlmightyShapeImageView** 完美兼容所有的图片加载库，支持定义任意图形，只有你想不到没有它做不到
+4、**AlmightyShapeImageView** is perfectly compatible with all image loading libraries, supports defining arbitrary graphics, only you can't think of it without it
 
 
 
-## 第一步，根目录build.gradle
+## The first step, the root directory build.gradle
 
 ```gradle
     allprojects {
@@ -34,16 +36,16 @@ ShapeImageView|AlmightyShapeImageView
         }
     }
 ```
-## 第二步，需要引用的build.gradle （最新版本[![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)）
+## The second step, you need to reference build.gradle （The latest version of [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)）
 
 ```gradle
     dependencies {
         implementation 'com.github.FlyJingFish:ShapeImageView:1.4.2'
     }
 ```
-## 第三步，使用说明
+## The third step, instructions for use
 
-# 一、ShapeImageView 使用说明
+# 一、ShapeImageView Instructions for Use
 
 ### ShapeImageView 示例
 ```xml
@@ -71,61 +73,61 @@ ShapeImageView|AlmightyShapeImageView
     android:scaleType="centerCrop" />
 ```
 
-### 外框使用
+### Outer frame use
 
-**1，需要特别设置一下padding，否则图片有些ScaleType默认显示充满ImageView**
+**1，You need to set padding specially, otherwise some ScaleType of the picture will be filled with ImageView by default.**
 
-2，渐变色外框颜色分布可通过setGradientPositions设置，默认null值均匀分布
+2，The color distribution of the gradient frame can be set through **setGradientPositions**, and the default null value is evenly distributed
 
-3，渐变色想自定义更多颜色可通过setGradientColors设置
+3，Gradient color If you want to customize more colors, you can set it through **setGradientColors**
 
-### 属性一览
+### List of properties
 
 |attr|format|description|
 |---|:---:|:---:|
-|shape|enum|图片是 rectangle矩形/oval圆形|
-|shape_radius|dimension|图片四个角圆角|
-|shape_left_top_radius|dimension|图片左上角圆角|
-|shape_right_top_radius|dimension|图片右上角圆角|
-|shape_right_bottom_radius|dimension|图片右下角圆角|
-|shape_left_bottom_radius|dimension|图片左下角圆角|
-|shape_start_top_radius|dimension|图片左上(Rtl:右上)角圆角|
-|shape_end_top_radius|dimension|图片右上(Rtl:左上)角圆角|
-|shape_end_bottom_radius|dimension|图片右下(Rtl:左下)角圆角|
-|shape_start_bottom_radius|dimension|图片左下(Rtl:右下)角圆角|
-|shape_border|enum|背景边框绘制形状是 none不绘制/rectangle矩形/oval圆形|
-|shape_border_radius|dimension|背景边框四个角圆角|
-|shape_border_left_top_radius|dimension|背景边框左上角圆角|
-|shape_border_right_top_radius|dimension|背景边框右上角圆角|
-|shape_border_right_bottom_radius|dimension|背景边框右下角圆角|
-|shape_border_left_bottom_radius|dimension|背景边框左下角圆角|
-|shape_border_start_top_radius|dimension|背景边框左上(Rtl:右上)角圆角|
-|shape_border_end_top_radius|dimension|背景边框右上(Rtl:左上)角圆角|
-|shape_border_end_bottom_radius|dimension|背景边框右下(Rtl:左下)角圆角|
-|shape_border_start_bottom_radius|dimension|背景边框左下(Rtl:右下)角圆角|
-|shape_border_color|color|背景边框绘制颜色|
-|shape_border_gradient|boolean|背景边框绘制是否渐变色|
-|shape_border_startColor|color|背景边框绘制渐变色开始颜色|
-|shape_border_centerColor|color|背景边框绘制渐变色中间颜色|
-|shape_border_endColor|color|背景边框绘制渐变色结束颜色|
-|shape_border_angle|float|背景边框绘制渐变色开始角度|
-|shape_border_rtl_angle|boolean|背景边框绘制渐变色开始角度是否支持镜像Rtl适配|
-|shape_border_strokeWidth|dimension|背景边框绘制画笔宽度|
-|autoCrop_height_width_ratio|float|图像高宽比是View高宽比的倍数|
-|shapeScaleType|enum|如果设置新增显示模式设置这个，详情如下：|
+|shape|enum|The picture is a rectangle/oval circle|
+|shape_radius|dimension|The four corners of the image are rounded|
+|shape_left_top_radius|dimension|The upper left corner of the image is rounded|
+|shape_right_top_radius|dimension|Round corners in the upper right corner of the image|
+|shape_right_bottom_radius|dimension|The bottom right corner of the image is rounded|
+|shape_left_bottom_radius|dimension|The bottom left corner of the image is rounded|
+|shape_start_top_radius|dimension|image top left (Rtl: top right) corner rounded|
+|shape_end_top_radius|dimension|image top right (Rtl: top left) corner rounded|
+|shape_end_bottom_radius|dimension|picture bottom right (Rtl: bottom left) corner rounded|
+|shape_start_bottom_radius|dimension|picture bottom left (Rtl: bottom right) corner rounded|
+|shape_border|enum|The background border drawing shape is none without drawing/rectangle rectangle/oval circle|
+|shape_border_radius|dimension|The four corners of the background border are rounded|
+|shape_border_left_top_radius|dimension|The top left corner of the background border is rounded|
+|shape_border_right_top_radius|dimension|rounded corners in the upper right corner of the background border|
+|shape_border_right_bottom_radius|dimension|The bottom right corner of the background border is rounded|
+|shape_border_left_bottom_radius|dimension|The bottom left corner of the background border is rounded|
+|shape_border_start_top_radius|dimension|background border top left (Rtl: top right) corner rounded|
+|shape_border_end_top_radius|dimension|background border top right (Rtl: top left) corner rounded|
+|shape_border_end_bottom_radius|dimension|background border bottom right (Rtl: bottom left) corner rounded|
+|shape_border_start_bottom_radius|dimension|The bottom left (Rtl: bottom right) corner of the background border is rounded|
+|shape_border_color|color|Background border drawing color|
+|shape_border_gradient|boolean|Whether the background border is drawn in gradient color|
+|shape_border_startColor|color|The background border draw gradient color start color|
+|shape_border_centerColor|color|The background border draws the gradient middle color|
+|shape_border_endColor|color|The background border draws the gradient color end color|
+|shape_border_angle|float|Start angle of background border drawing gradient color|
+|shape_border_rtl_angle|boolean|Does the gradient start angle of the background border support mirror Rtl adaptation|
+|shape_border_strokeWidth|dimension|width of background border drawing brush|
+|autoCrop_height_width_ratio|float|The image aspect ratio is a multiple of the View aspect ratio|
+|shapeScaleType|enum|If you set the new display mode to set this, the details are as follows:|
 
 |shapeScaleType|description|
 |---|:---:|
-|startCrop|裁剪开始左上|
-|endCrop|裁剪开始右下|
-|autoStartCenterCrop|自动在startCrop和centerCrop切换|
-|autoEndCenterCrop|自动在endCrop和centerCrop切换|
+|startCrop|Crop start top left|
+|endCrop|Crop start bottom right|
+|autoStartCenterCrop|Automatically switch between startCrop and centerCrop|
+|autoEndCenterCrop|Automatically switch between endCrop and centerCrop|
 
-# 二、AlmightyShapeImageView 使用说明
+# 二、AlmightyShapeImageView Instructions for Use
 
-### AlmightyShapeImageView 示例（库内内置 ❤️ [ic_vector_heart](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable) 和 ⭐️ [ic_vector_star](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable)）
+### AlmightyShapeImageView example（Built-in library ❤️ [ic_vector_heart](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable) 和 ⭐️ [ic_vector_star](https://github.com/FlyJingFish/ShapeImageView/tree/master/library/src/main/res/drawable)）
 
-**使用的关键在于设置一个图形资源图（即almighty_shape_resource），想做显示什么形状的图片只要设置一个资源图，就都可以实现**
+**The key to use is to set a graphic resource map (that is, almighty_shape_resource). If you want to display a picture of any shape, you can achieve it as long as you set a resource map.**
 
 ```xml
 <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
@@ -138,45 +140,45 @@ ShapeImageView|AlmightyShapeImageView
     android:scaleType="centerCrop" />
 ```
 
-### 属性一览
+### List of properties
 
 |attr|format| description |
-|---|:---:|:-----------:|
-|almighty_shape_resource|reference|    图形资源     |
-|almighty_shape_scaleType|enum| 绘制图形资源的显示类型 |
+|---|:---:|:------------:|
+|almighty_shape_resource|reference| Shape Resource |
+|almighty_shape_scaleType|enum| The display type of the drawing resource |
 
 
-|almighty_shape_scaleType|                               description                               |
-|---|:-----------------------------------------------------------------------:|
-|followImageViewKeepResourceScale|                 图形资源跟随ImageView的ScaleType类型并且保持图形资源的宽高比                 |
-|followImageViewFullImage|             图形资源跟随ImageView的ScaleType类型但是充满图片的宽高（图形相对可能会拉伸）             |
-|alwaysFixXY| 图形资源不会跟随ImageView的ScaleType，总是充满ImageView容器（设置这个属性有些ScaleType会导致图形显示不全） |
+|almighty_shape_scaleType| description |
+|---|:-------------------------------------------- ---------------------------:|
+|followImageViewKeepResourceScale| The graphics resource follows the ImageView's ScaleType type and maintains the aspect ratio of the graphics resource |
+|followImageViewFullImage| The graphics resource follows the ImageView's ScaleType but fills the width and height of the image (the graphics may be stretched relatively) |
+|alwaysFixXY| The graphics resource will not follow the ScaleType of the ImageView, and always fill the ImageView container (setting this property to some ScaleType will cause the graphics to be incomplete) |
 
-### 方法
+### Method
 
-| method           |    type     |description|
-|------------------|:-----------:|:---:|
-| setShapeResource |  Drawable   |图形资源Drawable|
-| setShapeResource | DrawableRes |图形资源id|
-| setShapeScaleType |     设置绘制图形资源的显示类型      |
+| method | type |description|
+|-----------------|:-------------:|:---:|
+| setShapeResource | Drawable |Shape Resource Drawable|
+| setShapeResource | DrawableRes |Shape resource id|
+| setShapeScaleType | Sets the display type for drawing graphics resources |
 
-### 图形资源设置提示
+### Graphic resource setting prompt
 
-**almighty_shape_resource** 就是让UI提前将图形导出的图片资源，可以是shape，可以是vector，可以是png图片，但是**强烈建议使用shape或vector矢量图形效果更佳**
+**almighty_shape_resource** is the image resource that allows the UI to export the graphics in advance. It can be a shape, a vector, or a png image, but **It is strongly recommended to use shape or vector vector graphics for better results**
 
-如果使用是png或svg资源可以将其转化为vector，详情可以看我的博客：
+If you use png or svg resources, you can convert them to vector. For details, see my blog:
 
-- [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
+- [Blog Instructions](https://blog.csdn.net/u013077428/article/details/127613904)
 
-## 常见问题
-1、有的图形设置rotation、rotationX、rotationY等变化属性之后图片显示不全
+## common problem
+1. In some graphics, the pictures are not displayed completely after changing attributes such as rotation, rotationX, rotationY, etc.
 
-- 解决方案：设置margin属性即可解决
+- Solution: Set the margin property to solve
 
-# 最后推荐我写的另一个库，轻松实现在应用内点击小图查看大图的动画放大效果
+# Finally, I recommend another library I wrote, which can easily realize the animation zoom effect of clicking on the small image to view the large image in the application
 
-- [OpenImage](https://github.com/FlyJingFish/OpenImage) （已内置当前库）
+- [OpenImage](https://github.com/FlyJingFish/OpenImage) (current library built in)
 
-- [主页查看更多开源库](https://github.com/FlyJingFish)
+- [Homepage view more open source libraries](https://github.com/FlyJingFish)
 
 
