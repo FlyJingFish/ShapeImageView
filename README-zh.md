@@ -38,7 +38,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.2'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.3'
     }
 ```
 ## 第三步，使用说明
@@ -81,38 +81,38 @@ ShapeImageView|AlmightyShapeImageView
 
 ### 属性一览
 
-|attr|format|description|
-|---|:---:|:---:|
-|shape|enum|图片是 rectangle矩形/oval圆形|
-|shape_radius|dimension|图片四个角圆角|
-|shape_left_top_radius|dimension|图片左上角圆角|
-|shape_right_top_radius|dimension|图片右上角圆角|
-|shape_right_bottom_radius|dimension|图片右下角圆角|
-|shape_left_bottom_radius|dimension|图片左下角圆角|
-|shape_start_top_radius|dimension|图片左上(Rtl:右上)角圆角|
-|shape_end_top_radius|dimension|图片右上(Rtl:左上)角圆角|
-|shape_end_bottom_radius|dimension|图片右下(Rtl:左下)角圆角|
-|shape_start_bottom_radius|dimension|图片左下(Rtl:右下)角圆角|
-|shape_border|enum|背景边框绘制形状是 none不绘制/rectangle矩形/oval圆形|
-|shape_border_radius|dimension|背景边框四个角圆角|
-|shape_border_left_top_radius|dimension|背景边框左上角圆角|
-|shape_border_right_top_radius|dimension|背景边框右上角圆角|
-|shape_border_right_bottom_radius|dimension|背景边框右下角圆角|
-|shape_border_left_bottom_radius|dimension|背景边框左下角圆角|
-|shape_border_start_top_radius|dimension|背景边框左上(Rtl:右上)角圆角|
-|shape_border_end_top_radius|dimension|背景边框右上(Rtl:左上)角圆角|
-|shape_border_end_bottom_radius|dimension|背景边框右下(Rtl:左下)角圆角|
-|shape_border_start_bottom_radius|dimension|背景边框左下(Rtl:右下)角圆角|
-|shape_border_color|color|背景边框绘制颜色|
-|shape_border_gradient|boolean|背景边框绘制是否渐变色|
-|shape_border_startColor|color|背景边框绘制渐变色开始颜色|
-|shape_border_centerColor|color|背景边框绘制渐变色中间颜色|
-|shape_border_endColor|color|背景边框绘制渐变色结束颜色|
-|shape_border_angle|float|背景边框绘制渐变色开始角度|
-|shape_border_rtl_angle|boolean|背景边框绘制渐变色开始角度是否支持镜像Rtl适配|
-|shape_border_strokeWidth|dimension|背景边框绘制画笔宽度|
-|autoCrop_height_width_ratio|float|图像高宽比是View高宽比的倍数|
-|shapeScaleType|enum|如果设置新增显示模式设置这个，详情如下：|
+| attr                             |  format   |             description              |
+|----------------------------------|:---------:|:------------------------------------:|
+| shape                            |   enum    |        图片是 rectangle矩形/oval圆形        |
+| shape_radius                     | dimension |               图片四个角圆角                |
+| shape_left_top_radius            | dimension |               图片左上角圆角                |
+| shape_right_top_radius           | dimension |               图片右上角圆角                |
+| shape_right_bottom_radius        | dimension |               图片右下角圆角                |
+| shape_left_bottom_radius         | dimension |               图片左下角圆角                |
+| shape_start_top_radius           | dimension |           图片左上(Rtl:右上)角圆角            |
+| shape_end_top_radius             | dimension |           图片右上(Rtl:左上)角圆角            |
+| shape_end_bottom_radius          | dimension |           图片右下(Rtl:左下)角圆角            |
+| shape_start_bottom_radius        | dimension |           图片左下(Rtl:右下)角圆角            |
+| shape_border                     |   enum    | 背景边框绘制形状是 none不绘制/rectangle矩形/oval圆形 |
+| shape_border_radius              | dimension |              背景边框四个角圆角               |
+| shape_border_left_top_radius     | dimension |              背景边框左上角圆角               |
+| shape_border_right_top_radius    | dimension |              背景边框右上角圆角               |
+| shape_border_right_bottom_radius | dimension |              背景边框右下角圆角               |
+| shape_border_left_bottom_radius  | dimension |              背景边框左下角圆角               |
+| shape_border_start_top_radius    | dimension |          背景边框左上(Rtl:右上)角圆角           |
+| shape_border_end_top_radius      | dimension |          背景边框右上(Rtl:左上)角圆角           |
+| shape_border_end_bottom_radius   | dimension |          背景边框右下(Rtl:左下)角圆角           |
+| shape_border_start_bottom_radius | dimension |          背景边框左下(Rtl:右下)角圆角           |
+| shape_border_color               |   color   |               背景边框绘制颜色               |
+| shape_border_gradient            |  boolean  |             背景边框绘制是否渐变色              |
+| shape_border_startColor          |   color   |            背景边框绘制渐变色开始颜色             |
+| shape_border_centerColor         |   color   |            背景边框绘制渐变色中间颜色             |
+| shape_border_endColor            |   color   |            背景边框绘制渐变色结束颜色             |
+| shape_border_angle               |   float   |            背景边框绘制渐变色开始角度             |
+| shape_border_rtl_angle           |  boolean  |       背景边框绘制渐变色开始角度是否支持镜像Rtl适配       |
+| shape_border_strokeWidth         | dimension |              背景边框绘制画笔宽度              |
+| autoCrop_height_width_ratio      |   float   |           图像高宽比是View高宽比的倍数           |
+| shapeScaleType                   |   enum    |         如果设置新增显示模式设置这个，详情如下：         |
 
 |shapeScaleType|description|
 |---|:---:|
@@ -140,25 +140,25 @@ ShapeImageView|AlmightyShapeImageView
 
 ### 属性一览
 
-|attr|format| description |
-|---|:---:|:-----------:|
-|almighty_shape_resource|reference|    图形资源     |
-|almighty_shape_scaleType|enum| 绘制图形资源的显示类型 |
+| attr                     |format| description |
+|--------------------------|:---:|:-----------:|
+| almighty_shape_resource  |reference|    图形资源     |
+| almighty_shape_scaleType |enum| 绘制图形资源的显示类型 |
 
 
-|almighty_shape_scaleType|                               description                               |
-|---|:-----------------------------------------------------------------------:|
-|followImageViewKeepResourceScale|                 图形资源跟随ImageView的ScaleType类型并且保持图形资源的宽高比                 |
-|followImageViewFullImage|             图形资源跟随ImageView的ScaleType类型但是充满图片的宽高（图形相对可能会拉伸）             |
-|alwaysFixXY| 图形资源不会跟随ImageView的ScaleType，总是充满ImageView容器（设置这个属性有些ScaleType会导致图形显示不全） |
+| almighty_shape_scaleType         |                               description                               |
+|----------------------------------|:-----------------------------------------------------------------------:|
+| followImageViewKeepResourceScale |                 图形资源跟随ImageView的ScaleType类型并且保持图形资源的宽高比                 |
+| followImageViewFullImage         |             图形资源跟随ImageView的ScaleType类型但是充满图片的宽高（图形相对可能会拉伸）             |
+| alwaysFixXY                      | 图形资源不会跟随ImageView的ScaleType，总是充满ImageView容器（设置这个属性有些ScaleType会导致图形显示不全） |
 
 ### 方法
 
-| method           |    type     |description|
-|------------------|:-----------:|:---:|
-| setShapeResource |  Drawable   |图形资源Drawable|
-| setShapeResource | DrawableRes |图形资源id|
-| setShapeScaleType | ShapeScaleType |设置绘制图形资源的显示类型|
+| method            |      type      |  description  |
+|-------------------|:--------------:|:-------------:|
+| setShapeResource  |    Drawable    | 图形资源Drawable  |
+| setShapeResource  |  DrawableRes   |    图形资源id     |
+| setShapeScaleType | ShapeScaleType | 设置绘制图形资源的显示类型 |
 
 ### 图形资源设置提示
 

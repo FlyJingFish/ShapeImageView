@@ -42,7 +42,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.2'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.3'
     }
 ```
 ## The third step, instructions for use
@@ -85,45 +85,45 @@ ShapeImageView|AlmightyShapeImageView
 
 ### List of properties
 
-|attr|format|description|
-|---|:---:|:---:|
-|shape|enum|The picture is a rectangle/oval circle|
-|shape_radius|dimension|The four corners of the image are rounded|
-|shape_left_top_radius|dimension|The upper left corner of the image is rounded|
-|shape_right_top_radius|dimension|Round corners in the upper right corner of the image|
-|shape_right_bottom_radius|dimension|The bottom right corner of the image is rounded|
-|shape_left_bottom_radius|dimension|The bottom left corner of the image is rounded|
-|shape_start_top_radius|dimension|image top left (Rtl: top right) corner rounded|
-|shape_end_top_radius|dimension|image top right (Rtl: top left) corner rounded|
-|shape_end_bottom_radius|dimension|picture bottom right (Rtl: bottom left) corner rounded|
-|shape_start_bottom_radius|dimension|picture bottom left (Rtl: bottom right) corner rounded|
-|shape_border|enum|The background border drawing shape is none without drawing/rectangle rectangle/oval circle|
-|shape_border_radius|dimension|The four corners of the background border are rounded|
-|shape_border_left_top_radius|dimension|The top left corner of the background border is rounded|
-|shape_border_right_top_radius|dimension|rounded corners in the upper right corner of the background border|
-|shape_border_right_bottom_radius|dimension|The bottom right corner of the background border is rounded|
-|shape_border_left_bottom_radius|dimension|The bottom left corner of the background border is rounded|
-|shape_border_start_top_radius|dimension|background border top left (Rtl: top right) corner rounded|
-|shape_border_end_top_radius|dimension|background border top right (Rtl: top left) corner rounded|
-|shape_border_end_bottom_radius|dimension|background border bottom right (Rtl: bottom left) corner rounded|
-|shape_border_start_bottom_radius|dimension|The bottom left (Rtl: bottom right) corner of the background border is rounded|
-|shape_border_color|color|Background border drawing color|
-|shape_border_gradient|boolean|Whether the background border is drawn in gradient color|
-|shape_border_startColor|color|The background border draw gradient color start color|
-|shape_border_centerColor|color|The background border draws the gradient middle color|
-|shape_border_endColor|color|The background border draws the gradient color end color|
-|shape_border_angle|float|Start angle of background border drawing gradient color|
-|shape_border_rtl_angle|boolean|Does the gradient start angle of the background border support mirror Rtl adaptation|
-|shape_border_strokeWidth|dimension|width of background border drawing brush|
-|autoCrop_height_width_ratio|float|The image aspect ratio is a multiple of the View aspect ratio|
-|shapeScaleType|enum|If you set the new display mode to set this, the details are as follows:|
+| attr                             |  format   |                                         description                                         |
+|----------------------------------|:---------:|:-------------------------------------------------------------------------------------------:|
+| shape                            |   enum    |                           The picture is a rectangle/oval circle                            |
+| shape_radius                     | dimension |                          The four corners of the image are rounded                          |
+| shape_left_top_radius            | dimension |                        The upper left corner of the image is rounded                        |
+| shape_right_top_radius           | dimension |                    Round corners in the upper right corner of the image                     |
+| shape_right_bottom_radius        | dimension |                       The bottom right corner of the image is rounded                       |
+| shape_left_bottom_radius         | dimension |                       The bottom left corner of the image is rounded                        |
+| shape_start_top_radius           | dimension |                       image top left (Rtl: top right) corner rounded                        |
+| shape_end_top_radius             | dimension |                       image top right (Rtl: top left) corner rounded                        |
+| shape_end_bottom_radius          | dimension |                   picture bottom right (Rtl: bottom left) corner rounded                    |
+| shape_start_bottom_radius        | dimension |                   picture bottom left (Rtl: bottom right) corner rounded                    |
+| shape_border                     |   enum    | The background border drawing shape is none without drawing/rectangle rectangle/oval circle |
+| shape_border_radius              | dimension |                    The four corners of the background border are rounded                    |
+| shape_border_left_top_radius     | dimension |                   The top left corner of the background border is rounded                   |
+| shape_border_right_top_radius    | dimension |             rounded corners in the upper right corner of the background border              |
+| shape_border_right_bottom_radius | dimension |                 The bottom right corner of the background border is rounded                 |
+| shape_border_left_bottom_radius  | dimension |                 The bottom left corner of the background border is rounded                  |
+| shape_border_start_top_radius    | dimension |                 background border top left (Rtl: top right) corner rounded                  |
+| shape_border_end_top_radius      | dimension |                 background border top right (Rtl: top left) corner rounded                  |
+| shape_border_end_bottom_radius   | dimension |              background border bottom right (Rtl: bottom left) corner rounded               |
+| shape_border_start_bottom_radius | dimension |       The bottom left (Rtl: bottom right) corner of the background border is rounded        |
+| shape_border_color               |   color   |                               Background border drawing color                               |
+| shape_border_gradient            |  boolean  |                  Whether the background border is drawn in gradient color                   |
+| shape_border_startColor          |   color   |                    The background border draw gradient color start color                    |
+| shape_border_centerColor         |   color   |                    The background border draws the gradient middle color                    |
+| shape_border_endColor            |   color   |                  The background border draws the gradient color end color                   |
+| shape_border_angle               |   float   |                   Start angle of background border drawing gradient color                   |
+| shape_border_rtl_angle           |  boolean  |    Does the gradient start angle of the background border support mirror Rtl adaptation     |
+| shape_border_strokeWidth         | dimension |                          width of background border drawing brush                           |
+| autoCrop_height_width_ratio      |   float   |                The image aspect ratio is a multiple of the View aspect ratio                |
+| shapeScaleType                   |   enum    |          If you set the new display mode to set this, the details are as follows:           |
 
-|shapeScaleType|description|
-|---|:---:|
-|startCrop|Crop start top left|
-|endCrop|Crop start bottom right|
-|autoStartCenterCrop|Automatically switch between startCrop and centerCrop|
-|autoEndCenterCrop|Automatically switch between endCrop and centerCrop|
+| shapeScaleType      |                      description                      |
+|---------------------|:-----------------------------------------------------:|
+| startCrop           |                  Crop start top left                  |
+| endCrop             |                Crop start bottom right                |
+| autoStartCenterCrop | Automatically switch between startCrop and centerCrop |
+| autoEndCenterCrop   |  Automatically switch between endCrop and centerCrop  |
 
 # 二、AlmightyShapeImageView Instructions for Use
 
@@ -144,25 +144,25 @@ ShapeImageView|AlmightyShapeImageView
 
 ### List of properties
 
-|attr|format| description |
-|---|:---:|:------------:|
-|almighty_shape_resource|reference| Shape Resource |
-|almighty_shape_scaleType|enum| The display type of the drawing resource |
+| attr                     |  format   |               description                |
+|--------------------------|:---------:|:----------------------------------------:|
+| almighty_shape_resource  | reference |              Shape Resource              |
+| almighty_shape_scaleType |   enum    | The display type of the drawing resource |
 
 
-|almighty_shape_scaleType| description |
-|---|:-----------------------------------------------------------------------:|
-|followImageViewKeepResourceScale| The graphics resource follows the ImageView's ScaleType type and maintains the aspect ratio of the graphics resource |
-|followImageViewFullImage| The graphics resource follows the ImageView's ScaleType but fills the width and height of the image (the graphics may be stretched relatively) |
-|alwaysFixXY| The graphics resource will not follow the ScaleType of the ImageView, and always fill the ImageView container (setting this property to some ScaleType will cause the graphics to be incomplete) |
+| almighty_shape_scaleType         |                                                                                           description                                                                                            |
+|----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| followImageViewKeepResourceScale |                                       The graphics resource follows the ImageView's ScaleType type and maintains the aspect ratio of the graphics resource                                       |
+| followImageViewFullImage         |                          The graphics resource follows the ImageView's ScaleType but fills the width and height of the image (the graphics may be stretched relatively)                          |
+| alwaysFixXY                      | The graphics resource will not follow the ScaleType of the ImageView, and always fill the ImageView container (setting this property to some ScaleType will cause the graphics to be incomplete) |
 
 ### Method
 
-| method | type |description|
-|-----------------|:-------------:|:---:|
-| setShapeResource | Drawable |Shape Resource Drawable|
-| setShapeResource | DrawableRes |Shape resource id|
-| setShapeResource | ShapeScaleType |Sets the display type for drawing graphics resources|
+| method           |      type      |                     description                      |
+|------------------|:--------------:|:----------------------------------------------------:|
+| setShapeResource |    Drawable    |               Shape Resource Drawable                |
+| setShapeResource |  DrawableRes   |                  Shape resource id                   |
+| setShapeResource | ShapeScaleType | Sets the display type for drawing graphics resources |
 
 ### Graphic resource setting prompt
 

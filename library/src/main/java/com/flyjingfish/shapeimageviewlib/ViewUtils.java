@@ -17,14 +17,22 @@ public class ViewUtils {
         int paddingStart = view.getPaddingStart();
         int paddingEnd = view.getPaddingEnd();
         int paddingLeft = view.getPaddingLeft();
-        int paddingRight = view.getPaddingRight();
         int paddingLeftMax;
-        if (isRtl) {
-            paddingLeftMax = Math.max(paddingEnd, paddingLeft);
-        } else {
-            paddingLeftMax = Math.max(paddingStart, paddingLeft);
-        }
 
+        if (isRtl){
+            if (paddingEnd != 0){
+                paddingLeftMax = paddingEnd;
+            }else {
+                paddingLeftMax = paddingLeft;
+            }
+        }else {
+            if (paddingStart != 0){
+                paddingLeftMax = paddingStart;
+            }else {
+                paddingLeftMax = paddingLeft;
+            }
+
+        }
 
         return paddingLeftMax;
     }
@@ -36,16 +44,22 @@ public class ViewUtils {
         }
         int paddingStart = view.getPaddingStart();
         int paddingEnd = view.getPaddingEnd();
-        int paddingLeft = view.getPaddingLeft();
         int paddingRight = view.getPaddingRight();
         int paddingRightMax;
-        if (isRtl) {
-            paddingRightMax = Math.max(paddingStart, paddingRight);
-        } else {
-            paddingRightMax = Math.max(paddingEnd, paddingRight);
+        if (isRtl){
+            if (paddingStart != 0){
+                paddingRightMax = paddingStart;
+            }else {
+                paddingRightMax = paddingRight;
+            }
+        }else {
+            if (paddingEnd != 0){
+                paddingRightMax = paddingEnd;
+            }else {
+                paddingRightMax = paddingRight;
+            }
+
         }
-
-
         return paddingRightMax;
     }
 }
