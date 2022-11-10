@@ -42,7 +42,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.3'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.4'
     }
 ```
 ## The third step, instructions for use
