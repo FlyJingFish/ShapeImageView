@@ -272,8 +272,7 @@ public class ShapeImageView extends AppCompatImageView {
                 y0 = height / 2 * percent + height / 2;
             } else if (angle <= 180) {
                 float percent = (angle - 135) / 45;
-                x0 = width / 2 + width / 2 * percent;
-                ;
+                x0 = width / 2 + width / 2 * (1-percent);
                 y0 = height;
             } else if (angle <= 225) {
                 float percent = (angle - 180) / 45;
@@ -290,7 +289,6 @@ public class ShapeImageView extends AppCompatImageView {
             } else {
                 float percent = (angle - 315) / 45;
                 x0 = width / 2 * percent;
-                ;
                 y0 = 0;
             }
             x1 = width - x0;
