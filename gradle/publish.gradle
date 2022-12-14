@@ -33,7 +33,7 @@ uploadArchives {
             pom.project {
                 name PROJ_BASENAME
                 artifactId PROJ_NAME
-                packaging 'jar'
+                packaging 'aar'
                 description PROJ_DESCRIPTION
                 url PROJ_WEBSITEURL
 
