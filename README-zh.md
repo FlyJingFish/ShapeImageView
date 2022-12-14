@@ -3,8 +3,6 @@
 ## AlmightyShapeImageView支持显示任意图形，只有你想不到，没有它做不到；
 ## 本库中的ImageView没有操作Bitmap，可以放心使用！！！
 
-[![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
-
 ShapeImageView|AlmightyShapeImageView
  ----- | ----- 
 <img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_20221011_144810.jpg" width="400px" height="800px" alt="show" />|<img src="https://github.com/FlyJingFish/ShapeImageView/blob/master/screenshot/Screenshot_20221031_123252.jpg" width="400px" height="800px" alt="show" />
@@ -30,15 +28,15 @@ ShapeImageView|AlmightyShapeImageView
     allprojects {
         repositories {
             ...
-            maven { url 'https://jitpack.io' }
+            maven { url "https://s01.oss.sonatype.org/content/groups/public" }
         }
     }
 ```
-## 第二步，需要引用的build.gradle （最新版本[![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)）
+## 第二步，需要引用的build.gradle
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.4'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.8'
     }
 ```
 ## 第三步，使用说明
