@@ -1,5 +1,4 @@
 # ShapeImageView
-[![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)
 
 ## [中文版使用说明](https://github.com/FlyJingFish/ShapeImageView/blob/master/README-zh.md)
 
@@ -34,15 +33,15 @@ ShapeImageView|AlmightyShapeImageView
     allprojects {
         repositories {
             ...
-            maven { url 'https://jitpack.io' }
+            maven { url "https://s01.oss.sonatype.org/content/groups/public" }
         }
     }
 ```
-## The second step, you need to reference build.gradle （The latest version of [![](https://jitpack.io/v/FlyJingFish/ShapeImageView.svg)](https://jitpack.io/#FlyJingFish/ShapeImageView)）
+## The second step, you need to reference build.gradle
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.4.4'
+        implementation 'io.github.FlyJingFish:ShapeImageView:1.4.8'
     }
 ```
 ## The third step, instructions for use
