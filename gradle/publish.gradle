@@ -15,7 +15,6 @@ signing {
 }
 
 group = PROJ_GROUP
-archivesBaseName = PROJ_BASENAME
 version = PROJ_VERSION
 
 uploadArchives {
@@ -32,7 +31,8 @@ uploadArchives {
             }
 
             pom.project {
-                name PROJ_NAME
+                name PROJ_BASENAME
+                artifactId PROJ_NAME
                 packaging 'jar'
                 description PROJ_DESCRIPTION
                 url PROJ_WEBSITEURL
