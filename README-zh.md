@@ -173,7 +173,7 @@ ShapeImageView|AlmightyShapeImageView
 例如，通过Glide下载并设置:
 
 ```java
-Glide.with(context).load("网路链接").into(new CustomTarget<Drawable>() {
+Glide.with(context).load("网络链接").into(new CustomTarget<Drawable>() {
     @Override
     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
         imageView.setShapeResource(resource);

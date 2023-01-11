@@ -184,7 +184,7 @@ You can download network pictures through Glide and then call **setShapeResource
 For example, download and set via Glide:
 
 ```java
-Glide.with(context).load("网路链接").into(new CustomTarget<Drawable>() {
+Glide.with(context).load("Internet connection").into(new CustomTarget<Drawable>() {
     @Override
     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
         imageView.setShapeResource(resource);
