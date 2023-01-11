@@ -177,6 +177,26 @@ If you use png or svg resources, you can convert them to vector. For details, se
 
 - Solution: Set the margin property to solve
 
+### Extra episode: If you want to use network images for your graphics resource map (that is, not packaged into apk)
+
+You can download network pictures through Glide and then call **setShapeResource** to set the graphics
+
+For example, download and set via Glide:
+
+```java
+Glide.with(context).load("网路链接").into(new CustomTarget<Drawable>() {
+    @Override
+    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+        imageView.setShapeResource(resource);
+    }
+
+    @Override
+    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+    }
+});
+```
+
 # Finally, I recommend another library I wrote, which can easily realize the animation zoom effect of clicking on the small image to view the large image in the application
 
 - [OpenImage](https://github.com/FlyJingFish/OpenImage) (current library built in)

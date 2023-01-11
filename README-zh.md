@@ -138,10 +138,10 @@ ShapeImageView|AlmightyShapeImageView
 
 ### 属性一览
 
-| attr                     |format| description |
-|--------------------------|:---:|:-----------:|
-| almighty_shape_resource  |reference|    图形资源     |
-| almighty_shape_scaleType |enum| 绘制图形资源的显示类型 |
+| attr                     |  format   | description |
+|--------------------------|:---------:|:-----------:|
+| almighty_shape_resource  | reference |    图形资源     |
+| almighty_shape_scaleType |   enum    | 绘制图形资源的显示类型 |
 
 
 | almighty_shape_scaleType         |                               description                               |
@@ -165,6 +165,26 @@ ShapeImageView|AlmightyShapeImageView
 如果使用是png或svg资源可以将其转化为vector，详情可以看我的博客：
 
 - [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
+
+### 番外：如果您的图形资源图想要用网络图片（即不打包到apk中）
+
+可以下载网络图片然后调用 **setShapeResource** 设置图形即可
+
+例如，通过Glide下载并设置:
+
+```java
+Glide.with(context).load("网路链接").into(new CustomTarget<Drawable>() {
+    @Override
+    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+        imageView.setShapeResource(resource);
+    }
+
+    @Override
+    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+    }
+});
+```
 
 ## 常见问题
 1、有的图形设置rotation、rotationX、rotationY等变化属性之后图片显示不全
