@@ -302,10 +302,10 @@ public class ShapeImageView extends AppCompatImageView {
             if (is4BgRadiusEquals()) {
                 canvas.drawRoundRect(rectF, bgLeftTopRadius, bgLeftTopRadius, mBgPaint);
             } else {
-                float bgLeftTopRadius = Math.max(isRtl ? bgEndTopRadius : bgStartTopRadius, this.bgLeftTopRadius);
-                float bgLeftBottomRadius = Math.max(isRtl ? bgEndBottomRadius : bgStartBottomRadius, this.bgLeftBottomRadius);
-                float bgRightTopRadius = Math.max(isRtl ? bgStartTopRadius : bgEndTopRadius, this.bgRightTopRadius);
-                float bgRightBottomRadius = Math.max(isRtl ? bgStartBottomRadius : bgEndBottomRadius, this.bgRightBottomRadius);
+                float bgLeftTopRadius = ViewUtils.getRtlValue(isRtl ? bgEndTopRadius : bgStartTopRadius, this.bgLeftTopRadius);
+                float bgLeftBottomRadius = ViewUtils.getRtlValue(isRtl ? bgEndBottomRadius : bgStartBottomRadius, this.bgLeftBottomRadius);
+                float bgRightTopRadius = ViewUtils.getRtlValue(isRtl ? bgStartTopRadius : bgEndTopRadius, this.bgRightTopRadius);
+                float bgRightBottomRadius = ViewUtils.getRtlValue(isRtl ? bgStartBottomRadius : bgEndBottomRadius, this.bgRightBottomRadius);
 
                 RectF leftTopRectF = new RectF(mBgPaintWidth / 2, mBgPaintWidth / 2, bgLeftTopRadius * 2 + mBgPaintWidth / 2, bgLeftTopRadius * 2 + mBgPaintWidth / 2);
                 RectF rightTopRectF = new RectF(width - bgRightTopRadius * 2 - mBgPaintWidth / 2, mBgPaintWidth / 2, width - mBgPaintWidth / 2, bgRightTopRadius * 2 + mBgPaintWidth / 2);
@@ -375,16 +375,16 @@ public class ShapeImageView extends AppCompatImageView {
     }
 
     private void drawRectangle(Canvas canvas) {
-        if (Math.max(isRtl ? endTopRadius : startTopRadius, this.leftTopRadius) > 0) {
+        if (ViewUtils.getRtlValue(isRtl ? endTopRadius : startTopRadius, this.leftTopRadius) > 0) {
             drawTopLeft(canvas);
         }
-        if (Math.max(isRtl ? startTopRadius : endTopRadius, this.rightTopRadius) > 0) {
+        if (ViewUtils.getRtlValue(isRtl ? startTopRadius : endTopRadius, this.rightTopRadius) > 0) {
             drawTopRight(canvas);
         }
-        if (Math.max(isRtl ? endBottomRadius : startBottomRadius, this.leftBottomRadius) > 0) {
+        if (ViewUtils.getRtlValue(isRtl ? endBottomRadius : startBottomRadius, this.leftBottomRadius) > 0) {
             drawBottomLeft(canvas);
         }
-        if (Math.max(isRtl ? startBottomRadius : endBottomRadius, this.rightBottomRadius) > 0) {
+        if (ViewUtils.getRtlValue(isRtl ? startBottomRadius : endBottomRadius, this.rightBottomRadius) > 0) {
             drawBottomRight(canvas);
         }
     }
@@ -403,7 +403,7 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo((width - paddingLeft - paddingRight) / 2 + paddingLeft, paddingTop);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), -90, -90);
         } else {
-            float leftTopRadius = Math.max(isRtl ? endTopRadius : startTopRadius, this.leftTopRadius);
+            float leftTopRadius = ViewUtils.getRtlValue(isRtl ? endTopRadius : startTopRadius, this.leftTopRadius);
 
             path.moveTo(paddingLeft, paddingTop + leftTopRadius);
             path.lineTo(paddingLeft, paddingTop);
@@ -428,7 +428,7 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo(width - paddingRight, (height - paddingTop - paddingBottom) / 2 + paddingTop);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), 0, -90);
         } else {
-            float rightTopRadius = Math.max(isRtl ? startTopRadius : endTopRadius, this.rightTopRadius);
+            float rightTopRadius = ViewUtils.getRtlValue(isRtl ? startTopRadius : endTopRadius, this.rightTopRadius);
             path.moveTo(width - rightTopRadius - paddingRight, paddingTop);
             path.lineTo(width - paddingRight, paddingTop);
             path.lineTo(width - paddingRight, paddingTop + rightTopRadius);
@@ -452,7 +452,7 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo((width - paddingLeft - paddingRight) / 2 + paddingLeft, height - paddingBottom);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), 90, 90);
         } else {
-            float leftBottomRadius = Math.max(isRtl ? endBottomRadius : startBottomRadius, this.leftBottomRadius);
+            float leftBottomRadius = ViewUtils.getRtlValue(isRtl ? endBottomRadius : startBottomRadius, this.leftBottomRadius);
             path.moveTo(paddingLeft, height - paddingBottom - leftBottomRadius);
             path.lineTo(paddingLeft, height - paddingBottom);
             path.lineTo(paddingLeft + leftBottomRadius, height - paddingBottom);
@@ -476,7 +476,7 @@ public class ShapeImageView extends AppCompatImageView {
             path.lineTo(width - paddingRight, (height - paddingTop - paddingBottom) / 2 + paddingTop);
             path.arcTo(new RectF(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom), 0, 90);
         } else {
-            float rightBottomRadius = Math.max(isRtl ? startBottomRadius : endBottomRadius, this.rightBottomRadius);
+            float rightBottomRadius = ViewUtils.getRtlValue(isRtl ? startBottomRadius : endBottomRadius, this.rightBottomRadius);
             path.moveTo(width - paddingRight - rightBottomRadius, height - paddingBottom);
             path.lineTo(width - paddingRight, height - paddingBottom);
             path.lineTo(width - paddingRight, height - paddingBottom - rightBottomRadius);
@@ -817,10 +817,10 @@ public class ShapeImageView extends AppCompatImageView {
     }
 
     private boolean is4BgRadiusEquals() {
-        float bgLeftTopRadius = Math.max(isRtl ? bgEndTopRadius : bgStartTopRadius, this.bgLeftTopRadius);
-        float bgLeftBottomRadius = Math.max(isRtl ? bgEndBottomRadius : bgStartBottomRadius, this.bgLeftBottomRadius);
-        float bgRightTopRadius = Math.max(isRtl ? bgStartTopRadius : bgEndTopRadius, this.bgRightTopRadius);
-        float bgRightBottomRadius = Math.max(isRtl ? bgStartBottomRadius : bgEndBottomRadius, this.bgRightBottomRadius);
+        float bgLeftTopRadius = ViewUtils.getRtlValue(isRtl ? bgEndTopRadius : bgStartTopRadius, this.bgLeftTopRadius);
+        float bgLeftBottomRadius = ViewUtils.getRtlValue(isRtl ? bgEndBottomRadius : bgStartBottomRadius, this.bgLeftBottomRadius);
+        float bgRightTopRadius = ViewUtils.getRtlValue(isRtl ? bgStartTopRadius : bgEndTopRadius, this.bgRightTopRadius);
+        float bgRightBottomRadius = ViewUtils.getRtlValue(isRtl ? bgStartBottomRadius : bgEndBottomRadius, this.bgRightBottomRadius);
 
         if (bgRightTopRadius == bgLeftTopRadius && bgLeftBottomRadius == bgLeftTopRadius && bgRightBottomRadius == bgLeftTopRadius) {
             return true;

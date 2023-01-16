@@ -62,4 +62,14 @@ public class ViewUtils {
         }
         return paddingRightMax;
     }
+
+    public static float getRtlValue(float startEndValue,float leftRightValue){
+        float value;
+        if (startEndValue != 0){
+            value = startEndValue;
+        }else {
+            value = leftRightValue;
+        }
+        return value;
+    }
 }
