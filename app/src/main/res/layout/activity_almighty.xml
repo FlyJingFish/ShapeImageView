@@ -29,6 +29,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_vector_heart"
                 android:scaleType="centerCrop" />
 
@@ -38,6 +39,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="10dp"
                 android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_vector_star"
                 android:scaleType="centerCrop" />
 
@@ -47,6 +49,7 @@
                 android:layout_height="110dp"
                 android:src="@mipmap/ic_launcher"
                 android:layout_marginStart="10dp"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_vector_flower"
                 android:scaleType="centerCrop" />
         </LinearLayout>
@@ -63,6 +66,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_vector_snowflake"
                 android:scaleType="centerCrop" />
 
@@ -72,6 +76,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="10dp"
                 android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_vector_pentagon"
                 android:scaleType="centerCrop" />
 
@@ -81,6 +86,7 @@
                 android:layout_height="110dp"
                 android:src="@mipmap/ic_launcher"
                 android:layout_marginStart="10dp"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_vector_sector"
                 android:scaleType="centerCrop" />
         </LinearLayout>
@@ -104,6 +110,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_rhombus"
                 android:scaleType="centerCrop" />
 
@@ -113,6 +120,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_triangle"
                 android:scaleType="centerCrop" />
 
@@ -137,6 +145,7 @@
                 android:layout_height="110dp"
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 app:almighty_shape_resource="@drawable/ic_circle"
                 android:scaleType="centerCrop" />
 

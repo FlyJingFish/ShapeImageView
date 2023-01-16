@@ -1,12 +1,14 @@
 package com.flyjingfish.shapeimageview;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.request.target.Target;
 import com.flyjingfish.shapeimageview.databinding.ActivityAlmightyBinding;
+import com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView;
 
 
 public class AlmightyImageActivity extends AppCompatActivity {
@@ -37,4 +39,7 @@ public class AlmightyImageActivity extends AppCompatActivity {
         MyImageLoader.getInstance().load(binding.iv9, itemData, R.mipmap.img_load_placeholder, R.mipmap.img_load_placeholder);
     }
 
+    public void onChangeClick(View view){
+        binding.iv1.setShapeResource(((AlmightyShapeImageView) view).getShapeDrawable());
+    }
 }
