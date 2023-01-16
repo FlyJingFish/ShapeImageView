@@ -651,6 +651,20 @@ public class ShapeImageView extends AppCompatImageView {
         invalidate();
     }
 
+    public void setRadius(int leftTopRadius,int rightTopRadius,int rightBottomRadius,int leftBottomRadius) {
+        this.leftTopRadius = leftTopRadius;
+        this.rightTopRadius = rightTopRadius;
+        this.rightBottomRadius = rightBottomRadius;
+        this.leftBottomRadius = leftBottomRadius;
+        invalidate();
+    }
+    public void setRelativeRadius(int startTopRadius,int endTopRadius,int endBottomRadius,int startBottomRadius) {
+        this.startTopRadius = startTopRadius;
+        this.endTopRadius = endTopRadius;
+        this.endBottomRadius = endBottomRadius;
+        this.startBottomRadius = startBottomRadius;
+        invalidate();
+    }
     public ShapeType getShapeType() {
         return shapeType;
     }
@@ -705,6 +719,22 @@ public class ShapeImageView extends AppCompatImageView {
         bgLeftBottomRadius = bgRadius;
         bgRightTopRadius = bgRadius;
         bgRightBottomRadius = bgRadius;
+        invalidate();
+    }
+
+    public void setBgRadius(float bgLeftTopRadius,float bgRightTopRadius,float bgRightBottomRadius,float bgLeftBottomRadius) {
+        this.bgLeftTopRadius = bgLeftTopRadius;
+        this.bgRightTopRadius = bgRightTopRadius;
+        this.bgRightBottomRadius = bgRightBottomRadius;
+        this.bgLeftBottomRadius = bgLeftBottomRadius;
+        invalidate();
+    }
+
+    public void setBgRelativeRadius(float bgStartTopRadius,float bgEndTopRadius,float bgEndBottomRadius,float bgStartBottomRadius) {
+        this.bgStartTopRadius = bgStartTopRadius;
+        this.bgEndTopRadius = bgEndTopRadius;
+        this.bgEndBottomRadius = bgEndBottomRadius;
+        this.bgStartBottomRadius = bgStartBottomRadius;
         invalidate();
     }
 
