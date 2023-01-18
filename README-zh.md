@@ -1,4 +1,13 @@
 # ShapeImageView
+
+![](https://img.shields.io/maven-central/v/io.github.FlyJingFish/ShapeImageView)
+[![GitHub stars](https://img.shields.io/github/stars/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/network)
+[![GitHub issues](https://img.shields.io/github/issues/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/issues)
+[![GitHub license](https://img.shields.io/github/license/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/blob/master/LICENSE)
+
+
+
 ## ShapeImageView支持圆图或圆角图，可绘制圆环背景边框或圆角框背景边框，除ImageView自带属性外新增4种显示模式；
 ## AlmightyShapeImageView支持显示任意图形，只有你想不到，没有它做不到；
 ## 本库中的ImageView没有操作Bitmap，可以放心使用！！！

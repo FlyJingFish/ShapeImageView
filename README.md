@@ -1,5 +1,12 @@
 # ShapeImageView
 
+![](https://img.shields.io/maven-central/v/io.github.FlyJingFish/ShapeImageView)
+[![GitHub stars](https://img.shields.io/github/stars/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/network)
+[![GitHub issues](https://img.shields.io/github/issues/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/issues)
+[![GitHub license](https://img.shields.io/github/license/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/blob/master/LICENSE)
+
+
 ## [中文版使用说明](https://github.com/FlyJingFish/ShapeImageView/blob/master/README-zh.md)
 
 ## ShapeImageView supports circle or rounded corners, and can draw circle background borders or rounded box background borders. In addition to the built-in properties of ImageView, 4 new display modes are added;
