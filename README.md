@@ -1,6 +1,6 @@
 # ShapeImageView
 
-[![Maven central](https://img.shields.io/maven-central/v/io.github.FlyJingFish/ShapeImageView)](https://central.sonatype.com/artifact/io.github.FlyJingFish)
+[![Maven central](https://img.shields.io/maven-central/v/io.github.FlyJingFish/ShapeImageView)](https://central.sonatype.com/search?q=io.github.FlyJingFish)
 [![GitHub stars](https://img.shields.io/github/stars/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/network)
 [![GitHub issues](https://img.shields.io/github/issues/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/issues)
