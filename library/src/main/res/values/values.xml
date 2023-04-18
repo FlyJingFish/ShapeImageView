@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="ShapeImageView">
-        <attr name="shapeScaleType" format="enum">
+        <attr name="FlyJFish_shapeScaleType" format="enum">
             <enum name="fitXY" value="1" />
             <enum name="fitStart" value="2" />
             <enum name="fitCenter" value="3" />
@@ -14,62 +14,62 @@
             <enum name="autoStartCenterCrop" value="10" />
             <enum name="autoEndCenterCrop" value="11" />
         </attr>
-        <attr name="shape_left_top_radius" format="dimension" />
-        <attr name="shape_left_bottom_radius" format="dimension" />
-        <attr name="shape_right_top_radius" format="dimension" />
-        <attr name="shape_right_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_left_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_left_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_right_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_right_bottom_radius" format="dimension" />
 
-        <attr name="shape_start_top_radius" format="dimension" />
-        <attr name="shape_start_bottom_radius" format="dimension" />
-        <attr name="shape_end_top_radius" format="dimension" />
-        <attr name="shape_end_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_start_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_start_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_end_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_end_bottom_radius" format="dimension" />
 
-        <attr name="shape_radius" format="dimension" />
+        <attr name="FlyJFish_shape_radius" format="dimension" />
         <!-- 图像高宽比是View高宽比的倍数 -->
-        <attr name="autoCrop_height_width_ratio" format="float" />
+        <attr name="FlyJFish_autoCrop_height_width_ratio" format="float" />
         <!-- 图像绘制形状 -->
-        <attr name="shape" format="enum">
+        <attr name="FlyJFish_shape" format="enum">
             <enum name="rectangle" value="1" />
             <enum name="oval" value="2" />
         </attr>
         <!-- 背景边框绘制形状 -->
-        <attr name="shape_border" format="enum">
+        <attr name="FlyJFish_shape_border" format="enum">
             <enum name="none" value="0" />
             <enum name="rectangle" value="1" />
             <enum name="oval" value="2" />
         </attr>
         <!-- 背景边框绘制颜色 -->
-        <attr name="shape_border_color" format="color"/>
+        <attr name="FlyJFish_shape_border_color" format="color"/>
         <!-- 背景边框绘制渐变色开始颜色 -->
-        <attr name="shape_border_startColor" format="color" />
+        <attr name="FlyJFish_shape_border_startColor" format="color" />
         <!-- 背景边框绘制渐变色中间颜色 -->
-        <attr name="shape_border_centerColor" format="color" />
+        <attr name="FlyJFish_shape_border_centerColor" format="color" />
         <!-- 背景边框绘制渐变色结束颜色 -->
-        <attr name="shape_border_endColor" format="color" />
+        <attr name="FlyJFish_shape_border_endColor" format="color" />
         <!-- 背景边框绘制渐变色开始角度 -->
-        <attr name="shape_border_angle" format="float" />
+        <attr name="FlyJFish_shape_border_angle" format="float" />
         <!-- 背景边框绘制渐变色开始角度是否支持镜像Rtl适配 -->
-        <attr name="shape_border_rtl_angle" format="boolean" />
+        <attr name="FlyJFish_shape_border_rtl_angle" format="boolean" />
         <!-- 背景边框绘制是否渐变色 -->
-        <attr name="shape_border_gradient" format="boolean" />
+        <attr name="FlyJFish_shape_border_gradient" format="boolean" />
         <!-- 背景边框绘制画笔宽度 -->
-        <attr name="shape_border_width" format="dimension" />
+        <attr name="FlyJFish_shape_border_width" format="dimension" />
         <!-- 背景边框绘制rectangle时的角度 -->
-        <attr name="shape_border_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_radius" format="dimension" />
         <!-- 以下是背景边框绘制rectangle时的各个角度 -->
-        <attr name="shape_border_left_top_radius" format="dimension" />
-        <attr name="shape_border_left_bottom_radius" format="dimension" />
-        <attr name="shape_border_right_top_radius" format="dimension" />
-        <attr name="shape_border_right_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_left_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_left_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_right_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_right_bottom_radius" format="dimension" />
 
-        <attr name="shape_border_start_top_radius" format="dimension" />
-        <attr name="shape_border_start_bottom_radius" format="dimension" />
-        <attr name="shape_border_end_top_radius" format="dimension" />
-        <attr name="shape_border_end_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_start_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_start_bottom_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_end_top_radius" format="dimension" />
+        <attr name="FlyJFish_shape_border_end_bottom_radius" format="dimension" />
     </declare-styleable>
     <declare-styleable name="AlmightyShapeImageView">
-        <attr name="almighty_shape_resource" format="reference" />
-        <attr name="almighty_shape_scaleType" format="enum">
+        <attr name="FlyJFish_almighty_shape_resource" format="reference" />
+        <attr name="FlyJFish_almighty_shape_scaleType" format="enum">
             <enum name="followImageViewKeepResourceScale" value="0" />
             <enum name="followImageViewFullImage" value="1" />
             <enum name="alwaysFixXY" value="2" />

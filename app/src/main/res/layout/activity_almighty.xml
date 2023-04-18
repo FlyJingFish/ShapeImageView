@@ -30,7 +30,7 @@
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_vector_heart"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_vector_heart"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
@@ -40,7 +40,7 @@
                 android:layout_marginStart="10dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_vector_star"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_vector_star"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
@@ -50,7 +50,7 @@
                 android:src="@mipmap/ic_launcher"
                 android:layout_marginStart="10dp"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_vector_flower"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_vector_flower"
                 android:scaleType="centerCrop" />
         </LinearLayout>
 
@@ -67,7 +67,7 @@
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_vector_snowflake"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_vector_snowflake"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
@@ -77,7 +77,7 @@
                 android:layout_marginStart="10dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_vector_pentagon"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_vector_pentagon"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
@@ -87,7 +87,7 @@
                 android:src="@mipmap/ic_launcher"
                 android:layout_marginStart="10dp"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_vector_sector"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_vector_sector"
                 android:scaleType="centerCrop" />
         </LinearLayout>
         <TextView
@@ -111,7 +111,7 @@
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_rhombus"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_rhombus"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
@@ -121,7 +121,7 @@
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_triangle"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_triangle"
                 android:scaleType="centerCrop" />
 
         </LinearLayout>
@@ -146,7 +146,7 @@
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
-                app:almighty_shape_resource="@drawable/ic_circle"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_circle"
                 android:scaleType="centerCrop" />
 
         </LinearLayout>

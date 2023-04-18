@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-public class ShapeImageViewAttacher implements View.OnLayoutChangeListener {
+class ShapeImageViewAttacher implements View.OnLayoutChangeListener {
     private final ShapeImageView mImageView;
     private final Matrix mBaseMatrix = new Matrix();
     private final Matrix mDrawMatrix = new Matrix();

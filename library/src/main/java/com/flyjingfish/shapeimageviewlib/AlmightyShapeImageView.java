@@ -35,8 +35,8 @@ public class AlmightyShapeImageView extends AppCompatImageView {
         super(context, attrs, defStyleAttr);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AlmightyShapeImageView);
-        mShapeResource = a.getDrawable(R.styleable.AlmightyShapeImageView_almighty_shape_resource);
-        mShapeScaleType = ShapeScaleType.getType(a.getInt(R.styleable.AlmightyShapeImageView_almighty_shape_scaleType, 0));
+        mShapeResource = a.getDrawable(R.styleable.AlmightyShapeImageView_FlyJFish_almighty_shape_resource);
+        mShapeScaleType = ShapeScaleType.getType(a.getInt(R.styleable.AlmightyShapeImageView_FlyJFish_almighty_shape_scaleType, 0));
         a.recycle();
         mShapePaint = new Paint();
         mShapePaint.setColor(Color.WHITE);

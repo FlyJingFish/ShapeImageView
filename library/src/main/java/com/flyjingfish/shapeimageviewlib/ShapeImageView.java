@@ -76,39 +76,39 @@ public class ShapeImageView extends AppCompatImageView {
             isRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == LayoutDirection.RTL;
         }
         TypedArray a = context.obtainStyledAttributes(attr, R.styleable.ShapeImageView);
-        mPendingScaleType = ShapeScaleType.getType(a.getInt(R.styleable.ShapeImageView_shapeScaleType, 0));
-        mAutoCropHeightWidthRatio = a.getFloat(R.styleable.ShapeImageView_autoCrop_height_width_ratio, 2f);
-        float radius = a.getDimension(R.styleable.ShapeImageView_shape_radius, 0);
-        leftTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_left_top_radius, radius);
-        leftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_left_bottom_radius, radius);
-        rightTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_right_top_radius, radius);
-        rightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_right_bottom_radius, radius);
+        mPendingScaleType = ShapeScaleType.getType(a.getInt(R.styleable.ShapeImageView_FlyJFish_shapeScaleType, 0));
+        mAutoCropHeightWidthRatio = a.getFloat(R.styleable.ShapeImageView_FlyJFish_autoCrop_height_width_ratio, 2f);
+        float radius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_radius, 0);
+        leftTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_left_top_radius, radius);
+        leftBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_left_bottom_radius, radius);
+        rightTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_right_top_radius, radius);
+        rightBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_right_bottom_radius, radius);
 
-        startTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_start_top_radius, radius);
-        startBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_start_bottom_radius, radius);
-        endTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_end_top_radius, radius);
-        endBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_end_bottom_radius, radius);
+        startTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_start_top_radius, radius);
+        startBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_start_bottom_radius, radius);
+        endTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_end_top_radius, radius);
+        endBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_end_bottom_radius, radius);
 
-        shapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shape, 1));
-        bgShapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_shape_border, 0));
-        int startColor = a.getColor(R.styleable.ShapeImageView_shape_border_startColor, Color.TRANSPARENT);
-        int centerColor = a.getColor(R.styleable.ShapeImageView_shape_border_centerColor, 0);
-        int endColor = a.getColor(R.styleable.ShapeImageView_shape_border_endColor, Color.TRANSPARENT);
-        bgShapeColor = a.getColor(R.styleable.ShapeImageView_shape_border_color, Color.BLACK);
-        gradientAngle = a.getFloat(R.styleable.ShapeImageView_shape_border_angle, 0);
-        gradientRtlAngle = a.getBoolean(R.styleable.ShapeImageView_shape_border_rtl_angle, false);
-        isGradient = a.getBoolean(R.styleable.ShapeImageView_shape_border_gradient, false);
-        mBgPaintWidth = a.getDimension(R.styleable.ShapeImageView_shape_border_width, 1);
-        float bgRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_radius, 0);
-        bgLeftTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_left_top_radius, bgRadius);
-        bgLeftBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_left_bottom_radius, bgRadius);
-        bgRightTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_right_top_radius, bgRadius);
-        bgRightBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_right_bottom_radius, bgRadius);
+        shapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_FlyJFish_shape, 1));
+        bgShapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_FlyJFish_shape_border, 0));
+        int startColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_startColor, Color.TRANSPARENT);
+        int centerColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_centerColor, 0);
+        int endColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_endColor, Color.TRANSPARENT);
+        bgShapeColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_color, Color.BLACK);
+        gradientAngle = a.getFloat(R.styleable.ShapeImageView_FlyJFish_shape_border_angle, 0);
+        gradientRtlAngle = a.getBoolean(R.styleable.ShapeImageView_FlyJFish_shape_border_rtl_angle, false);
+        isGradient = a.getBoolean(R.styleable.ShapeImageView_FlyJFish_shape_border_gradient, false);
+        mBgPaintWidth = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_width, 1);
+        float bgRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_radius, 0);
+        bgLeftTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_left_top_radius, bgRadius);
+        bgLeftBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_left_bottom_radius, bgRadius);
+        bgRightTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_right_top_radius, bgRadius);
+        bgRightBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_right_bottom_radius, bgRadius);
 
-        bgStartTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_start_top_radius, bgRadius);
-        bgStartBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_start_bottom_radius, bgRadius);
-        bgEndTopRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_end_top_radius, bgRadius);
-        bgEndBottomRadius = a.getDimension(R.styleable.ShapeImageView_shape_border_end_bottom_radius, bgRadius);
+        bgStartTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_start_top_radius, bgRadius);
+        bgStartBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_start_bottom_radius, bgRadius);
+        bgEndTopRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_end_top_radius, bgRadius);
+        bgEndBottomRadius = a.getDimension(R.styleable.ShapeImageView_FlyJFish_shape_border_end_bottom_radius, bgRadius);
 
         a.recycle();
 
