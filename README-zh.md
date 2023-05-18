@@ -90,7 +90,7 @@ ShapeImageView|AlmightyShapeImageView
 
 | attr                                      |     format      |             description              |
 |-------------------------------------------|:---------------:|:------------------------------------:|
-| shape                                     |      enum       |        图片是 rectangle矩形/oval圆形        |
+| FlyJFish_shape                            |      enum       |        图片是 rectangle矩形/oval圆形        |
 | FlyJFish_shape_radius                     |    dimension    |               图片四个角圆角                |
 | FlyJFish_shape_left_top_radius            |    dimension    |               图片左上角圆角                |
 | FlyJFish_shape_right_top_radius           |    dimension    |               图片右上角圆角                |
