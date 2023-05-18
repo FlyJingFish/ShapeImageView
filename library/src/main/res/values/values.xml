@@ -39,13 +39,13 @@
             <enum name="oval" value="2" />
         </attr>
         <!-- 背景边框绘制颜色 -->
-        <attr name="FlyJFish_shape_border_color" format="color"/>
+        <attr name="FlyJFish_shape_border_color" format="reference|color"/>
         <!-- 背景边框绘制渐变色开始颜色 -->
-        <attr name="FlyJFish_shape_border_startColor" format="color" />
+        <attr name="FlyJFish_shape_border_startColor" format="reference|color" />
         <!-- 背景边框绘制渐变色中间颜色 -->
-        <attr name="FlyJFish_shape_border_centerColor" format="color" />
+        <attr name="FlyJFish_shape_border_centerColor" format="reference|color" />
         <!-- 背景边框绘制渐变色结束颜色 -->
-        <attr name="FlyJFish_shape_border_endColor" format="color" />
+        <attr name="FlyJFish_shape_border_endColor" format="reference|color" />
         <!-- 背景边框绘制渐变色开始角度 -->
         <attr name="FlyJFish_shape_border_angle" format="float" />
         <!-- 背景边框绘制渐变色开始角度是否支持镜像Rtl适配 -->

@@ -1,6 +1,8 @@
 package com.flyjingfish.shapeimageviewlib;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,6 +20,7 @@ import android.util.AttributeSet;
 import android.util.LayoutDirection;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Size;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -25,12 +28,16 @@ import androidx.core.text.TextUtilsCompat;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 
 public class ShapeImageView extends AppCompatImageView {
     private ShapeImageViewAttacher mAttacher;
     private ShapeScaleType mPendingScaleType;
+    private final List<ColorStateList> gradientColorStates = new ArrayList<>();
     private float mAutoCropHeightWidthRatio;
     private float leftTopRadius;
     private float leftBottomRadius;
@@ -60,7 +67,8 @@ public class ShapeImageView extends AppCompatImageView {
     private float bgStartBottomRadius;
     private float bgEndTopRadius;
     private float bgEndBottomRadius;
-    private int bgShapeColor;
+    private ColorStateList bgShapeColor;
+    private int curBgShapeColor;
 
     public ShapeImageView(Context context) {
         this(context, null);
@@ -91,10 +99,10 @@ public class ShapeImageView extends AppCompatImageView {
 
         shapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_FlyJFish_shape, 1));
         bgShapeType = ShapeType.getType(a.getInt(R.styleable.ShapeImageView_FlyJFish_shape_border, 0));
-        int startColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_startColor, Color.TRANSPARENT);
-        int centerColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_centerColor, 0);
-        int endColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_endColor, Color.TRANSPARENT);
-        bgShapeColor = a.getColor(R.styleable.ShapeImageView_FlyJFish_shape_border_color, Color.BLACK);
+        ColorStateList startColor = a.getColorStateList(R.styleable.ShapeImageView_FlyJFish_shape_border_startColor);
+        ColorStateList centerColor = a.getColorStateList(R.styleable.ShapeImageView_FlyJFish_shape_border_centerColor);
+        ColorStateList endColor = a.getColorStateList(R.styleable.ShapeImageView_FlyJFish_shape_border_endColor);
+        bgShapeColor = a.getColorStateList(R.styleable.ShapeImageView_FlyJFish_shape_border_color);
         gradientAngle = a.getFloat(R.styleable.ShapeImageView_FlyJFish_shape_border_angle, 0);
         gradientRtlAngle = a.getBoolean(R.styleable.ShapeImageView_FlyJFish_shape_border_rtl_angle, false);
         isGradient = a.getBoolean(R.styleable.ShapeImageView_FlyJFish_shape_border_gradient, false);
@@ -113,16 +121,30 @@ public class ShapeImageView extends AppCompatImageView {
         a.recycle();
 
 
+
+
+        if (startColor != null){
+            gradientColorStates.add(startColor);
+        }
+        if (centerColor != null){
+            gradientColorStates.add(centerColor);
+        }
+        if (endColor != null){
+            gradientColorStates.add(endColor);
+        }
+        if (gradientColorStates.size() == 1){
+            gradientColorStates.add(ColorStateList.valueOf(Color.TRANSPARENT));
+        }
+        if (bgShapeColor == null){
+            bgShapeColor = ColorStateList.valueOf(Color.BLACK);
+        }
+
+
+        updateColors();
         mBgPaint = new Paint();
-        mBgPaint.setColor(bgShapeColor);
+        mBgPaint.setColor(curBgShapeColor);
         mBgPaint.setAntiAlias(true);
         mBgPaint.setStrokeWidth(mBgPaintWidth);
-
-        if (centerColor == 0) {
-            gradientColors = new int[]{startColor, endColor};
-        } else {
-            gradientColors = new int[]{startColor, centerColor, endColor};
-        }
         mBgPaint.setStyle(Paint.Style.STROKE);
 
         mImagePaint = new Paint();
@@ -136,6 +158,55 @@ public class ShapeImageView extends AppCompatImageView {
         init();
     }
 
+    @Override
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        updateColors();
+    }
+
+    private boolean updateColors(){
+        boolean inval = false;
+        final int[] drawableState = getDrawableState();
+        int color = bgShapeColor.getColorForState(drawableState, 0);
+        if (color != curBgShapeColor) {
+            curBgShapeColor = color;
+            inval = true;
+            if (mBgPaint != null){
+                mBgPaint.setColor(curBgShapeColor);
+            }
+        }
+        if (gradientColorStates != null && gradientColorStates.size() > 0){
+            int[] gradientCls = new int[gradientColorStates.size()];
+            for (int i = 0; i < gradientColorStates.size(); i++) {
+                int gradientColor = gradientColorStates.get(i).getColorForState(drawableState, 0);
+                gradientCls[i] = gradientColor;
+            }
+            if (gradientColors == null) {
+                gradientColors = gradientCls;
+                inval = true;
+            } else if (gradientColors.length != gradientCls.length){
+                gradientColors = gradientCls;
+                inval = true;
+            } else {
+                boolean equals = true;
+                for (int i = 0; i < gradientColors.length; i++) {
+                    if (gradientColors[i] != gradientCls[i]){
+                        equals = false;
+                        break;
+                    }
+                }
+                if (!equals){
+                    gradientColors = gradientCls;
+                    inval = true;
+                }
+            }
+        }
+
+        if (inval){
+            invalidate();
+        }
+        return inval;
+    }
     private void init() {
         mAttacher = new ShapeImageViewAttacher(this);
         mAttacher.setAutoCropHeightWidthRatio(mAutoCropHeightWidthRatio);
@@ -218,17 +289,18 @@ public class ShapeImageView extends AppCompatImageView {
         return changed;
     }
 
+    @SuppressLint("DrawAllocation")
     @Override
     protected void onDraw(Canvas canvas) {
         drawBgShape(canvas);
         clipPadding(canvas);
         if (shapeType == ShapeType.OVAL) {
-            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
+            canvas.saveLayer(new RectF(0, 0, getWidth(), getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
             super.onDraw(canvas);
             drawOval(canvas);
             canvas.restore();
         } else if (shapeType == ShapeType.RECTANGLE) {
-            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
+            canvas.saveLayer(new RectF(0, 0, getWidth(), getHeight()), mImagePaint, Canvas.ALL_SAVE_FLAG);
             super.onDraw(canvas);
             drawRectangle(canvas);
             canvas.restore();
@@ -248,7 +320,7 @@ public class ShapeImageView extends AppCompatImageView {
         int height = getHeight();
         int width = getWidth();
         RectF rectF = new RectF(mBgPaintWidth / 2, mBgPaintWidth / 2, width - mBgPaintWidth / 2, height - mBgPaintWidth / 2);
-        if (isGradient) {
+        if (isGradient && gradientColors != null) {
             float currentAngle = gradientAngle;
             if (gradientRtlAngle && isRtl){
                 currentAngle = - gradientAngle;
@@ -596,15 +668,19 @@ public class ShapeImageView extends AppCompatImageView {
     }
 
     public int getBgShapeColor() {
-        return bgShapeColor;
+        return curBgShapeColor;
     }
 
-    public void setBgShapeColor(int bgShapeColor) {
-        this.bgShapeColor = bgShapeColor;
-        if (mBgPaint != null){
-            mBgPaint.setColor(bgShapeColor);
-            invalidate();
+    public void setBgShapeColor(@ColorInt int bgShapeColor) {
+        setBgShapeColors(ColorStateList.valueOf(bgShapeColor));
+    }
+
+    public void setBgShapeColors(ColorStateList bgShapeColor) {
+        if (bgShapeColor == null){
+            return;
         }
+        this.bgShapeColor = bgShapeColor;
+        updateColors();
     }
 
     public float getLeftTopRadius() {
@@ -876,13 +952,30 @@ public class ShapeImageView extends AppCompatImageView {
     public int[] getGradientColors() {
         return gradientColors;
     }
-
+    public List<ColorStateList> getGradientColorStates() {
+        return gradientColorStates;
+    }
     /**
      * @param gradientColors 渐变色
      */
-    public void setGradientColors(@Size(min = 2) @ColorInt int[] gradientColors) {
-        this.gradientColors = gradientColors;
-        invalidate();
+    public void setGradientColors(@Size(min = 2) @NonNull @ColorInt int[] gradientColors) {
+        ColorStateList[] colorStateLists = new ColorStateList[gradientColors.length];
+        for (int i = 0; i < gradientColors.length; i++) {
+            colorStateLists[i] = ColorStateList.valueOf(gradientColors[i]);
+        }
+        setGradientColors(colorStateLists);
+    }
+
+    public void setGradientColors(@NonNull ColorStateList[] colorStateLists) {
+        gradientColorStates.clear();
+        gradientColorStates.addAll(Arrays.asList(colorStateLists));
+        if (gradientColorStates.size() == 1){
+            gradientColorStates.add(ColorStateList.valueOf(Color.TRANSPARENT));
+        }
+        if (gradientPositions != null && gradientColorStates.size() != gradientPositions.length){
+            this.gradientPositions = null;
+        }
+        updateColors();
     }
 
 }

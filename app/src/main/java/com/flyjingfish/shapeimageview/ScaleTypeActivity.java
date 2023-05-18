@@ -48,6 +48,9 @@ public class ScaleTypeActivity extends AppCompatActivity {
         binding.ivCenterInside.setGradientColors(new int[]{getResources().getColor(R.color.purple_700),getResources().getColor(R.color.white),getResources().getColor(R.color.purple_200)});
         //渐变色分布
         binding.ivCenterInside.setGradientPositions(new float[]{0f,0.5f,1});
+
+        binding.ivFitStart.setOnClickListener(v -> {});
+        binding.ivFitCenter.setOnClickListener(v -> {});
     }
 
 

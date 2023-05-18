@@ -160,8 +160,8 @@
                 app:FlyJFish_shape_border_angle="45"
                 app:FlyJFish_shape_border_radius="10dp"
                 app:FlyJFish_shape_border_gradient="true"
-                app:FlyJFish_shape_border_startColor="@color/purple_200"
-                app:FlyJFish_shape_border_endColor="@color/teal_700"
+                app:FlyJFish_shape_border_startColor="@color/press_start"
+                app:FlyJFish_shape_border_endColor="@color/press_end"
                 android:scaleType="centerCrop" />
 
             <com.flyjingfish.shapeimageviewlib.ShapeImageView
@@ -184,7 +184,7 @@
                 app:FlyJFish_shape_border_end_bottom_radius="20dp"
                 app:FlyJFish_shape_border_start_bottom_radius="25dp"
                 app:FlyJFish_shape_border_gradient="false"
-                app:FlyJFish_shape_border_color="@color/teal_200"
+                app:FlyJFish_shape_border_color="@color/press"
                 android:scaleType="centerCrop"  />
 
             <com.flyjingfish.shapeimageviewlib.ShapeImageView

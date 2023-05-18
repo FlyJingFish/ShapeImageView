@@ -48,7 +48,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ```gradle
     dependencies {
-        implementation 'io.github.FlyJingFish:ShapeImageView:1.5.0'
+        implementation 'io.github.FlyJingFish:ShapeImageView:1.5.1'
     }
 ```
 ## The third step, instructions for use
@@ -91,38 +91,38 @@ ShapeImageView|AlmightyShapeImageView
 
 ### List of properties
 
-| attr                                      |  format   |                                         description                                         |
-|-------------------------------------------|:---------:|:-------------------------------------------------------------------------------------------:|
-| FlyJFish_shape                            |   enum    |                           The picture is a rectangle/oval circle                            |
-| FlyJFish_shape_radius                     | dimension |                          The four corners of the image are rounded                          |
-| FlyJFish_shape_left_top_radius            | dimension |                        The upper left corner of the image is rounded                        |
-| FlyJFish_shape_right_top_radius           | dimension |                    Round corners in the upper right corner of the image                     |
-| FlyJFish_shape_right_bottom_radius        | dimension |                       The bottom right corner of the image is rounded                       |
-| FlyJFish_shape_left_bottom_radius         | dimension |                       The bottom left corner of the image is rounded                        |
-| FlyJFish_shape_start_top_radius           | dimension |                       image top left (Rtl: top right) corner rounded                        |
-| FlyJFish_shape_end_top_radius             | dimension |                       image top right (Rtl: top left) corner rounded                        |
-| FlyJFish_shape_end_bottom_radius          | dimension |                   picture bottom right (Rtl: bottom left) corner rounded                    |
-| FlyJFish_shape_start_bottom_radius        | dimension |                   picture bottom left (Rtl: bottom right) corner rounded                    |
-| FlyJFish_shape_border                     |   enum    | The background border drawing shape is none without drawing/rectangle rectangle/oval circle |
-| FlyJFish_shape_border_radius              | dimension |                    The four corners of the background border are rounded                    |
-| FlyJFish_shape_border_left_top_radius     | dimension |                   The top left corner of the background border is rounded                   |
-| FlyJFish_shape_border_right_top_radius    | dimension |             rounded corners in the upper right corner of the background border              |
-| FlyJFish_shape_border_right_bottom_radius | dimension |                 The bottom right corner of the background border is rounded                 |
-| FlyJFish_shape_border_left_bottom_radius  | dimension |                 The bottom left corner of the background border is rounded                  |
-| FlyJFish_shape_border_start_top_radius    | dimension |                 background border top left (Rtl: top right) corner rounded                  |
-| FlyJFish_shape_border_end_top_radius      | dimension |                 background border top right (Rtl: top left) corner rounded                  |
-| FlyJFish_shape_border_end_bottom_radius   | dimension |              background border bottom right (Rtl: bottom left) corner rounded               |
-| FlyJFish_shape_border_start_bottom_radius | dimension |       The bottom left (Rtl: bottom right) corner of the background border is rounded        |
-| FlyJFish_shape_border_color               |   color   |                               Background border drawing color                               |
-| FlyJFish_shape_border_gradient            |  boolean  |                  Whether the background border is drawn in gradient color                   |
-| FlyJFish_shape_border_startColor          |   color   |                    The background border draw gradient color start color                    |
-| FlyJFish_shape_border_centerColor         |   color   |                    The background border draws the gradient middle color                    |
-| FlyJFish_shape_border_endColor            |   color   |                  The background border draws the gradient color end color                   |
-| FlyJFish_shape_border_angle               |   float   |                   Start angle of background border drawing gradient color                   |
-| FlyJFish_shape_border_rtl_angle           |  boolean  |    Does the gradient start angle of the background border support mirror Rtl adaptation     |
-| FlyJFish_shape_border_strokeWidth         | dimension |                          width of background border drawing brush                           |
-| FlyJFish_autoCrop_height_width_ratio      |   float   |                The image aspect ratio is a multiple of the View aspect ratio                |
-| FlyJFish_shapeScaleType                   |   enum    |          If you set the new display mode to set this, the details are as follows:           |
+| attr                                      |     format      |                                         description                                         |
+|-------------------------------------------|:---------------:|:-------------------------------------------------------------------------------------------:|
+| FlyJFish_shape                            |      enum       |                           The picture is a rectangle/oval circle                            |
+| FlyJFish_shape_radius                     |    dimension    |                          The four corners of the image are rounded                          |
+| FlyJFish_shape_left_top_radius            |    dimension    |                        The upper left corner of the image is rounded                        |
+| FlyJFish_shape_right_top_radius           |    dimension    |                    Round corners in the upper right corner of the image                     |
+| FlyJFish_shape_right_bottom_radius        |    dimension    |                       The bottom right corner of the image is rounded                       |
+| FlyJFish_shape_left_bottom_radius         |    dimension    |                       The bottom left corner of the image is rounded                        |
+| FlyJFish_shape_start_top_radius           |    dimension    |                       image top left (Rtl: top right) corner rounded                        |
+| FlyJFish_shape_end_top_radius             |    dimension    |                       image top right (Rtl: top left) corner rounded                        |
+| FlyJFish_shape_end_bottom_radius          |    dimension    |                   picture bottom right (Rtl: bottom left) corner rounded                    |
+| FlyJFish_shape_start_bottom_radius        |    dimension    |                   picture bottom left (Rtl: bottom right) corner rounded                    |
+| FlyJFish_shape_border                     |      enum       | The background border drawing shape is none without drawing/rectangle rectangle/oval circle |
+| FlyJFish_shape_border_radius              |    dimension    |                    The four corners of the background border are rounded                    |
+| FlyJFish_shape_border_left_top_radius     |    dimension    |                   The top left corner of the background border is rounded                   |
+| FlyJFish_shape_border_right_top_radius    |    dimension    |             rounded corners in the upper right corner of the background border              |
+| FlyJFish_shape_border_right_bottom_radius |    dimension    |                 The bottom right corner of the background border is rounded                 |
+| FlyJFish_shape_border_left_bottom_radius  |    dimension    |                 The bottom left corner of the background border is rounded                  |
+| FlyJFish_shape_border_start_top_radius    |    dimension    |                 background border top left (Rtl: top right) corner rounded                  |
+| FlyJFish_shape_border_end_top_radius      |    dimension    |                 background border top right (Rtl: top left) corner rounded                  |
+| FlyJFish_shape_border_end_bottom_radius   |    dimension    |              background border bottom right (Rtl: bottom left) corner rounded               |
+| FlyJFish_shape_border_start_bottom_radius |    dimension    |       The bottom left (Rtl: bottom right) corner of the background border is rounded        |
+| FlyJFish_shape_border_color               | color/reference |                               Background border drawing color                               |
+| FlyJFish_shape_border_gradient            |     boolean     |                  Whether the background border is drawn in gradient color                   |
+| FlyJFish_shape_border_startColor          | color/reference |                    The background border draw gradient color start color                    |
+| FlyJFish_shape_border_centerColor         | color/reference |                    The background border draws the gradient middle color                    |
+| FlyJFish_shape_border_endColor            | color/reference |                  The background border draws the gradient color end color                   |
+| FlyJFish_shape_border_angle               |      float      |                   Start angle of background border drawing gradient color                   |
+| FlyJFish_shape_border_rtl_angle           |     boolean     |    Does the gradient start angle of the background border support mirror Rtl adaptation     |
+| FlyJFish_shape_border_strokeWidth         |    dimension    |                          width of background border drawing brush                           |
+| FlyJFish_autoCrop_height_width_ratio      |      float      |                The image aspect ratio is a multiple of the View aspect ratio                |
+| FlyJFish_shapeScaleType                   |      enum       |          If you set the new display mode to set this, the details are as follows:           |
 
 | FlyJFish_shapeScaleType |                      description                      |
 |-------------------------|:-----------------------------------------------------:|
