@@ -45,6 +45,16 @@ public class AlmightyShapeImageView extends AppCompatImageView {
     }
 
     @Override
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        final int[] drawableState = getDrawableState();
+        boolean inval = mShapeResource.setState(drawableState);
+        if (inval){
+            invalidate();
+        }
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         if (mShapeResource != null) {
             preDrawShaper(canvas);

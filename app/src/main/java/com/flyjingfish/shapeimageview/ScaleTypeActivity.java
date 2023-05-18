@@ -51,6 +51,7 @@ public class ScaleTypeActivity extends AppCompatActivity {
 
         binding.ivFitStart.setOnClickListener(v -> {});
         binding.ivFitCenter.setOnClickListener(v -> {});
+        binding.ivPress.setOnClickListener(v -> {});
     }
 
 

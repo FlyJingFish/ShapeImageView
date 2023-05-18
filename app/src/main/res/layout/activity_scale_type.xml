@@ -277,6 +277,20 @@
                 app:FlyJFish_shape_border_startColor="@color/purple_200"
                 app:FlyJFish_shape_border_endColor="@color/teal_700"
                 app:FlyJFish_shapeScaleType="endCrop" />
+
+            <com.flyjingfish.shapeimageviewlib.ShapeImageView
+                android:id="@+id/iv_press"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_press"
+                android:padding="6dp"
+                app:FlyJFish_shape="rectangle"
+                app:FlyJFish_shape_border="none"
+                app:FlyJFish_shape_border_width="2dp"
+                app:FlyJFish_autoCrop_height_width_ratio="2"
+                app:FlyJFish_shape_border_color="@color/teal_200"
+                app:FlyJFish_shapeScaleType="autoEndCenterCrop" />
         </LinearLayout>
 
         <LinearLayout

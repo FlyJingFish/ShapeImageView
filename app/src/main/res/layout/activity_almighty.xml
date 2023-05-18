@@ -148,6 +148,15 @@
                 android:onClick="onChangeClick"
                 app:FlyJFish_almighty_shape_resource="@drawable/ic_circle"
                 android:scaleType="centerCrop" />
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv_press"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
+                app:FlyJFish_almighty_shape_resource="@drawable/ic_press"
+                android:scaleType="centerCrop" />
 
         </LinearLayout>
     </LinearLayout>
