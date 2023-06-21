@@ -175,9 +175,10 @@ ShapeImageView|AlmightyShapeImageView
 
 - [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
 
-*如果想直接使用svg格式图可以这样做*
+#### 如果想直接使用svg格式图可以这样做
 
 引用三方解析包
+
 ```gradle
     dependencies {
         implementation 'com.caverock:androidsvg-aar:1.4'
@@ -215,6 +216,7 @@ public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
     }
 }
 ```
+
 [SvgDrawableTranscoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDrawableTranscoder.java)
 
 ```java
