@@ -10,6 +10,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.PictureDrawable;
 import android.util.AttributeSet;
 
 import androidx.annotation.DrawableRes;
@@ -143,8 +144,17 @@ public class AlmightyShapeImageView extends AppCompatImageView {
         mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
         mShapeResource.setBounds(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom);
+        float scaleX = 1f;
+        float scaleY = 1f;
+        if (mShapeResource instanceof PictureDrawable){
+            scaleX = mShapeResource.getBounds().width() *1f/mShapeResource.getIntrinsicWidth();
+            scaleY = mShapeResource.getBounds().height() *1f/mShapeResource.getIntrinsicHeight();
+            canvas.scale(scaleX,scaleY);
+        }
         mShapeResource.draw(canvas);
-
+        if (mShapeResource instanceof PictureDrawable){
+            canvas.scale(1/scaleX,1/scaleY);
+        }
         isDrawShapeClear = true;
     }
 
@@ -269,7 +279,17 @@ public class AlmightyShapeImageView extends AppCompatImageView {
             mShapePaint.setXfermode(null);
             canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
             mShapeResource.setBounds(left, top, right, bottom);
+            float scaleX = 1f;
+            float scaleY = 1f;
+            if (mShapeResource instanceof PictureDrawable){
+                scaleX = mShapeResource.getBounds().width() *1f/mShapeResource.getIntrinsicWidth();
+                scaleY = mShapeResource.getBounds().height() *1f/mShapeResource.getIntrinsicHeight();
+                canvas.scale(scaleX,scaleY);
+            }
             mShapeResource.draw(canvas);
+            if (mShapeResource instanceof PictureDrawable){
+                canvas.scale(1/scaleX,1/scaleY);
+            }
         }
         mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);

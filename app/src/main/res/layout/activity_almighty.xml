@@ -2,12 +2,12 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingVertical="20dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingVertical="20dp"
         android:orientation="vertical">
 
         <TextView
@@ -155,7 +155,32 @@
                 android:layout_marginStart="5dp"
                 android:src="@mipmap/ic_launcher"
                 android:onClick="onChangeClick"
+                app:FlyJFish_almighty_shape_scaleType="followImageViewFullImage"
                 app:FlyJFish_almighty_shape_resource="@drawable/ic_press"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="图形资源图是svg类型的" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.flyjingfish.shapeimageviewlib.AlmightyShapeImageView
+                android:id="@+id/iv10"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginStart="5dp"
+                android:src="@mipmap/ic_launcher"
+                android:onClick="onChangeClick"
                 android:scaleType="centerCrop" />
 
         </LinearLayout>

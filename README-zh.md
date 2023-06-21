@@ -45,7 +45,7 @@ ShapeImageView|AlmightyShapeImageView
 
 ```gradle
     dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.5.2'
+        implementation 'com.github.FlyJingFish:ShapeImageView:1.5.3'
     }
 ```
 ## 第三步，使用说明
@@ -174,6 +174,132 @@ ShapeImageView|AlmightyShapeImageView
 如果使用是png或svg资源可以将其转化为vector，详情可以看我的博客：
 
 - [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
+
+*如果想直接使用svg格式图可以这样做*
+
+引用三方解析包
+```gradle
+    dependencies {
+        implementation 'com.caverock:androidsvg-aar:1.4'
+    }
+```
+
+新增如下两个类
+
+[OpenImage](https://github.com/FlyJingFish/OpenImage/blob/master/com/flyjingfish/shapeimageview.svg)
+
+```java
+public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
+
+    @Override
+    public boolean handles(@NonNull InputStream source, @NonNull Options options) {
+        // TODO: Can we tell?
+        return true;
+    }
+
+    public Resource<SVG> decode(
+            @NonNull InputStream source, int width, int height, @NonNull Options options)
+            throws IOException {
+        try {
+            SVG svg = SVG.getFromInputStream(source);
+            if (width != SIZE_ORIGINAL) {
+                svg.setDocumentWidth(width);
+            }
+            if (height != SIZE_ORIGINAL) {
+                svg.setDocumentHeight(height);
+            }
+            return new SimpleResource<>(svg);
+        } catch (SVGParseException ex) {
+            throw new IOException("Cannot load SVG from stream", ex);
+        }
+    }
+}
+```
+
+```java
+public class SvgDrawableTranscoder implements ResourceTranscoder<SVG, PictureDrawable> {
+    @Nullable
+    @Override
+    public Resource<PictureDrawable> transcode(
+            @NonNull Resource<SVG> toTranscode, @NonNull Options options) {
+        SVG svg = toTranscode.get();
+        Picture picture = svg.renderToPicture();
+        PictureDrawable drawable = new PictureDrawable(picture);
+        return new SimpleResource<>(drawable);
+    }
+}
+```
+
+新增glide配置
+
+```java
+
+@GlideModule
+public class MyAppGlideModule extends AppGlideModule {
+
+    @Override
+    public void registerComponents(
+            @NonNull Context context, @NonNull Glide glide, @NonNull Registry registry) {
+        registry
+                .register(SVG.class, PictureDrawable.class, new SvgDrawableTranscoder())
+                .append(InputStream.class, SVG.class, new SvgDecoder());
+    }
+
+    // Disable manifest parsing to avoid adding similar modules twice.
+    @Override
+    public boolean isManifestParsingEnabled() {
+        return false;
+    }
+}
+
+```
+
+开始使用svg
+
+本地资源
+
+```java
+Uri uri =
+        Uri.parse(
+                ContentResolver.SCHEME_ANDROID_RESOURCE
+                        + "://"
+                        + getPackageName()
+                        + "/"
+                        + R.raw.dog_heart);
+GlideApp.with(this)
+        .as(PictureDrawable.class)
+        .transition(withCrossFade())
+        .load(uri).into(new CustomTarget<PictureDrawable>() {
+            @Override
+            public void onResourceReady(@NonNull PictureDrawable resource, @Nullable Transition<? super PictureDrawable> transition) {
+                imageView.setShapeResource(resource);
+            }
+
+            @Override
+            public void onLoadCleared(@Nullable Drawable placeholder) {
+
+            }
+        });
+```
+
+网络资源
+```java
+Uri uri = Uri.parse("http://www.clker.com/cliparts/u/Z/2/b/a/6/android-toy-h.svg");
+GlideApp.with(this)
+        .as(PictureDrawable.class)
+        .transition(withCrossFade())
+        .load(uri).into(new CustomTarget<PictureDrawable>() {
+            @Override
+            public void onResourceReady(@NonNull PictureDrawable resource, @Nullable Transition<? super PictureDrawable> transition) {
+                imageView.setShapeResource(resource);
+            }
+            
+            @Override
+            public void onLoadCleared(@Nullable Drawable placeholder) {
+            
+            }
+        });
+```
 
 ### 番外：如果您的图形资源图想要用网络图片（即不打包到apk中）
 
