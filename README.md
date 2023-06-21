@@ -178,6 +178,137 @@ If you use png or svg resources, you can convert them to vector. For details, se
 
 - [Blog Instructions](https://blog.csdn.net/u013077428/article/details/127613904)
 
+#### If you want to use the svg format map directly, you can do this
+
+Refer to the three-party analysis package
+
+```gradle
+     dependencies {
+         implementation 'com.caverock:androidsvg-aar:1.4'
+     }
+```
+
+**Add the following two classes**
+
+- [SvgDecoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDecoder.java)
+
+```java
+public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
+
+     @Override
+     public boolean handles(@NonNull InputStream source, @NonNull Options options) {
+         // TODO: Can we tell?
+         return true;
+     }
+
+     public Resource<SVG> decode(
+             @NonNull InputStream source, int width, int height, @NonNull Options options)
+             throws IOException {
+         try {
+             SVG svg = SVG. getFromInputStream(source);
+             if (width != SIZE_ORIGINAL) {
+                 svg.setDocumentWidth(width);
+             }
+             if (height != SIZE_ORIGINAL) {
+                 svg.setDocumentHeight(height);
+             }
+             return new SimpleResource<>(svg);
+         } catch (SVGParseException ex) {
+             throw new IOException("Cannot load SVG from stream", ex);
+         }
+     }
+}
+```
+
+- [SvgDrawableTranscoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDrawableTranscoder.java)
+
+```java
+public class SvgDrawableTranscoder implements ResourceTranscoder<SVG, PictureDrawable> {
+     @Nullable
+     @Override
+     public Resource<PictureDrawable> transcode(
+             @NonNull Resource<SVG> toTranscode, @NonNull Options options) {
+         SVG svg = toTranscode. get();
+         Picture picture = svg. renderToPicture();
+         PictureDrawable drawable = new PictureDrawable(picture);
+         return new SimpleResource<>(drawable);
+     }
+}
+```
+
+**New glide configuration**
+
+[MyAppGlideModule](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/MyAppGlideModule.java)
+
+```java
+
+@GlideModule
+public class MyAppGlideModule extends AppGlideModule {
+
+     @Override
+     public void registerComponents(
+             @NonNull Context context, @NonNull Glide glide, @NonNull Registry registry) {
+         registry
+                 .register(SVG.class, PictureDrawable.class, new SvgDrawableTranscoder())
+                 .append(InputStream.class, SVG.class, new SvgDecoder());
+     }
+
+     @Override
+     public boolean isManifestParsingEnabled() {
+         return false;
+     }
+}
+
+```
+
+**Start using svg**
+
+- local resources
+
+```java
+Uri uri =
+         Uri. parse(
+                 ContentResolver.SCHEME_ANDROID_RESOURCE
+                         + "://"
+                         + getPackageName()
+                         + "/"
+                         + R.raw.dog_heart);
+GlideApp.with(this)
+         .as(PictureDrawable.class)
+         .transition(withCrossFade())
+         .load(uri).into(new CustomTarget<PictureDrawable>() {
+             @Override
+             public void onResourceReady(@NonNull PictureDrawable resource, @Nullable Transition<? super PictureDrawable> transition) {
+                 imageView.setShapeResource(resource);
+             }
+
+             @Override
+             public void onLoadCleared(@Nullable Drawable placeholder) {
+
+             }
+         });
+```
+
+- Internet resources
+
+```java
+Uri uri = Uri.parse("http://www.clker.com/cliparts/u/Z/2/b/a/6/android-toy-h.svg");
+GlideApp.with(this)
+         .as(PictureDrawable.class)
+         .transition(withCrossFade())
+         .load(uri).into(new CustomTarget<PictureDrawable>() {
+             @Override
+             public void onResourceReady(@NonNull PictureDrawable resource, @Nullable Transition<? super PictureDrawable> transition) {
+                 imageView.setShapeResource(resource);
+             }
+            
+             @Override
+             public void onLoadCleared(@Nullable Drawable placeholder) {
+            
+             }
+         });
+```
+
 ## Common problem
 
 1. In some graphics, the pictures are not displayed completely after changing attributes such as rotation, rotationX, rotationY, etc.
