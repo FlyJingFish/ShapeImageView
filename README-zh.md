@@ -186,7 +186,7 @@ ShapeImageView|AlmightyShapeImageView
 
 新增如下两个类
 
-[OpenImage](https://github.com/FlyJingFish/OpenImage/blob/master/com/flyjingfish/shapeimageview.svg)
+[SvgDecoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDecoder.java)
 
 ```java
 public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
@@ -215,6 +215,7 @@ public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
     }
 }
 ```
+[SvgDrawableTranscoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDrawableTranscoder.java)
 
 ```java
 public class SvgDrawableTranscoder implements ResourceTranscoder<SVG, PictureDrawable> {
@@ -232,6 +233,8 @@ public class SvgDrawableTranscoder implements ResourceTranscoder<SVG, PictureDra
 
 新增glide配置
 
+[MyAppGlideModule](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/MyAppGlideModule.java)
+
 ```java
 
 @GlideModule
@@ -245,7 +248,6 @@ public class MyAppGlideModule extends AppGlideModule {
                 .append(InputStream.class, SVG.class, new SvgDecoder());
     }
 
-    // Disable manifest parsing to avoid adding similar modules twice.
     @Override
     public boolean isManifestParsingEnabled() {
         return false;
