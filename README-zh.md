@@ -185,9 +185,9 @@ ShapeImageView|AlmightyShapeImageView
     }
 ```
 
-新增如下两个类
+**新增如下两个类**
 
-[SvgDecoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDecoder.java)
+- [SvgDecoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDecoder.java)
 
 ```java
 public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
@@ -217,7 +217,7 @@ public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
 }
 ```
 
-[SvgDrawableTranscoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDrawableTranscoder.java)
+- [SvgDrawableTranscoder](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/SvgDrawableTranscoder.java)
 
 ```java
 public class SvgDrawableTranscoder implements ResourceTranscoder<SVG, PictureDrawable> {
@@ -233,7 +233,7 @@ public class SvgDrawableTranscoder implements ResourceTranscoder<SVG, PictureDra
 }
 ```
 
-新增glide配置
+**新增glide配置**
 
 [MyAppGlideModule](https://github.com/FlyJingFish/ShapeImageView/tree/master/app/src/main/java/com/flyjingfish/shapeimageview/svg/MyAppGlideModule.java)
 
@@ -258,9 +258,9 @@ public class MyAppGlideModule extends AppGlideModule {
 
 ```
 
-开始使用svg
+**开始使用svg**
 
-本地资源
+- 本地资源
 
 ```java
 Uri uri =
@@ -286,7 +286,8 @@ GlideApp.with(this)
         });
 ```
 
-网络资源
+- 网络资源
+
 ```java
 Uri uri = Uri.parse("http://www.clker.com/cliparts/u/Z/2/b/a/6/android-toy-h.svg");
 GlideApp.with(this)
