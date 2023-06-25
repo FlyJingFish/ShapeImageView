@@ -24,6 +24,8 @@ public class AlmightyShapeImageView extends AppCompatImageView {
     private final Paint mShapePaint;
     private ShapeScaleType mShapeScaleType;
     private boolean isDrawShapeClear;
+    private final RectF mLayerRectF = new RectF();
+    private final PorterDuffXfermode SRC_IN = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
 
     public AlmightyShapeImageView(@NonNull Context context) {
         this(context, null);
@@ -61,6 +63,7 @@ public class AlmightyShapeImageView extends AppCompatImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         if (mShapeResource != null) {
+            mLayerRectF.set(0, 0, canvas.getWidth(), canvas.getHeight());
             preDrawShaper(canvas);
             drawShape(canvas);
             super.onDraw(canvas);
@@ -131,11 +134,11 @@ public class AlmightyShapeImageView extends AppCompatImageView {
         int bottom = ((int) (pictureHeight + transY));
 
         mShapePaint.setXfermode(null);
-        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+        canvas.saveLayer(mLayerRectF, mShapePaint, Canvas.ALL_SAVE_FLAG);
         canvas.drawRect(left,top,right,bottom,mShapePaint);
 
-        mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+        mShapePaint.setXfermode(SRC_IN);
+        canvas.saveLayer(mLayerRectF, mShapePaint, Canvas.ALL_SAVE_FLAG);
         mShapeResource.setBounds(paddingLeft, paddingTop, width - paddingRight, height - paddingBottom);
         if (mShapeResource instanceof PictureDrawable){
             float scaleX = mShapeResource.getBounds().width() *1f/mShapeResource.getIntrinsicWidth();
@@ -262,7 +265,7 @@ public class AlmightyShapeImageView extends AppCompatImageView {
 
         if (!isDrawShapeClear){
             mShapePaint.setXfermode(null);
-            canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+            canvas.saveLayer(mLayerRectF, mShapePaint, Canvas.ALL_SAVE_FLAG);
             mShapeResource.setBounds(left, top, right, bottom);
             if (mShapeResource instanceof PictureDrawable){
                 float scaleX = mShapeResource.getBounds().width() *1f/mShapeResource.getIntrinsicWidth();
@@ -276,8 +279,8 @@ public class AlmightyShapeImageView extends AppCompatImageView {
                 mShapeResource.draw(canvas);
             }
         }
-        mShapePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.saveLayer(new RectF(0, 0, canvas.getWidth(), canvas.getHeight()), mShapePaint, Canvas.ALL_SAVE_FLAG);
+        mShapePaint.setXfermode(SRC_IN);
+        canvas.saveLayer(mLayerRectF, mShapePaint, Canvas.ALL_SAVE_FLAG);
 
         isDrawShapeClear = false;
     }
