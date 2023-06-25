@@ -12,12 +12,12 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.PictureDrawable;
 import android.util.AttributeSet;
-import android.view.View;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
 
 public class AlmightyShapeImageView extends AppCompatImageView {
     private Drawable mShapeResource;
@@ -108,16 +108,8 @@ public class AlmightyShapeImageView extends AppCompatImageView {
             pictureHeight = height - paddingTop - paddingBottom;
         } else if (scaleType == ScaleType.CENTER) {
             if (drawableWidth < width || drawableHeight < height) {
-                if (drawableWidth < width) {
-                    pictureWidth = drawableWidth;
-                } else {
-                    pictureWidth = width;
-                }
-                if (drawableHeight < height) {
-                    pictureHeight = drawableHeight;
-                } else {
-                    pictureHeight = height;
-                }
+                pictureWidth = Math.min(drawableWidth, width);
+                pictureHeight = Math.min(drawableHeight, height);
                 transX = (width - pictureWidth) / 2;
                 transY = (height - pictureHeight) / 2;
             } else {
@@ -219,16 +211,8 @@ public class AlmightyShapeImageView extends AppCompatImageView {
                 }
             } else if (scaleType == ScaleType.CENTER) {
                 if (drawableWidth < width || drawableHeight < height) {
-                    if (drawableWidth < width) {
-                        pictureWidth = drawableWidth;
-                    } else {
-                        pictureWidth = width;
-                    }
-                    if (drawableHeight < height) {
-                        pictureHeight = drawableHeight;
-                    } else {
-                        pictureHeight = height;
-                    }
+                    pictureWidth = Math.min(drawableWidth, width);
+                    pictureHeight = Math.min(drawableHeight, height);
                     float pictureHWScale = pictureHeight / pictureWidth;
                     if (pictureHWScale > shapeHWScale) {//按drawable宽走
                         shapeWidth = pictureWidth;
@@ -308,7 +292,7 @@ public class AlmightyShapeImageView extends AppCompatImageView {
     }
 
     public void setShapeResource(@DrawableRes int shapeResourceRes) {
-        setShapeResource(getResources().getDrawable(shapeResourceRes));
+        setShapeResource(ContextCompat.getDrawable(getContext(),shapeResourceRes));
     }
 
     public ShapeScaleType getShapeScaleType() {
