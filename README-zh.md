@@ -34,19 +34,19 @@ ShapeImageView|AlmightyShapeImageView
 ## 第一步，根目录build.gradle
 
 ```gradle
-    allprojects {
-        repositories {
-            ...
-            maven { url "https://s01.oss.sonatype.org/content/groups/public" }
-        }
+allprojects {
+    repositories {
+        ...
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
+}
 ```
 ## 第二步，需要引用的build.gradle
 
 ```gradle
-    dependencies {
-        implementation 'com.github.FlyJingFish:ShapeImageView:1.5.3'
-    }
+dependencies {
+    implementation 'com.github.FlyJingFish:ShapeImageView:1.5.3'
+}
 ```
 ## 第三步，使用说明
 
@@ -175,14 +175,14 @@ ShapeImageView|AlmightyShapeImageView
 
 - [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
 
-#### 如果想直接使用svg格式图可以这样做
+#### 如果想直接使用svg格式图可以这样做（不建议这样做，因为 svg 图可以直接转化为 vector 图，[点此查看转化说明](https://blog.csdn.net/u013077428/article/details/127613904)）
 
 引用三方解析包
 
 ```gradle
-    dependencies {
-        implementation 'com.caverock:androidsvg-aar:1.4'
-    }
+dependencies {
+    implementation 'com.caverock:androidsvg-aar:1.4'
+}
 ```
 
 **新增如下两个类**

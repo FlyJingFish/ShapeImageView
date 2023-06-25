@@ -37,19 +37,19 @@ ShapeImageView|AlmightyShapeImageView
 ## The first step, the root directory build.gradle
 
 ```gradle
-    allprojects {
-        repositories {
-            ...
-            maven { url "https://s01.oss.sonatype.org/content/groups/public" }
-        }
+allprojects {
+    repositories {
+        ...
+        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
     }
+}
 ```
 ## The second step, you need to reference build.gradle
 
 ```gradle
-    dependencies {
-        implementation 'io.github.FlyJingFish:ShapeImageView:1.5.3'
-    }
+dependencies {
+    implementation 'io.github.FlyJingFish:ShapeImageView:1.5.3'
+}
 ```
 ## The third step, instructions for use
 
@@ -178,14 +178,14 @@ If you use png or svg resources, you can convert them to vector. For details, se
 
 - [Blog Instructions](https://blog.csdn.net/u013077428/article/details/127613904)
 
-#### If you want to use the svg format map directly, you can do this
+#### If you want to use the svg format map directly, you can do this(This is not recommended, because svg images can be directly converted into vector images, [click here to view the conversion instructions](https://blog.csdn.net/u013077428/article/details/127613904))
 
 Refer to the three-party analysis package
 
 ```gradle
-     dependencies {
-         implementation 'com.caverock:androidsvg-aar:1.4'
-     }
+dependencies {
+    implementation 'com.caverock:androidsvg-aar:1.4'
+}
 ```
 
 **Add the following two classes**
