@@ -48,7 +48,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'io.github.FlyJingFish:ShapeImageView:1.5.3'
+    implementation 'io.github.FlyJingFish:ShapeImageView:1.5.4'
 }
 ```
 ## The third step, instructions for use
