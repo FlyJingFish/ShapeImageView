@@ -11,7 +11,7 @@
 
 ## ShapeImageView supports circle or rounded corners, and can draw circle background borders or rounded box background borders. In addition to the built-in properties of ImageView, 4 new display modes are added;
 ## AlmightyShapeImageView supports the display of arbitrary graphics, only you can't think of it, you can't do it without it;
-## ImageView in this library does not operate Bitmap, you can use it with confidence! ! !
+## ImageView in this library does not directly operate Bitmap, so you can use it with confidence! ! !
 
 
 ShapeImageView|AlmightyShapeImageView
