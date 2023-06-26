@@ -50,4 +50,7 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
 
     implementation 'com.caverock:androidsvg-aar:1.4'
+
+    implementation 'org.apache.lucene:lucene-core:4.0.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
 }
