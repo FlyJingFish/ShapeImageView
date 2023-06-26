@@ -30,6 +30,7 @@
         </activity>
         <activity android:name=".ScaleTypeActivity"/>
         <activity android:name=".AlmightyImageActivity"/>
+        <activity android:name=".AlmightyListImageActivity"/>
     </application>
 
 </manifest>

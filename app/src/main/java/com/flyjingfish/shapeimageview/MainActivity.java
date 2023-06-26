@@ -21,5 +21,8 @@ public class MainActivity extends AppCompatActivity {
         binding.ShapeImageView.setOnClickListener(v -> {
             startActivity(new Intent(this,ScaleTypeActivity.class));
         });
+        binding.AlmightyShapeImageViewList.setOnClickListener(v -> {
+            startActivity(new Intent(this,AlmightyListImageActivity.class));
+        });
     }
 }
