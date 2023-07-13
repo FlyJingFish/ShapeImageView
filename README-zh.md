@@ -175,6 +175,26 @@ dependencies {
 
 - [博客使用说明](https://blog.csdn.net/u013077428/article/details/127613904)
 
+### 番外：如果您的图形资源图想要用网络图片（即不打包到apk中）
+
+可以下载网络图片然后调用 **setShapeResource** 设置图形即可
+
+例如，通过Glide下载并设置:
+
+```java
+Glide.with(context).load("网络链接").into(new CustomTarget<Drawable>() {
+    @Override
+    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+        imageView.setShapeResource(resource);
+    }
+
+    @Override
+    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+    }
+});
+```
+
 #### 如果想直接使用svg格式图可以这样做（不建议这样做，因为 svg 图可以直接转化为 vector 图，[点此查看转化说明](https://blog.csdn.net/u013077428/article/details/127613904)）
 
 引用三方解析包
@@ -306,25 +326,6 @@ GlideApp.with(this)
         });
 ```
 
-### 番外：如果您的图形资源图想要用网络图片（即不打包到apk中）
-
-可以下载网络图片然后调用 **setShapeResource** 设置图形即可
-
-例如，通过Glide下载并设置:
-
-```java
-Glide.with(context).load("网络链接").into(new CustomTarget<Drawable>() {
-    @Override
-    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-        imageView.setShapeResource(resource);
-    }
-
-    @Override
-    public void onLoadCleared(@Nullable Drawable placeholder) {
-
-    }
-});
-```
 
 ## 常见问题
 1、有的图形设置rotation、rotationX、rotationY等变化属性之后图片显示不全
