@@ -157,7 +157,7 @@
                 app:FlyJFish_shape="rectangle"
                 app:FlyJFish_shape_border="rectangle"
                 app:FlyJFish_shape_border_width="3dp"
-                app:FlyJFish_shape_border_angle="45"
+                app:FlyJFish_shape_border_angle="360"
                 app:FlyJFish_shape_border_radius="10dp"
                 app:FlyJFish_shape_border_gradient="true"
                 app:FlyJFish_shape_border_startColor="@color/press_start"
