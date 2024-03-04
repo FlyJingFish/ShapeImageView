@@ -168,7 +168,7 @@ dependencies {
 |------------------|:--------------:|:----------------------------------------------------:|
 | setShapeResource |    Drawable    |               Shape Resource Drawable                |
 | setShapeResource |  DrawableRes   |                  Shape resource id                   |
-| setShapeResource | ShapeScaleType | Sets the display type for drawing graphics resources |
+| setShapeScaleType | ShapeScaleType | Sets the display type for drawing graphics resources |
 
 ### Graphic resource setting prompt
 
