@@ -297,15 +297,17 @@ public class ShapeImageView extends AppCompatImageView {
         drawBgShape(canvas);
         clipPadding(canvas);
         mDrawPath.reset();
+        mAttacher.updateDisplayMatrix();
+        RectF rectF = mAttacher.getDisplayRectF();
         if (shapeType == ShapeType.OVAL) {
-            mDrawPath.addOval(mDrawRectF, Path.Direction.CCW);
+            mDrawPath.addOval(rectF, Path.Direction.CCW);
         } else if (shapeType == ShapeType.RECTANGLE) {
             float leftTopRadius = ViewUtils.getRtlValue(isRtl ? endTopRadius : startTopRadius, this.leftTopRadius);
             float rightTopRadius = ViewUtils.getRtlValue(isRtl ? startTopRadius : endTopRadius, this.rightTopRadius);
             float rightBottomRadius = ViewUtils.getRtlValue(isRtl ? startBottomRadius : endBottomRadius, this.rightBottomRadius);
             float leftBottomRadius = ViewUtils.getRtlValue(isRtl ? endBottomRadius : startBottomRadius, this.leftBottomRadius);
             float[] radius = new float[]{leftTopRadius,leftTopRadius,rightTopRadius,rightTopRadius,rightBottomRadius,rightBottomRadius,leftBottomRadius,leftBottomRadius};
-            mDrawPath.addRoundRect(mDrawRectF,radius,Path.Direction.CCW);
+            mDrawPath.addRoundRect(rectF,radius,Path.Direction.CCW);
         }
 
         if (shapeType == ShapeType.OVAL || shapeType == ShapeType.RECTANGLE) {
