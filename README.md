@@ -7,7 +7,7 @@
 [![GitHub license](https://img.shields.io/github/license/FlyJingFish/ShapeImageView.svg)](https://github.com/FlyJingFish/ShapeImageView/blob/master/LICENSE)
 
 
-## [中文版使用说明](https://github.com/FlyJingFish/ShapeImageView/blob/master/README-zh.md)
+# [中文版使用说明](https://github.com/FlyJingFish/ShapeImageView/blob/master/README-zh.md)
 
 ## ShapeImageView supports circle or rounded corners, and can draw circle background borders or rounded box background borders. In addition to the built-in properties of ImageView, 4 new display modes are added;
 ## AlmightyShapeImageView supports the display of arbitrary graphics, only you can't think of it, you can't do it without it;
@@ -168,7 +168,7 @@ dependencies {
 |------------------|:--------------:|:----------------------------------------------------:|
 | setShapeResource |    Drawable    |               Shape Resource Drawable                |
 | setShapeResource |  DrawableRes   |                  Shape resource id                   |
-| setShapeResource | ShapeScaleType | Sets the display type for drawing graphics resources |
+| setShapeScaleType | ShapeScaleType | Sets the display type for drawing graphics resources |
 
 ### Graphic resource setting prompt
 
@@ -337,10 +337,12 @@ GlideApp.with(this)
 
 
 
-# Finally, I recommend another library I wrote, which can easily realize the animation zoom effect of clicking on the small image to view the large image in the application
+## Finally, I recommend some other libraries I wrote
 
-- [OpenImage](https://github.com/FlyJingFish/OpenImage) (current library built in)
+- [OpenImage makes it easy to click on a small image in the application to view the animated enlargement effect of the large image](https://github.com/FlyJingFish/OpenImage)
 
-- [Homepage view more open source libraries](https://github.com/FlyJingFish)
+- [AndroidAOP can request permissions, prohibit multiple points, switch threads, etc. with just one annotation. You can also customize your own Aop code](https://github.com/FlyJingFish/AndroidAOP)
+
+- [View more open source libraries on the homepage](https://github.com/FlyJingFish)
 
 
