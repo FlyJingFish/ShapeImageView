@@ -37,21 +37,11 @@ ShapeImageView|AlmightyShapeImageView
 ## The first step, the root directory build.gradle
 
 ```gradle
-allprojects {
-    repositories {
-        ...
-        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
-    }
-}
-```
-## The second step, you need to reference build.gradle
-
-```gradle
 dependencies {
     implementation 'io.github.FlyJingFish:ShapeImageView:1.5.6'
 }
 ```
-## The third step, instructions for use
+## The second step, instructions for use
 
 # 一、ShapeImageView Instructions for Use
 

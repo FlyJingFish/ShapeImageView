@@ -31,24 +31,14 @@ ShapeImageView|AlmightyShapeImageView
 
 
 
-## 第一步，根目录build.gradle
-
-```gradle
-allprojects {
-    repositories {
-        ...
-        maven { url "https://s01.oss.sonatype.org/content/groups/public" }
-    }
-}
-```
-## 第二步，需要引用的build.gradle
+## 第一步，需要引用的build.gradle
 
 ```gradle
 dependencies {
     implementation 'io.github.FlyJingFish:ShapeImageView:1.5.6'
 }
 ```
-## 第三步，使用说明
+## 第二步，使用说明
 
 # 一、ShapeImageView 使用说明
 
