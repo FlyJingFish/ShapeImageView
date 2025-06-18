@@ -9,9 +9,6 @@ ext {
     minSdkVersion = 17
 }
 
-group = PROJ_GROUP
-version = PROJ_VERSION
-
 
 def synchronized getVersionProperty(propName, defValue) {
     def file = file("version.properties")
