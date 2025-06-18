@@ -1,63 +1,37 @@
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'signing'
+apply plugin: "com.vanniktech.maven.publish"
+group = rootProject.group
+version = rootProject.version
 
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.srcDirs
-}
+def appVersionName = getAppVersionName()
 
-artifacts {
-    archives sourcesJar
-}
+mavenPublishing {
+    coordinates(PROJ_GROUP, PROJ_NAME, appVersionName)
 
-signing {
-    sign configurations.archives
-}
-
-group = PROJ_GROUP
-version = PROJ_VERSION
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
+    pom {
+        name = PROJ_BASENAME
+        description = PROJ_DESCRIPTION
+        inceptionYear = "2022"
+        url = PROJ_WEBSITEURL
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "http://www.apache.org/licenses/LICENSE-2.0.txt"
             }
-
-            snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
+        }
+        developers {
+            developer {
+                id = DEVELOPER_ID
+                name = DEVELOPER_NAME
+                email = DEVELOPER_EMAIL
             }
-
-            pom.project {
-                name PROJ_BASENAME
-                artifactId PROJ_NAME
-                packaging 'aar'
-                description PROJ_DESCRIPTION
-                url PROJ_WEBSITEURL
-
-                scm {
-                    connection PROJ_VCSURL
-                    developerConnection PROJ_VCSURL
-                    url PROJ_WEBSITEURL
-                }
-
-                licenses {
-                    license {
-                        name 'The Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id DEVELOPER_ID
-                        name DEVELOPER_NAME
-                        email DEVELOPER_EMAIL
-                    }
-                }
-            }
+        }
+        scm {
+            connection = PROJ_VCSURL
+            developerConnection = PROJ_VCSURL
+            url = PROJ_WEBSITEURL
         }
     }
 }
